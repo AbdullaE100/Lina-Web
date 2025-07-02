@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,68 +27,107 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-elegant ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-luxury ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-soft border-b border-border"
+          ? "glass shadow-lg border-b border-border/20"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="max-w-9xl mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="group">
-            <div className="text-2xl font-serif font-bold text-luxury-gradient group-hover:scale-105 transition-elegant">
-              Lina Nizar
-            </div>
-            <div className="text-xs tracking-wider text-muted-foreground font-light">
-              REAL ESTATE ADVISOR
+          <Link to="/" className="group flex-shrink-0">
+            <div className="flex flex-col">
+              <div className="text-title font-serif font-normal text-primary group-hover:text-gradient-gold transition-luxury">
+                Lina Nizar
+              </div>
+              <div className="text-xs tracking-[0.2em] text-muted-foreground font-light uppercase">
+                Real Estate Advisory
+              </div>
             </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative text-sm font-medium transition-elegant hover:text-gold ${
+                className={`relative text-sm font-medium transition-luxury group ${
                   location.pathname === item.path
                     ? "text-primary"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground hover:text-primary"
                 }`}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
                 {location.pathname === item.path && (
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-luxury rounded-full" />
+                  <div className="absolute -bottom-2 left-0 w-full h-px bg-gradient-gold rounded-full" />
                 )}
+                <div className="absolute -bottom-2 left-0 w-0 h-px bg-gradient-gold rounded-full transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="luxury" size="lg">
-              Book Strategy Call
+          <div className="hidden lg:flex items-center space-x-4">
+            <Button variant="cta" size="lg" asChild>
+              <Link to="/contact">Book Strategy Call</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="lg:hidden">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className="relative w-6 h-6">
+              <span
+                className={`absolute block h-0.5 w-6 bg-current transform transition-all duration-300 ${
+                  isMobileMenuOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
+                }`}
               />
-            </svg>
+              <span
+                className={`absolute block h-0.5 w-6 bg-current transform transition-all duration-300 ${
+                  isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute block h-0.5 w-6 bg-current transform transition-all duration-300 ${
+                  isMobileMenuOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
+                }`}
+              />
+            </div>
           </Button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 glass border-b border-border/20 shadow-xl">
+            <nav className="flex flex-col space-y-4 p-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-base font-medium transition-luxury ${
+                    location.pathname === item.path
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-border/20">
+                <Button variant="cta" size="lg" className="w-full" asChild>
+                  <Link to="/contact">Book Strategy Call</Link>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

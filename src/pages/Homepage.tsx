@@ -5,33 +5,42 @@ import heroImage from "@/assets/lina-nizar-hero.jpg";
 const Homepage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
+      {/* Hero Section - World Class */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax Effect */}
+        <div className="absolute inset-0 scale-110">
           <img
             src={heroImage}
-            alt="Lina Nizar"
-            className="w-full h-full object-cover object-center"
+            alt="Lina Nizar - Real Estate Investment Advisor"
+            className="w-full h-full object-cover object-center transition-transform duration-[10s] ease-out hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-overlay" />
+          <div className="absolute inset-0 bg-gradient-hero-overlay" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+        <div className="relative z-10 max-w-8xl mx-auto px-6 lg:px-12 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+            {/* Subtitle */}
+            <div className="text-caption text-white/80 mb-8 tracking-[0.3em] uppercase">
+              Real Estate Investment Advisory
+            </div>
+            
+            {/* Main Headline */}
+            <h1 className="text-display font-serif font-normal text-white mb-12 leading-none">
               Smart Real Estate.
-              <span className="block text-gold">Global Vision.</span>
+              <span className="block text-gradient-gold">Global Vision.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Lina Nizar helps investors navigate high-growth real estate opportunities 
-              in Sri Lanka and Dubai with strategy, speed, and confidence.
+            {/* Description */}
+            <p className="text-body-lg text-white/90 max-w-3xl mx-auto mb-16 leading-relaxed">
+              Lina Nizar helps global investors navigate high-growth real estate opportunities 
+              in Sri Lanka and Dubai with strategic insight, cultural intelligence, and proven expertise 
+              spanning two decades.
             </p>
 
-            <div className="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center">
-              <Button variant="hero" size="xl" asChild>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button variant="cta" size="xl" asChild>
                 <Link to="/contact">Book Strategy Call</Link>
               </Button>
               <Button variant="elegant" size="xl" asChild>
@@ -42,62 +51,69 @@ const Homepage = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-luxury-float">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-float">
+          <div className="w-6 h-12 border-2 border-white/30 rounded-full flex justify-center p-2">
+            <div className="w-1 h-4 bg-white/60 rounded-full animate-glow" />
           </div>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="animate-fade-in">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-primary">
+      {/* Introduction Section - Ultra Refined */}
+      <section className="py-32 bg-gradient-section">
+        <div className="max-w-8xl mx-auto px-6 lg:px-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-24 animate-fade-in">
+              <div className="text-caption text-muted-foreground mb-8 tracking-[0.2em] uppercase">
                 Two Decades of Excellence
-              </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-                As CEO of ExpatKey Properties, Lina has led sales and development across 
-                iconic projects like Altair, One Galle Face, and Crystal Sands. With a 
-                cross-border investor network and deep market insight, she brings experience, 
-                cultural intelligence, and discretion to every deal.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-                <div className="text-center group">
-                  <div className="text-4xl font-serif font-bold text-gold mb-2 group-hover:scale-110 transition-elegant">
-                    20+
-                  </div>
-                  <div className="text-muted-foreground">Years Experience</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-4xl font-serif font-bold text-gold mb-2 group-hover:scale-110 transition-elegant">
-                    500M+
-                  </div>
-                  <div className="text-muted-foreground">Portfolio Value</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-4xl font-serif font-bold text-gold mb-2 group-hover:scale-110 transition-elegant">
-                    2
-                  </div>
-                  <div className="text-muted-foreground">Key Markets</div>
-                </div>
               </div>
+              <h2 className="text-headline font-serif font-normal mb-12 text-primary leading-tight">
+                Transforming Real Estate
+                <span className="block text-gradient-gold">Investment Strategies</span>
+              </h2>
+              <p className="text-body-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+                As CEO of ExpatKey Properties, Lina has orchestrated sales and development across 
+                prestigious projects including Altair, One Galle Face, and Crystal Sands. Her 
+                extensive cross-border investor network and profound market intelligence deliver 
+                unparalleled value through cultural fluency and discretionary excellence.
+              </p>
+            </div>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mt-24">
+              {[
+                { number: "20+", label: "Years of Market Leadership", delay: "0" },
+                { number: "$500M+", label: "Portfolio Value Managed", delay: "0.2" },
+                { number: "2", label: "Strategic Markets", delay: "0.4" }
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="text-center group animate-fade-in"
+                  style={{ animationDelay: `${stat.delay}s` }}
+                >
+                  <div className="text-6xl font-serif font-normal text-gradient-gold mb-6 group-hover:scale-110 transition-luxury">
+                    {stat.number}
+                  </div>
+                  <div className="text-body text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 bg-sand">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-primary">
+      {/* Services Section - Premium Layout */}
+      <section className="py-32 bg-background">
+        <div className="max-w-8xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-24">
+            <div className="text-caption text-muted-foreground mb-8 tracking-[0.2em] uppercase">
               Investment Solutions
+            </div>
+            <h2 className="text-headline font-serif font-normal mb-12 text-primary">
+              Comprehensive Advisory
+              <span className="block text-gradient-gold">Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive real estate advisory services tailored for global investors
+            <p className="text-body-lg text-muted-foreground max-w-3xl mx-auto">
+              Bespoke real estate investment solutions crafted for sophisticated global investors
             </p>
           </div>
 
@@ -105,63 +121,71 @@ const Homepage = () => {
             {[
               {
                 title: "Investment Advisory",
-                description: "Strategic guidance for high-growth opportunities",
-                icon: "📊"
+                description: "Strategic guidance for high-yield opportunities with comprehensive market intelligence",
+                icon: "📊",
+                delay: "0"
               },
               {
                 title: "Pre-Launch Access",
-                description: "Exclusive off-plan investment opportunities",
-                icon: "🏗️"
+                description: "Exclusive entry into premium developments before public availability",
+                icon: "🏗️", 
+                delay: "0.1"
               },
               {
                 title: "Portfolio Management",
-                description: "Cross-border asset optimization",
-                icon: "🌐"
+                description: "Cross-border asset optimization with currency risk mitigation",
+                icon: "🌐",
+                delay: "0.2"
               },
               {
                 title: "Market Entry",
-                description: "Dubai market strategy for newcomers",
-                icon: "🚀"
+                description: "Dubai market penetration strategy for international investors",
+                icon: "🚀",
+                delay: "0.3"
               }
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-background p-8 rounded-lg shadow-soft hover:shadow-luxury transition-elegant group"
+                className="group p-8 bg-card rounded-xl shadow-md hover:shadow-luxury transition-luxury magnetic animate-fade-in"
+                style={{ animationDelay: `${service.delay}s` }}
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-elegant">
+                <div className="text-5xl mb-8 group-hover:scale-110 transition-luxury">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-primary">
+                <h3 className="text-title font-serif font-normal mb-6 text-primary">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-body text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button variant="luxury" size="lg" asChild>
+          <div className="text-center mt-16">
+            <Button variant="primary" size="xl" asChild>
               <Link to="/services">Explore All Services</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Ready to Invest Smartly?
-          </h2>
-          <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-            Schedule a personalized strategy session and discover your next 
-            high-growth real estate opportunity.
-          </p>
-          <Button variant="hero" size="xl" asChild>
-            <Link to="/contact">Book Your Strategy Call</Link>
-          </Button>
+      {/* CTA Section - Premium Design */}
+      <section className="py-32 bg-gradient-primary text-primary-foreground">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
+          <div className="animate-fade-in">
+            <h2 className="text-headline font-serif font-normal mb-12">
+              Ready to Invest
+              <span className="block text-gradient-gold">Strategically?</span>
+            </h2>
+            <p className="text-body-lg mb-16 text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
+              Schedule a confidential strategy session and discover your next 
+              high-growth real estate investment opportunity with personalized market intelligence.
+            </p>
+            <Button variant="cta" size="xl" asChild>
+              <Link to="/contact">Book Your Strategy Call</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>

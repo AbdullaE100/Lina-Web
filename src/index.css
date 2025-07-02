@@ -2,68 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury Real Estate Design System - Inspired by sophisticated, minimalist aesthetics
+/* World-Class Luxury Real Estate Design System 
+Inspired by premium brands like Tom Ford, Chanel, and luxury real estate firms
 All colors MUST be HSL for consistency and design system integrity.
 */
 
 @layer base {
   :root {
-    /* Luxury color palette - Sand beige, white, gold, charcoal */
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    /* Ultra-refined neutral palette */
+    --background: 0 0% 99%;
+    --foreground: 220 15% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 220 15% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 220 15% 9%;
 
-    /* Charcoal primary for sophistication */
-    --primary: 220 15% 15%;
-    --primary-foreground: 0 0% 100%;
+    /* Deep charcoal primary - sophisticated and authoritative */
+    --primary: 220 15% 9%;
+    --primary-foreground: 0 0% 99%;
 
-    /* Sand beige secondary */
-    --secondary: 40 20% 92%;
-    --secondary-foreground: 220 15% 15%;
+    /* Warm cream secondary - luxury and elegance */
+    --secondary: 35 15% 95%;
+    --secondary-foreground: 220 15% 9%;
 
-    /* Muted tones for elegance */
-    --muted: 40 15% 96%;
-    --muted-foreground: 220 10% 45%;
+    /* Sophisticated muted tones */
+    --muted: 35 10% 97%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Gold accent for luxury touches */
-    --accent: 45 85% 70%;
-    --accent-foreground: 220 15% 15%;
+    /* Refined champagne gold - luxury accent */
+    --accent: 35 25% 88%;
+    --accent-foreground: 220 15% 9%;
 
-    /* Elegant gold variant */
-    --gold: 45 85% 65%;
-    --gold-foreground: 220 15% 15%;
+    /* Premium gold for highlights */
+    --gold: 40 30% 75%;
+    --gold-foreground: 220 15% 9%;
+    --gold-dark: 35 40% 55%;
 
-    /* Warm beige variant */
-    --sand: 40 20% 88%;
-    --sand-foreground: 220 15% 15%;
+    /* Warm stone tones */
+    --stone: 30 8% 92%;
+    --stone-foreground: 220 15% 9%;
+    --stone-dark: 30 12% 85%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    /* Refined borders and inputs */
+    --border: 35 15% 90%;
+    --input: 35 15% 94%;
+    --ring: 40 30% 75%;
 
-    --border: 40 15% 90%;
-    --input: 40 15% 95%;
-    --ring: 45 85% 70%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 0 0% 99%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
-    /* Luxury gradients */
-    --gradient-luxury: linear-gradient(135deg, hsl(45 85% 70%) 0%, hsl(40 20% 88%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100% / 0) 0%, hsl(0 0% 100% / 0.8) 100%);
-    --gradient-overlay: linear-gradient(135deg, hsl(220 15% 15% / 0.9) 0%, hsl(220 15% 15% / 0.6) 100%);
+    /* Premium gradients - subtle and sophisticated */
+    --gradient-primary: linear-gradient(135deg, hsl(220 15% 9%) 0%, hsl(220 15% 15%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 30% 75%) 0%, hsl(35 25% 70%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(35 15% 95%) 0%, hsl(30 12% 92%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsl(220 15% 9% / 0.85) 0%, hsl(220 15% 9% / 0.4) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(35 10% 98%) 100%);
 
-    /* Elegant shadows */
-    --shadow-luxury: 0 20px 50px -10px hsl(220 15% 15% / 0.1);
-    --shadow-soft: 0 4px 20px -2px hsl(220 15% 15% / 0.08);
-    --shadow-gold: 0 8px 30px -5px hsl(45 85% 70% / 0.3);
+    /* Sophisticated shadows - very subtle and refined */
+    --shadow-xs: 0 1px 2px 0 hsl(220 15% 9% / 0.05);
+    --shadow-sm: 0 1px 3px 0 hsl(220 15% 9% / 0.1), 0 1px 2px -1px hsl(220 15% 9% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(220 15% 9% / 0.1), 0 2px 4px -2px hsl(220 15% 9% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 15% 9% / 0.1), 0 4px 6px -4px hsl(220 15% 9% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 15% 9% / 0.1), 0 8px 10px -6px hsl(220 15% 9% / 0.1);
+    --shadow-luxury: 0 25px 50px -12px hsl(220 15% 9% / 0.15);
+    --shadow-gold: 0 8px 25px -5px hsl(40 30% 75% / 0.3);
 
-    /* Smooth transitions */
-    --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Ultra-smooth premium transitions */
+    --transition-luxury: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-elegant: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -83,59 +94,67 @@ All colors MUST be HSL for consistency and design system integrity.
   }
 
   .dark {
-    /* Dark mode luxury palette - sophisticated charcoal and gold */
-    --background: 220 15% 8%;
-    --foreground: 0 0% 95%;
+    /* Sophisticated dark mode - deep charcoal with gold accents */
+    --background: 220 15% 6%;
+    --foreground: 35 15% 95%;
 
-    --card: 220 15% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 15% 8%;
+    --card-foreground: 35 15% 95%;
 
-    --popover: 220 15% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 15% 8%;
+    --popover-foreground: 35 15% 95%;
 
-    --primary: 45 85% 70%;
-    --primary-foreground: 220 15% 8%;
+    --primary: 35 25% 88%;
+    --primary-foreground: 220 15% 6%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 35 15% 95%;
 
-    --muted: 220 15% 12%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 220 15% 10%;
+    --muted-foreground: 220 9% 60%;
 
-    --accent: 45 85% 65%;
-    --accent-foreground: 220 15% 8%;
+    --accent: 35 25% 85%;
+    --accent-foreground: 220 15% 6%;
 
-    --gold: 45 85% 70%;
-    --gold-foreground: 220 15% 8%;
+    --gold: 40 30% 75%;
+    --gold-foreground: 220 15% 6%;
+    --gold-dark: 35 40% 65%;
 
-    --sand: 220 15% 15%;
-    --sand-foreground: 0 0% 95%;
+    --stone: 220 15% 12%;
+    --stone-foreground: 35 15% 95%;
+    --stone-dark: 220 15% 15%;
 
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 0 0% 95%;
+    --border: 220 15% 18%;
+    --input: 220 15% 12%;
+    --ring: 40 30% 75%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 15%;
-    --ring: 45 85% 70%;
+    --destructive: 0 50% 60%;
+    --destructive-foreground: 35 15% 95%;
 
     /* Dark mode gradients */
-    --gradient-luxury: linear-gradient(135deg, hsl(45 85% 70%) 0%, hsl(220 15% 15%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(220 15% 8% / 0) 0%, hsl(220 15% 8% / 0.9) 100%);
-    --gradient-overlay: linear-gradient(135deg, hsl(45 85% 70% / 0.2) 0%, hsl(220 15% 8% / 0.8) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(220 15% 6%) 0%, hsl(220 15% 12%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 30% 75%) 0%, hsl(35 25% 70%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(220 15% 8%) 0%, hsl(220 15% 12%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsl(220 15% 6% / 0.9) 0%, hsl(220 15% 6% / 0.5) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(220 15% 6%) 0%, hsl(220 15% 8%) 100%);
 
     /* Dark mode shadows */
-    --shadow-luxury: 0 20px 50px -10px hsl(0 0% 0% / 0.3);
-    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.2);
-    --shadow-gold: 0 8px 30px -5px hsl(45 85% 70% / 0.4);
+    --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.3), 0 1px 2px -1px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.3), 0 8px 10px -6px hsl(0 0% 0% / 0.3);
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.4);
+    --shadow-gold: 0 8px 25px -5px hsl(40 30% 75% / 0.4);
 
-    --sidebar-background: 220 15% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 45 85% 70%;
-    --sidebar-primary-foreground: 220 15% 8%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 45 85% 70%;
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 35 15% 95%;
+    --sidebar-primary: 35 25% 88%;
+    --sidebar-primary-foreground: 220 15% 6%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 35 15% 95%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 40 30% 75%;
   }
 }
 
@@ -145,66 +164,153 @@ All colors MUST be HSL for consistency and design system integrity.
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Lato', system-ui, -apple-system, sans-serif;
+    font-variation-settings: 'wght' 400;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography classes for luxury aesthetic */
+  /* Premium typography scale */
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1;
   }
 
   .font-body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', system-ui, -apple-system, sans-serif;
   }
 
-  /* Luxury utility classes */
-  .text-luxury-gradient {
-    background: var(--gradient-luxury);
+  /* Ultra-refined text hierarchy */
+  .text-display {
+    @apply text-6xl md:text-7xl xl:text-8xl font-serif font-normal leading-none tracking-tight;
+    font-variation-settings: 'wght' 400;
+    letter-spacing: -0.04em;
+  }
+
+  .text-headline {
+    @apply text-4xl md:text-5xl xl:text-6xl font-serif font-normal leading-tight tracking-tight;
+    letter-spacing: -0.03em;
+  }
+
+  .text-title {
+    @apply text-2xl md:text-3xl font-serif font-normal leading-snug tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  .text-body-lg {
+    @apply text-lg md:text-xl leading-relaxed;
+    letter-spacing: -0.01em;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed;
+    letter-spacing: -0.005em;
+  }
+
+  .text-caption {
+    @apply text-sm text-muted-foreground leading-normal;
+    letter-spacing: 0.02em;
+  }
+
+  /* Premium color utilities */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .shadow-luxury {
-    box-shadow: var(--shadow-luxury);
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
   }
 
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
   }
 
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
+  .bg-gradient-luxury {
+    background: var(--gradient-luxury);
   }
 
-  .transition-elegant {
-    transition: var(--transition-elegant);
+  .bg-gradient-section {
+    background: var(--gradient-section);
   }
 
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
+  /* Ultra-refined shadows */
+  .shadow-xs { box-shadow: var(--shadow-xs); }
+  .shadow-sm { box-shadow: var(--shadow-sm); }
+  .shadow-md { box-shadow: var(--shadow-md); }
+  .shadow-lg { box-shadow: var(--shadow-lg); }
+  .shadow-xl { box-shadow: var(--shadow-xl); }
+  .shadow-luxury { box-shadow: var(--shadow-luxury); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
 
-  /* Scroll behavior */
+  /* Premium transitions */
+  .transition-luxury { transition: var(--transition-luxury); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .transition-elegant { transition: var(--transition-elegant); }
+
+  /* Refined scroll behavior */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
-  /* Custom scrollbar */
+  /* Ultra-minimal scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--accent));
-    border-radius: 4px;
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--gold));
+    background: hsl(var(--gold) / 0.5);
+  }
+
+  /* Premium focus states */
+  .focus-luxury:focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 2px;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Magnetic hover effect */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .magnetic:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Ultra-smooth page transitions */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
