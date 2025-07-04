@@ -52,37 +52,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				gold: {
-					DEFAULT: 'hsl(var(--gold))',
-					foreground: 'hsl(var(--gold-foreground))',
-					muted: 'hsl(var(--gold-muted))'
-				},
-				neutral: {
-					DEFAULT: 'hsl(var(--neutral))',
-					foreground: 'hsl(var(--neutral-foreground))'
-				}
+				gold: "hsl(var(--gold))",
+				"muted-gold": "hsl(var(--muted-gold))",
+				"nakheel-blue": "hsl(var(--nakheel-blue))",
 			},
 			fontFamily: {
-				display: ['Playfair Display', 'Georgia', 'serif'],
-				body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				sans: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
+				display: ["Cormorant Garamond", "serif"],
 			},
 			fontSize: {
-				'display': ['clamp(4rem, 8vw, 9rem)', { lineHeight: '0.9', letterSpacing: '-0.04em', fontWeight: '300' }],
-				'headline': ['clamp(2.5rem, 6vw, 6rem)', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '300' }],
-				'title': ['clamp(1.75rem, 4vw, 3.5rem)', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '400' }],
-				'subtitle': ['clamp(1.25rem, 3vw, 2rem)', { lineHeight: '1.3', letterSpacing: '-0.015em', fontWeight: '500' }],
-				'body-xl': ['clamp(1.125rem, 2vw, 1.25rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
+				'display': ['clamp(3rem, 7vw, 6rem)', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '400' }],
+				'headline': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '400' }],
+				'title': ['clamp(1.5rem, 4vw, 2.5rem)', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '500' }],
+				'subtitle': ['clamp(1.125rem, 3vw, 1.5rem)', { lineHeight: '1.3', letterSpacing: '0em', fontWeight: '500' }],
+				'body': ['clamp(1rem, 2vw, 1.125rem)', { lineHeight: '1.6' }],
 			},
 			spacing: {
 				'18': '4.5rem',
@@ -102,12 +85,12 @@ export default {
 				'gradient-glass': 'var(--gradient-glass)',
 			},
 			boxShadow: {
-				'subtle': 'var(--shadow-subtle)',
-				'soft': 'var(--shadow-soft)',
-				'medium': 'var(--shadow-medium)',
-				'elevated': 'var(--shadow-elevated)',
-				'floating': 'var(--shadow-floating)',
-				'gold': 'var(--shadow-gold)',
+				'subtle': '0 1px 2px hsla(var(--primary-hsl), 0.05), 0 1px 3px hsla(var(--primary-hsl), 0.1)',
+				'soft': '0 4px 8px hsla(var(--primary-hsl), 0.05), 0 6px 12px hsla(var(--primary-hsl), 0.1)',
+				'medium': '0 8px 16px hsla(var(--primary-hsl), 0.05), 0 12px 24px hsla(var(--primary-hsl), 0.1)',
+				'elevated': '0 12px 24px hsla(var(--primary-hsl), 0.05), 0 16px 32px hsla(var(--primary-hsl), 0.1)',
+				'floating': '0 24px 48px hsla(var(--primary-hsl), 0.1), 0 32px 64px hsla(var(--primary-hsl), 0.2)',
+				'gold': '0 4px 24px hsla(var(--gold-hsl), 0.35)',
 			},
 			transitionTimingFunction: {
 				'fluid': 'var(--ease-out-cubic)',
