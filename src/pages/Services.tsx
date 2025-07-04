@@ -120,7 +120,7 @@ const Services = () => {
                   ))}
                 </ul>
 
-                <Button variant="elegant" size="lg" className="w-full">
+                <Button variant="outline" size="lg" className="w-full">
                   Learn More
                 </Button>
               </div>
@@ -205,7 +205,7 @@ const Services = () => {
             Schedule a personalized consultation to explore how our services 
             can accelerate your real estate investment success.
           </p>
-          <Button variant="hero" size="xl" asChild>
+          <Button variant="executive" size="xl" asChild>
             <Link to="/contact">Book Strategy Call</Link>
           </Button>
         </div>

@@ -110,7 +110,7 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    <Button variant="elegant" size="lg">
+                    <Button variant="outline" size="lg">
                       Learn More
                     </Button>
                   </div>
@@ -166,10 +166,10 @@ const Portfolio = () => {
             Sri Lanka and Dubai markets.
           </p>
           <div className="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center">
-            <Button variant="hero" size="xl" asChild>
+            <Button variant="gold" size="xl" asChild>
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-            <Button variant="elegant" size="xl" asChild>
+            <Button variant="outline" size="xl" asChild>
               <Link to="/services">Explore Services</Link>
             </Button>
           </div>

@@ -65,24 +65,24 @@ export default {
 				gold: {
 					DEFAULT: 'hsl(var(--gold))',
 					foreground: 'hsl(var(--gold-foreground))',
-					dark: 'hsl(var(--gold-dark))'
+					muted: 'hsl(var(--gold-muted))'
 				},
-				stone: {
-					DEFAULT: 'hsl(var(--stone))',
-					foreground: 'hsl(var(--stone-foreground))',
-					dark: 'hsl(var(--stone-dark))'
+				neutral: {
+					DEFAULT: 'hsl(var(--neutral))',
+					foreground: 'hsl(var(--neutral-foreground))'
 				}
 			},
 			fontFamily: {
-				serif: ['Playfair Display', 'Georgia', 'serif'],
-				body: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
-				sans: ['Lato', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['Playfair Display', 'Georgia', 'serif'],
+				body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
 			},
 			fontSize: {
-				'display': ['clamp(3.5rem, 8vw, 8rem)', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
-				'headline': ['clamp(2.5rem, 6vw, 6rem)', { lineHeight: '1.1', letterSpacing: '-0.03em' }],
-				'title': ['clamp(1.5rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
-				'body-lg': ['1.25rem', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
+				'display': ['clamp(4rem, 8vw, 9rem)', { lineHeight: '0.9', letterSpacing: '-0.04em', fontWeight: '300' }],
+				'headline': ['clamp(2.5rem, 6vw, 6rem)', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '300' }],
+				'title': ['clamp(1.75rem, 4vw, 3.5rem)', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '400' }],
+				'subtitle': ['clamp(1.25rem, 3vw, 2rem)', { lineHeight: '1.3', letterSpacing: '-0.015em', fontWeight: '500' }],
+				'body-xl': ['clamp(1.125rem, 2vw, 1.25rem)', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
 			},
 			spacing: {
 				'18': '4.5rem',
@@ -97,23 +97,22 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-gold': 'var(--gradient-gold)',
-				'gradient-luxury': 'var(--gradient-luxury)',
-				'gradient-hero-overlay': 'var(--gradient-hero-overlay)',
-				'gradient-section': 'var(--gradient-section)',
+				'gradient-platinum': 'var(--gradient-platinum)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-glass': 'var(--gradient-glass)',
 			},
 			boxShadow: {
-				'xs': 'var(--shadow-xs)',
-				'sm': 'var(--shadow-sm)',
-				'md': 'var(--shadow-md)',
-				'lg': 'var(--shadow-lg)',
-				'xl': 'var(--shadow-xl)',
-				'luxury': 'var(--shadow-luxury)',
+				'subtle': 'var(--shadow-subtle)',
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'elevated': 'var(--shadow-elevated)',
+				'floating': 'var(--shadow-floating)',
 				'gold': 'var(--shadow-gold)',
 			},
 			transitionTimingFunction: {
-				'luxury': 'cubic-bezier(0.165, 0.84, 0.44, 1)',
-				'smooth': 'cubic-bezier(0.23, 1, 0.32, 1)',
-				'elegant': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'fluid': 'var(--ease-out-cubic)',
+				'smooth': 'var(--ease-in-out-cubic)',
+				'spring': 'var(--ease-spring)',
 			},
 			transitionDuration: {
 				'400': '400ms',

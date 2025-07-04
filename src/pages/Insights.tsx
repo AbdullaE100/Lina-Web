@@ -109,7 +109,7 @@ const Insights = () => {
                     <span>{blogPosts[0].date}</span>
                     <span>{blogPosts[0].readTime}</span>
                   </div>
-                  <Button variant="luxury" size="lg">
+                  <Button variant="executive" size="lg">
                     Read Article
                   </Button>
                 </div>
@@ -154,7 +154,7 @@ const Insights = () => {
                     <span>{post.readTime}</span>
                   </div>
                   
-                  <Button variant="elegant" size="sm" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full">
                     Read More
                   </Button>
                 </div>
@@ -181,7 +181,7 @@ const Insights = () => {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg bg-primary-foreground text-primary placeholder-primary/60 focus:outline-none focus:ring-2 focus:ring-gold"
             />
-            <Button variant="hero" size="lg">
+            <Button variant="gold" size="lg">
               Subscribe
             </Button>
           </div>
@@ -201,7 +201,7 @@ const Insights = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Transform insights into action with personalized real estate investment guidance.
           </p>
-          <Button variant="luxury" size="xl" asChild>
+          <Button variant="executive" size="xl" asChild>
             <Link to="/contact">Schedule Consultation</Link>
           </Button>
         </div>

@@ -55,7 +55,7 @@ const About = () => {
                 Lina understands the unique needs of diaspora investors and international 
                 clients seeking high-growth opportunities in emerging markets.
               </p>
-              <Button variant="luxury" size="lg" asChild>
+              <Button variant="executive" size="lg" asChild>
                 <Link to="/contact">Connect with Lina</Link>
               </Button>
             </div>
@@ -163,7 +163,7 @@ const About = () => {
             </div>
             
             <div className="mt-12">
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="executive" size="lg" asChild>
                 <Link to="/portfolio">See Portfolio</Link>
               </Button>
             </div>

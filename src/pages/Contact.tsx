@@ -179,7 +179,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" variant="luxury" size="lg" className="w-full">
+                  <Button type="submit" variant="executive" size="lg" className="w-full">
                     Send Message
                   </Button>
                 </form>
@@ -231,7 +231,7 @@ const Contact = () => {
                   Book a 30-minute consultation to discuss your investment objectives 
                   and explore opportunities in Sri Lanka and Dubai markets.
                 </p>
-                <Button variant="hero" size="lg" className="w-full">
+                <Button variant="gold" size="lg" className="w-full">
                   Book Calendar Appointment
                 </Button>
               </div>
