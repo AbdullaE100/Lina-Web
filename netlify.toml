@@ -1,0 +1,32 @@
+# Netlify configuration file
+# This file defines settings for Netlify deployments
+
+[build]
+  # Directory to publish (folder that contains built site)
+  publish = "dist"
+  
+  # Default build command
+  command = "./build.sh"
+
+# The following redirect is for SPA routing with React Router
+# It ensures all routes are directed to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Set cache headers for assets
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover
+  for = "/assets/*"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://ytnarwsixcqdkwbnmhof.supabase.co;" 
