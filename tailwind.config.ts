@@ -58,7 +58,11 @@ export default {
 			},
 			fontFamily: {
 				sans: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
-				display: ["Cormorant Garamond", "serif"],
+				serif: ["Cormorant", "Georgia", "serif"],
+				display: ["Cormorant Garamond", "Georgia", "serif"],
+				luxury: ["Cowra", "serif"],
+				body: ["Cormorant", "Georgia", "serif"],
+				ui: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
 			},
 			fontSize: {
 				'display': ['clamp(3rem, 7vw, 6rem)', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '400' }],

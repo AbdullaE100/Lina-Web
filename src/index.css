@@ -1,4 +1,10 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Import Cowra font */
+@import url('/fonts/cowra.css');
 
 @tailwind base;
 @tailwind components;
@@ -17,17 +23,17 @@ Every element crafted with precision and purpose
     --background-hsl: 40 30% 98%;
     --foreground: 40 10% 15%;
     --foreground-hsl: 40 10% 15%;
-    
+
     --primary: 40 10% 15%;
     --primary-hsl: 40 10% 15%;
     --primary-foreground: 40 30% 98%;
     --primary-foreground-hsl: 40 30% 98%;
-    
+
     --secondary: 40 20% 96%;
     --secondary-hsl: 40 20% 96%;
     --secondary-foreground: 40 10% 20%;
     --secondary-foreground-hsl: 40 10% 20%;
-    
+
     --muted: 40 20% 92%;
     --muted-hsl: 40 20% 92%;
     --muted-foreground: 40 5% 45%;
@@ -65,6 +71,38 @@ Every element crafted with precision and purpose
     --gradient-overlay: linear-gradient(to bottom, 
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.4) 100%);
+    --gradient-platinum: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(40 30% 96%) 100%);
+    --gradient-hero: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    --gradient-primary: linear-gradient(135deg, hsl(40 10% 15%) 0%, hsl(38 15% 20%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
   }
 
   .dark {
@@ -123,10 +161,14 @@ Every element crafted with precision and purpose
 
   body, html {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
   }
 
   /* Sophisticated typography system */
@@ -137,13 +179,35 @@ Every element crafted with precision and purpose
   }
 
   .font-body {
+    font-family: 'Cormorant', serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+    font-weight: 400;
+  }
+
+  .font-luxury {
+    font-family: 'Cowra', serif;
+  }
+
+  /* For UI elements that need sans-serif */
+  .font-ui {
     font-family: 'Montserrat', sans-serif;
-    font-feature-settings: 'kern' 1, 'liga' 1;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
 
   /* Refined text hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-luxury;
+    line-height: 1.2;
+  }
+
+  p {
+    margin-bottom: 1.2em;
+  }
+
+  /* Button and navigation text should use sans-serif for better readability */
+  button, .button, nav, .nav-item {
+    @apply font-ui;
   }
 
   /* Elegant transitions */
@@ -177,7 +241,15 @@ Every element crafted with precision and purpose
   .text-gold {
     @apply text-[#C0A875];
   }
-
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C0A875 0%, #D4BC8B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
   /* Subtle hover effect for links */
   .hover-underline {
     position: relative;
@@ -197,4 +269,93 @@ Every element crafted with precision and purpose
   .hover-underline:hover:after {
     width: 100%;
   }
+  }
+
+/* Custom animations */
+.process-item:hover ~ .process-line {
+  transform: scaleY(1);
+  transition: transform 0.5s ease-in-out;
+  }
+
+.process-item:hover .process-dot {
+  background-color: #C0A875;
+  transform: scale(1.5);
+  transition: all 0.3s ease-in-out;
+  }
+
+/* Service card hover effects */
+.service-card:hover .service-icon {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease-in-out;
+  }
+
+/* Subtle parallax effect */
+.parallax-slow {
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
+  }
+
+.parallax-slow:hover {
+  transform: translateY(-10px);
+    }
+
+.parallax-fast {
+      transform: translateY(0);
+  transition: transform 0.3s ease-out;
+  }
+
+.parallax-fast:hover {
+  transform: scale(1.02) translateY(-5px);
+}
+
+/* Luxury Button Effects */
+.glow-gold {
+  box-shadow: 0 0 15px rgba(212, 188, 138, 0.4);
+  transition: all 0.4s ease;
+}
+
+.glow-gold:hover {
+  box-shadow: 0 0 25px rgba(212, 188, 138, 0.6);
+}
+
+.glow-white {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease;
+}
+
+.glow-white:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+/* Subtle pulse animation for buttons */
+@keyframes subtle-pulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+  }
+}
+
+.pulse-animation {
+  animation: subtle-pulse 3s infinite ease-in-out;
+}
+
+@keyframes subtle-pulse-gold {
+  0% {
+    box-shadow: 0 0 15px rgba(212, 188, 138, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 188, 138, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(212, 188, 138, 0.4);
+  }
+}
+
+.pulse-animation-gold {
+  animation: subtle-pulse-gold 3s infinite ease-in-out;
 }

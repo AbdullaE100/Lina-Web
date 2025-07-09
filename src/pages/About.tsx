@@ -1,38 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import aboutImage from "@/assets/lina-about-portrait.jpg";
+import aboutImage from "@/assets/About-Me.jpeg";
 import { motion, Variants } from "framer-motion";
 import { useRef } from "react";
 
 const About = () => {
   const aboutImageRef = useRef<HTMLDivElement>(null);
 
-  const timeline = [
+  const experience = [
     {
-      year: "2020 - Present",
+      year: "2002 - Present",
       company: "ExpatKey Properties",
-      role: "CEO & Founder",
-      description: "Leading luxury real estate investments across Sri Lanka and Dubai with focus on diaspora clients and cross-border portfolios."
+      role: "Chief Executive Officer",
+      description: "Founded and led a leading real estate firm specializing in luxury condominiums, diaspora investment, and global property sales. Led over LKR 1 billion in revenue through data-driven campaigns, off-plan sales, and bespoke client advisory."
     },
     {
-      year: "2015 - 2020",
+      year: "2023 - Present",
       company: "Grow Investment",
-      role: "Senior Investment Advisor",
-      description: "Specialized in high-net-worth client portfolio management and strategic market entry consulting."
+      role: "Executive Director",
+      description: "Led strategic real estate investment initiatives focused on market development and international partnerships. Spearheaded partnerships with international real estate companies."
     },
     {
-      year: "2010 - 2015",
-      company: "Ehsan Ventures",
-      role: "Real Estate Consultant",
-      description: "Built expertise in luxury residential and commercial property development across South Asian markets."
+      year: "2023 - Present",
+      company: "Entrepreneurs' Organization",
+      role: "Member",
+      description: "Active member of the global EO network, with a focus on leadership development, strategic investment, and entrepreneurial growth."
+    },
+    {
+      year: "2002 - 2023",
+      company: "Ehsan Ventures (EV)",
+      role: "Director",
+      description: "Founded and led an investment banking startup with a strategic focus on energy infrastructure and sustainable development."
+    },
+    {
+      year: "2002 - 2020",
+      company: "Puttalam Farms",
+      role: "Director",
+      description: "Founded and scaled an agro-social enterprise focused on sustainable farming, women's empowerment, and inclusive economic growth."
     }
   ];
 
   const achievements = [
     "Led sales for iconic projects: Altair, One Galle Face, Crystal Sands",
-    "Managed $500M+ in real estate transactions",
-    "Built extensive network of global investors and developers",
-    "Pioneer in Sri Lanka-Dubai cross-border investment strategies"
+    "Managed over LKR 1 billion in real estate transactions",
+    "Property management for high-net-worth clients ensuring operational excellence",
+    "Specialized in diaspora-focused investment and cross-border solutions"
   ];
   
   const fadeInUpVariants: Variants = {
@@ -49,12 +61,11 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 bg-gradient-platinum">
+    <div className="min-h-screen pt-24 bg-gradient-to-b from-[#F8F5EF] to-[#F5F5F5]">
       {/* Hero Section */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-80 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(42_70%_70%/0.10),transparent_40%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(38,40%,58%/0.15),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-[0.05] mix-blend-overlay" />
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -64,34 +75,34 @@ const About = () => {
               variants={fadeInUpVariants}
             >
               <motion.div variants={fadeInUpVariants} custom={0}>
-                <h1 className="text-headline font-display font-light mb-8 text-primary">
-                  Meet <span className="text-gradient-gold">Lina Nizar</span>
-                </h1>
+              <h1 className="font-luxury text-5xl md:text-6xl lg:text-7xl mb-8 text-[#1A1A1A]">
+                Meet <span className="text-[#C0A875]">Lina Nizar</span>
+              </h1>
               </motion.div>
               <motion.div variants={fadeInUpVariants} custom={1}>
-                <div className="text-title text-gold font-semibold mb-6 tracking-wide">
-                  CEO, ExpatKey Properties
-                </div>
+              <div className="text-xl font-ui font-medium mb-6 tracking-wide text-[#C0A875]">
+                CEO, ExpatKey Properties
+              </div>
               </motion.div>
               <motion.div variants={fadeInUpVariants} custom={2}>
-                <p className="text-body-xl text-muted-foreground leading-relaxed mb-8">
-                  As CEO of ExpatKey Properties, Lina has led sales and development across 
-                  iconic projects like Altair, One Galle Face, and Crystal Sands. With a 
-                  cross-border investor network and two decades of market insight, she brings 
-                  deep experience, cultural intelligence, and discretion to every deal.
+              <p className="text-lg md:text-xl text-[#444444] leading-relaxed mb-8 font-serif">
+                  With over 20 years of experience in the real estate industry across Sri Lanka and international markets, 
+                  Lina brings deep expertise in sales, marketing, and real estate development. As the founder of ExpatKey Properties, 
+                  she's led the end-to-end development of luxury condominium projects — from land acquisition and legal structuring 
+                  to branding, launch, and off-plan sales.
                 </p>
               </motion.div>
               <motion.div variants={fadeInUpVariants} custom={3}>
-                <p className="text-body-xl text-muted-foreground leading-relaxed mb-12">
-                  Born with an entrepreneurial spirit and raised with global perspective, 
-                  Lina understands the unique needs of diaspora investors and international 
-                  clients seeking high-growth opportunities in emerging markets.
-                </p>
+              <p className="text-lg md:text-xl text-[#444444] leading-relaxed mb-12 font-serif">
+                  Having sold some of the most prestigious high-end residences in Sri Lanka, Lina has played a hands-on role in 
+                  driving sales performance, building investor confidence, and delivering strong returns across multiple market cycles. 
+                  Now based between Sri Lanka and Dubai, she's focused on bringing her expertise to the UAE market.
+              </p>
               </motion.div>
               <motion.div variants={fadeInUpVariants} custom={4}>
-                <Button variant="gold" size="xl" className="shadow-gold min-w-[240px] h-14 backdrop-blur-sm border border-gold/30" asChild>
-                  <Link to="/contact">Connect with Lina</Link>
-                </Button>
+                <Button className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 glow-gold pulse-animation-gold" asChild>
+                <Link to="/contact">CONNECT WITH LINA</Link>
+              </Button>
               </motion.div>
             </motion.div>
             <motion.div 
@@ -106,128 +117,117 @@ const About = () => {
               }}
             >
               <div className="relative group">
-                <div className="absolute -inset-6 rounded-3xl bg-gradient-gold opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-xl" />
+                <div className="absolute -inset-6 rounded-3xl bg-gradient-to-r from-[#D4BC8A]/30 to-[#C0A875]/30 opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-xl" />
                 <img
                   src={aboutImage}
                   alt="Lina Nizar"
-                  className="w-full max-w-md mx-auto rounded-3xl shadow-floating border-4 border-gold/20 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl border-2 border-[#C0A875]/20 group-hover:scale-[1.02] transition-transform duration-700"
                 />
-                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-gold rounded-3xl opacity-10 group-hover:opacity-30 transition-opacity duration-700 blur-2xl" />
-                <div className="absolute -top-12 -left-8 w-32 h-32 bg-primary/10 rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-3xl" />
+                <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-700 blur-2xl" />
+                <div className="absolute -top-12 -left-8 w-32 h-32 bg-[#1A1A1A]/10 rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-3xl" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Professional Journey */}
-      <section className="py-32 bg-gradient-to-b from-background to-neutral/60 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,hsl(42_70%_70%/0.08),transparent_50%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] mix-blend-overlay" />
+      {/* Professional Experience - Compact Layout */}
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/30 to-transparent"></div>
         
         <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-headline font-display font-light mb-6 text-primary">
-              Professional Journey
+          <div className="text-center mb-10">
+            <h2 className="font-luxury text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
+              Professional Experience
             </h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
-              Two decades of building excellence in real estate investment advisory
+            <div className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-8"></div>
+            <p className="text-[#666666] max-w-2xl mx-auto text-lg font-serif">
+              Two decades of excellence in real estate and entrepreneurial ventures
             </p>
-          </motion.div>
+          </div>
 
-          <div className="max-w-4xl mx-auto">
-            {timeline.map((item, index) => (
-              <motion.div
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {experience.map((item, index) => (
+              <div
                 key={index}
-                className="relative pl-12 pb-16 last:pb-0"
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.2,
-                  ease: [0.165, 0.84, 0.44, 1]
-                }}
-                viewport={{ once: true, margin: "-100px" }}
+                className="bg-white rounded-xl shadow-md border border-[#C0A875]/10 hover:shadow-lg transition-all duration-300 p-6 h-full flex flex-col"
               >
-                {/* Timeline line */}
-                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-gold rounded-full" />
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-4 w-5 h-5 bg-gradient-gold rounded-full shadow-gold border-4 border-background" />
-                <div className="bg-background p-10 rounded-2xl shadow-soft hover:shadow-floating transition-fluid border border-gold/10 group">
-                  <div className="text-gold font-semibold mb-2 text-lg tracking-wide group-hover:translate-x-1 transition-transform duration-300">{item.year}</div>
-                  <h3 className="text-title font-display font-normal text-primary mb-2 group-hover:text-gradient-gold transition-all duration-500">
-                    {item.role}
-                  </h3>
-                  <div className="text-body font-medium text-muted-foreground mb-4">
-                    {item.company}
-                  </div>
-                  <p className="text-body text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-gold scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 opacity-20 rounded-b-2xl"></div>
+                <div className="text-[#C0A875] font-semibold text-sm mb-1 font-ui">{item.year}</div>
+                <h3 className="text-lg font-luxury text-[#1A1A1A] mb-1">
+                  {item.role}
+                </h3>
+                <div className="text-sm font-medium text-[#666666] mb-3 font-ui">
+                  {item.company}
                 </div>
-              </motion.div>
+                <p className="text-sm text-[#666666] leading-relaxed font-serif mt-auto">
+                  {item.description}
+                </p>
+              </div>
             ))}
+          </div>
+          
+          {/* Key Skills */}
+          <div className="mt-12 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-md border border-[#C0A875]/10">
+            <div className="flex flex-wrap gap-3">
+              {[
+                "Luxury Real Estate", 
+                "Investment Strategy", 
+                "Property Development", 
+                "Diaspora Investment", 
+                "Global Property Sales",
+                "Executive Leadership",
+                "Market Analysis",
+                "Client Advisory"
+              ].map((skill, i) => (
+                <span 
+                  key={i} 
+                  className="px-4 py-2 bg-[#F8F5EF] rounded-full text-sm text-[#666666] border border-[#C0A875]/10 hover:bg-[#C0A875]/10 hover:text-[#1A1A1A] transition-colors duration-300"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Key Achievements */}
-      <section className="py-32 bg-gradient-platinum relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,hsl(42_70%_70%/0.10),transparent_40%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03] mix-blend-overlay" />
+      {/* Key Achievements - Streamlined */}
+      <section className="py-16 bg-[#F8F5EF] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/30 to-transparent"></div>
         
         <div className="container mx-auto px-6">
-          <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-headline font-display font-light mb-6 text-primary">
+          <div className="text-center mb-10">
+            <h2 className="font-luxury text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
               Key Achievements
             </h2>
-            <p className="text-body-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-8"></div>
+            <p className="text-[#666666] max-w-2xl mx-auto text-lg font-serif">
               Track record of excellence in luxury real estate investments
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="flex items-start space-x-6 group"
-                initial={{ opacity: 0, y: 40, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: [0.165, 0.84, 0.44, 1]
-                }}
-                viewport={{ once: true, margin: "-100px" }}
-                whileHover={{ y: -5 }}
+                className="flex items-start space-x-4 p-6 bg-white backdrop-blur-sm rounded-xl shadow-md border border-[#C0A875]/10 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-4 h-4 bg-gradient-gold rounded-full mt-3 flex-shrink-0 shadow-gold group-hover:scale-125 transition-transform duration-500" />
-                <p className="text-body-xl text-muted-foreground leading-relaxed group-hover:text-primary transition-colors duration-300">
+                <div className="w-4 h-4 bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] rounded-full mt-1.5 flex-shrink-0" />
+                <p className="text-[#444444] font-serif text-lg">
                   {achievement}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Philosophy & Approach */}
-      <section className="py-32 bg-gradient-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(42_70%_70%/0.10),transparent_70%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay" />
+      <section className="py-24 bg-[#1A1A1A] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(38,40%,58%/0.15),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
         
         <motion.div 
           className="max-w-4xl mx-auto px-6 text-center relative z-10"
@@ -236,29 +236,43 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-headline font-display font-light mb-10">
-            Investment Philosophy
+          <h2 className="font-luxury text-4xl md:text-5xl mb-6 tracking-tight text-white">
+            Philosophy & Approach
           </h2>
-          <div className="relative">
-            <div className="absolute -top-6 left-0 text-[120px] font-serif text-gold/20 leading-none">"</div>
-            <blockquote className="text-title italic font-light leading-relaxed mb-10 text-gold relative z-10">
-              "Real estate is not just about properties—it's about understanding people, 
-              markets, and the future. Every investment decision should be backed by 
-              deep market knowledge, cultural intelligence, and unwavering integrity."
-            </blockquote>
-            <div className="absolute -bottom-20 right-0 text-[120px] font-serif text-gold/20 leading-none">"</div>
+          <div className="inline-block mb-10">
+            <div className="w-20 h-0.5 bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] mx-auto opacity-70" />
           </div>
-          <div className="text-body-xl text-primary-foreground/80 mb-12">
-            — Lina Nizar
+          <p className="text-xl md:text-2xl mb-12 leading-relaxed font-serif text-white/90">
+            "I believe that luxury real estate is more than just transactions—it's about creating lasting value through strategic vision and exceptional execution. My approach combines deep market knowledge, personalized client relationships, and a commitment to excellence in every detail."
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 justify-center">
+            <Button 
+              className="bg-transparent border-2 border-[#C0A875] text-[#C0A875] hover:bg-[#C0A875]/10 rounded-none px-8 py-6 h-auto text-sm tracking-[0.15em] font-ui shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 glow-gold"
+              asChild
+            >
+              <Link to="/services">
+                <span className="flex items-center">
+                  VIEW SERVICES
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </span>
+              </Link>
+            </Button>
+            <Button 
+              className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-8 py-6 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 glow-gold"
+              asChild
+            >
+              <Link to="/contact">
+                <span className="flex items-center">
+                  SCHEDULE CONSULTATION
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </span>
+              </Link>
+            </Button>
           </div>
-          <Button 
-            variant="gold" 
-            size="xl" 
-            className="min-w-[260px] shadow-gold h-14 backdrop-blur-sm border border-gold/30" 
-            asChild
-          >
-            <Link to="/portfolio">See Portfolio</Link>
-          </Button>
         </motion.div>
       </section>
     </div>

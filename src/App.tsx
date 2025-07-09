@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/lina-nizar-portfolio-vision">
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/insights" element={<Insights />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/admin" element={<AdminDashboard />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
