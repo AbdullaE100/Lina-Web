@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDeviceSize } from '@/hooks/use-mobile';
 
 interface YouTubeBackgroundProps {
   videoId: string;
@@ -84,12 +85,16 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
   const [isPlayerFullyLoaded, setIsPlayerFullyLoaded] = useState(false);
   const [currentQuality, setCurrentQuality] = useState<string>('');
   const [playerError, setPlayerError] = useState<string | null>(null);
+  const { isMobile, isTablet, width } = useDeviceSize();
   const playerRef = useRef<YouTubePlayer | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const playerCreatedRef = useRef<boolean>(false);
   
   // Track available quality levels
   const availableQualitiesRef = useRef<string[]>([]);
+
+  // Determine if video should be played or fallback image should be used
+  const shouldUseFallbackOnly = isMobile && width < 640;
 
   // Add CSS to hide YouTube thumbnails
   useEffect(() => {
@@ -128,6 +133,11 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
 
   // Load YouTube API script
   useEffect(() => {
+    // Skip loading if on mobile with fallback only
+    if (shouldUseFallbackOnly) {
+      return;
+    }
+    
     // Only load the API once
     if (document.getElementById('youtube-api-script')) {
       setIsApiLoaded(true);
@@ -157,7 +167,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
         playerRef.current.destroy();
       }
     };
-  }, []);
+  }, [shouldUseFallbackOnly]);
 
   // Function to set the highest available quality
   const setHighestQuality = () => {
@@ -167,6 +177,14 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
       // Get available qualities
       const qualities = playerRef.current.getAvailableQualityLevels();
       availableQualitiesRef.current = qualities;
+      
+      // For mobile and tablet, limit quality to save bandwidth
+      if (isMobile || isTablet) {
+        const targetQuality = isMobile ? 'medium' : 'large';
+        playerRef.current.setPlaybackQuality(targetQuality);
+        setCurrentQuality(targetQuality);
+        return;
+      }
       
       // Find the highest quality available by comparing with our ordered list
       let highestQuality = 'default';
@@ -208,7 +226,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
 
   // Create the YouTube player container but delay loading the actual player
   useEffect(() => {
-    if (!isApiLoaded || !containerRef.current || playerCreatedRef.current) return;
+    if (!isApiLoaded || !containerRef.current || playerCreatedRef.current || shouldUseFallbackOnly) return;
     
     // Create container for the player
     const playerContainer = document.createElement('div');
@@ -229,8 +247,16 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
     playerDiv.style.top = '50%';
     playerDiv.style.left = '50%';
     playerDiv.style.transform = 'translate(-50%, -50%)';
-    playerDiv.style.width = '150%';
-    playerDiv.style.height = '150%';
+    
+    // For mobile/tablet, make the YouTube player slightly bigger to cover the screen better
+    if (isMobile || isTablet) {
+      playerDiv.style.width = '200%';  // Extra wide for mobile
+      playerDiv.style.height = '200%';
+    } else {
+      playerDiv.style.width = '150%';
+      playerDiv.style.height = '150%';
+    }
+    
     playerDiv.style.pointerEvents = 'none';
     playerDiv.style.opacity = '0';
     playerDiv.style.visibility = 'hidden';
@@ -257,7 +283,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
         }
       }
     };
-  }, [isApiLoaded]);
+  }, [isApiLoaded, isMobile, isTablet, shouldUseFallbackOnly]);
   
   // Initialize the player
   const initPlayer = () => {
@@ -270,6 +296,9 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
     try {
       // Origin for security
       const origin = window.location.origin;
+      
+      // Adjust player settings based on device
+      const suggestedQuality = isMobile ? 'medium' : isTablet ? 'large' : 'hd1080';
       
       // Initialize the player with highest quality options
       playerRef.current = new window.YT.Player('youtube-player', {
@@ -287,12 +316,12 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
           playsinline: 1,
           rel: 0,
           showinfo: 0,
-          vq: 'hd2160', // Request highest quality 4K if available
+          vq: suggestedQuality,
           start: 0,
           end: 0, // Zero means play to end
           playlist: videoId, // Required for looping
-          hd: 1, // Request HD quality
-          suggestedQuality: 'hd2160', // Request highest quality
+          hd: isMobile ? 0 : 1, // Request HD quality except on mobile
+          suggestedQuality: suggestedQuality,
           origin: origin,
           widget_referrer: origin
         },
@@ -328,22 +357,26 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
       // Start playback
       event.target.playVideo();
       
-      // Set the highest quality immediately
-      setHighestQuality();
+      // Set appropriate quality based on device
+      if (isMobile || isTablet) {
+        const targetQuality = isMobile ? 'medium' : 'large';
+        event.target.setPlaybackQuality(targetQuality);
+      } else {
+        // For desktop, use highest quality
+        setHighestQuality();
+      }
       
-      // Try to set highest quality again after a short delay
+      // Try to set quality again after a short delay
       setTimeout(() => {
         if (playerRef.current) {
-          setHighestQuality();
+          if (isMobile || isTablet) {
+            const targetQuality = isMobile ? 'medium' : 'large';
+            playerRef.current.setPlaybackQuality(targetQuality);
+          } else {
+            setHighestQuality();
+          }
         }
       }, 1000);
-
-      // Check again for quality after player has been playing for a bit
-      setTimeout(() => {
-        if (playerRef.current) {
-          setHighestQuality();
-        }
-      }, 5000);
       
     } catch (error) {
       // Ignore errors in production
@@ -377,16 +410,24 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
         // Get parent element (player container)
         const playerElement = document.getElementById('youtube-player');
         if (playerElement) {
-          // Ensure video quality before showing
+          // On mobile/tablet, don't wait for quality
+          if (isMobile || isTablet) {
+            playerElement.classList.add('playing');
+            setIsPlayerFullyLoaded(true);
+            setIsPlayerPlaying(true);
+            return;
+          }
+          
+          // For desktop, ensure video quality before showing
           setHighestQuality();
           
           // Slight delay before showing the player to ensure it's fully loaded
           setTimeout(() => {
-          playerElement.classList.add('playing');
-        
-        // Set flag to show player
-        setIsPlayerFullyLoaded(true);
-        setIsPlayerPlaying(true);
+            playerElement.classList.add('playing');
+          
+            // Set flag to show player
+            setIsPlayerFullyLoaded(true);
+            setIsPlayerPlaying(true);
           }, 500);
         }
       }
@@ -402,7 +443,9 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
       showPlayer(event);
       
       // Set quality again to ensure highest quality during playback
-      setHighestQuality();
+      if (!isMobile && !isTablet) {
+        setHighestQuality();
+      }
     }
     // 0 = ended
     else if (event.data === window.YT.PlayerState.ENDED) {
@@ -431,7 +474,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
 
   // Check and update quality periodically
   useEffect(() => {
-    if (!isPlayerReady) return;
+    if (!isPlayerReady || isMobile || isTablet || shouldUseFallbackOnly) return;
     
     const qualityCheckInterval = setInterval(() => {
       setHighestQuality();
@@ -440,10 +483,12 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
     return () => {
       clearInterval(qualityCheckInterval);
     };
-  }, [isPlayerReady]);
+  }, [isPlayerReady, isMobile, isTablet, shouldUseFallbackOnly]);
 
   // Handle visibility change to pause/play video for better performance
   useEffect(() => {
+    if (shouldUseFallbackOnly) return;
+    
     const handleVisibilityChange = () => {
       if (!playerRef.current) return;
       
@@ -457,7 +502,9 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
         try {
           playerRef.current.playVideo();
           // When coming back to visible, ensure high quality
-          setTimeout(setHighestQuality, 500);
+          if (!isMobile && !isTablet) {
+            setTimeout(setHighestQuality, 500);
+          }
         } catch (e) {
           // Ignore errors in production
         }
@@ -469,7 +516,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [shouldUseFallbackOnly, isMobile, isTablet]);
 
   return (
     <div 
@@ -478,7 +525,7 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
       {/* Fallback image always visible until video is fully ready */}
       <div 
         className={`absolute inset-0 w-full h-full transition-opacity duration-1500 ${
-          isPlayerFullyLoaded ? 'opacity-0' : 'opacity-100'
+          isPlayerFullyLoaded && !shouldUseFallbackOnly ? 'opacity-0' : 'opacity-100'
         }`}
       >
         <img
@@ -491,7 +538,9 @@ const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({ videoId, fallback
       {/* YouTube player container */}
       <div 
         ref={containerRef}
-        className="absolute inset-0 w-full h-full overflow-hidden transition-opacity duration-1500"
+        className={`absolute inset-0 w-full h-full overflow-hidden transition-opacity duration-1500 ${
+          shouldUseFallbackOnly ? 'hidden' : ''
+        }`}
       />
 
       {/* Enhanced video overlay for better contrast */}
