@@ -453,3 +453,48 @@ Every element crafted with precision and purpose
 .pulse-animation-gold {
   animation: subtle-pulse-gold 3s infinite ease-in-out;
 }
+
+/* Improved Button styling for mobile */
+.btn-primary {
+  @apply bg-gold text-black font-bold text-center inline-block transition-all;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-height: 48px; /* Minimum touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:active {
+  @apply bg-amber-600;
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  @apply border border-white text-white font-bold text-center inline-block transition-all;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  min-height: 48px; /* Minimum touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:active {
+  @apply bg-white/10;
+  transform: translateY(1px);
+}
+
+/* Improve spacing on small screens */
+@media (max-width: 480px) {
+  .section-padding {
+    @apply py-8 px-4;
+  }
+  
+  h1, h2, h3 {
+    @apply tracking-normal; /* Reduce letter spacing on mobile */
+  }
+  
+  /* Improve tap targets */
+  a, button, [role="button"], input, select, textarea {
+    @apply min-h-[44px];
+  }
+}

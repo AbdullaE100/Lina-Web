@@ -72,7 +72,7 @@ const Header = () => {
                   isMenuOpen ? 'text-white' : ''
                 }`}
                 style={{ 
-                  letterSpacing: '0.2em',
+                  letterSpacing: '0.15em', // Reduce letter spacing on mobile
                   textShadow: isTransparent ? '0 1px 2px rgba(0,0,0,0.1)' : 'none',
                   textTransform: 'uppercase'
                 }}
@@ -82,7 +82,7 @@ const Header = () => {
                   <span className="absolute -bottom-1 left-0 w-full h-px bg-current scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </span>
                 INA
-                <span className="mx-2"></span>
+                <span className="mx-1 xs:mx-2"></span>
                 <span className="relative inline-block">
                   N
                   <span className="absolute -bottom-1 left-0 w-full h-px bg-current scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -91,10 +91,10 @@ const Header = () => {
               </span>
             </div>
             <span 
-              className={`text-[9px] xs:text-[10px] sm:text-[11px] tracking-[0.3em] opacity-100 font-medium ${
+              className={`text-[8px] xs:text-[9px] sm:text-[10px] md:text-[11px] tracking-[0.2em] xs:tracking-[0.25em] opacity-100 font-medium ${
                 isMenuOpen ? 'text-white' : ''
               }`}
-              style={{ letterSpacing: '0.3em' }}
+              style={{ letterSpacing: '0.25em' }}
             >
               {isVerySmallScreen ? 'LUXURY REAL ESTATE' : 'LUXURY REAL ESTATE ADVISORY'}
             </span>

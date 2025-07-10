@@ -9,7 +9,8 @@ import heroImage from "../assets/lina-nizar-hero.jpg";
 import altairProject from '../assets/altair-project.jpg';
 import crystalSandsProject from '../assets/crystal-sands-project.jpg';
 import oneGalleFaceProject from '../assets/one-galle-face-project.jpg';
-import YouTubeBackground from "@/components/YouTubeBackground";
+import VideoBackground from "@/components/Video-background";
+import heroVideo from "../assets/videos/luxury-video.mp4";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
 import {
   Dialog,
@@ -19,6 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useIsMobile, useIsExtraSmall, useIsTablet } from "@/hooks/use-mobile";
 
 const Homepage = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -42,11 +44,11 @@ const Homepage = () => {
         ref={heroRef}
         className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden"
       >
-        {/* YouTube Video Background */}
-        <YouTubeBackground videoId="JnHTFL4-ktw" fallbackImage={videoFallbackImage} />
+        {/* Video Background */}
+        <VideoBackground src={heroVideo} fallbackImage={videoFallbackImage} />
         
         <div 
-          className="container relative px-6 z-10"
+          className="container px-4 xs:px-5 sm:px-6 relative z-10"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -55,13 +57,13 @@ const Homepage = () => {
             className="max-w-5xl mx-auto text-center"
             style={{ opacity: textOpacity, y: textY }}
           >
-                          <div className="inline-flex items-center gap-3 text-white mb-8 tracking-[0.25em] font-medium">
-                <div className="h-px w-12 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
-                <span className="font-ui text-sm font-medium tracking-[0.25em] drop-shadow-md">LUXURY REAL ESTATE ADVISORY</span>
-                <div className="h-px w-12 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
+                          <div className="inline-flex items-center gap-2 xs:gap-3 text-white mb-5 xs:mb-6 sm:mb-8 tracking-[0.2em] xs:tracking-[0.25em] font-medium">
+                <div className="h-px w-8 xs:w-12 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
+                <span className="font-ui text-xs xs:text-sm font-medium tracking-[0.2em] xs:tracking-[0.25em] drop-shadow-md">LUXURY REAL ESTATE</span>
+                <div className="h-px w-8 xs:w-12 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
               </div>
 
-            <h1 className="font-luxury text-white text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] mb-10 drop-shadow-lg">
+            <h1 className="font-luxury text-white text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] mb-6 xs:mb-8 sm:mb-10 drop-shadow-lg">
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -101,7 +103,7 @@ const Homepage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="text-white/90 text-xl md:text-2xl max-w-3xl mx-auto mb-14 font-serif font-light leading-relaxed tracking-wide"
+              className="text-white/90 text-base xs:text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-8 xs:mb-10 sm:mb-14 font-serif font-light leading-relaxed tracking-wide"
             >
               Guiding discerning investors through exceptional real estate opportunities 
               with strategic market intelligence and cultural expertise.
@@ -111,28 +113,28 @@ const Homepage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
-              className="flex flex-wrap gap-8 justify-center"
+              className="flex flex-col xs:flex-row gap-4 xs:gap-6 sm:gap-8 justify-center items-center"
             >
               <TouchButton 
-                className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold"
+                className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-6 xs:px-8 sm:px-10 py-4 xs:py-6 sm:py-7 h-auto text-xs xs:text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold w-full xs:w-auto"
                 ripple={true}
                 scaleOnPress={true}
               >
-                <Link to="/contact" className="flex items-center">
+                <Link to="/contact" className="flex items-center justify-center">
                   <span className="relative z-10">SCHEDULE CONSULTATION</span>
-                  <ChevronRight className="ml-3 w-4 h-4 relative z-10" />
+                  <ChevronRight className="ml-2 xs:ml-3 w-3 xs:w-4 h-3 xs:h-4 relative z-10" />
                 </Link>
               </TouchButton>
               
               <TouchButton 
                 variant="outline" 
-                className="bg-transparent border-[2px] border-[#D4BC8A] text-[#D4BC8A] hover:bg-[#D4BC8A]/10 rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold"
+                className="bg-transparent border-[2px] border-[#D4BC8A] text-[#D4BC8A] hover:bg-[#D4BC8A]/10 rounded-none px-6 xs:px-8 sm:px-10 py-4 xs:py-6 sm:py-7 h-auto text-xs xs:text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold w-full xs:w-auto"
                 ripple={true}
                 scaleOnPress={true}
               >
-                <Link to="/portfolio" className="flex items-center">
+                <Link to="/portfolio" className="flex items-center justify-center">
                   <span>VIEW PORTFOLIO</span>
-                  <ArrowRight className="ml-3 w-4 h-4" />
+                  <ArrowRight className="ml-2 xs:ml-3 w-3 xs:w-4 h-3 xs:h-4" />
                 </Link>
               </TouchButton>
             </motion.div>
@@ -178,7 +180,7 @@ const Homepage = () => {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8">
             {[
               {
                 title: "One Galle Face",

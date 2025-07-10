@@ -12,12 +12,17 @@
     <meta name="author" content="Lina Nizar" />
     <link rel="preload" href="/fonts/Cowra.otf" as="font" type="font/otf" crossorigin />
 
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://img.youtube.com/vi/Jgfn3EUhLqw/maxresdefault.jpg" as="image" />
+    
     <!-- DNS Prefetch and Preconnect for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.youtube.com" crossorigin>
     <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://i.ytimg.com">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,30..100,300..900;1,30..100,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -42,5 +47,63 @@
     <div id="root"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Load YouTube API directly in the body for better compatibility -->
+    <script>
+      // Load YouTube API
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+      // Add user interaction helper for autoplay
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create an invisible interaction element
+        var interactionHelper = document.createElement('button');
+        interactionHelper.style.position = 'fixed';
+        interactionHelper.style.top = '0';
+        interactionHelper.style.left = '0';
+        interactionHelper.style.width = '100%';
+        interactionHelper.style.height = '100%';
+        interactionHelper.style.opacity = '0';
+        interactionHelper.style.cursor = 'default';
+        interactionHelper.style.zIndex = '999999';
+        interactionHelper.style.background = 'transparent';
+        interactionHelper.style.border = 'none';
+        interactionHelper.style.pointerEvents = 'none';
+        interactionHelper.setAttribute('aria-hidden', 'true');
+        interactionHelper.setAttribute('tabindex', '-1');
+        
+        // Add to body
+        document.body.appendChild(interactionHelper);
+        
+        // Trigger user interaction on page load
+        setTimeout(function() {
+          interactionHelper.click();
+          
+          // Remove after use
+          setTimeout(function() {
+            document.body.removeChild(interactionHelper);
+          }, 1000);
+        }, 500);
+        
+        // Also try to trigger interaction on first user scroll or touch
+        var interactionHandler = function() {
+          if (interactionHelper && interactionHelper.parentNode) {
+            interactionHelper.click();
+            document.body.removeChild(interactionHelper);
+          }
+          
+          // Remove event listeners
+          document.removeEventListener('scroll', interactionHandler);
+          document.removeEventListener('touchstart', interactionHandler);
+          document.removeEventListener('mousemove', interactionHandler);
+        };
+        
+        document.addEventListener('scroll', interactionHandler, { once: true });
+        document.addEventListener('touchstart', interactionHandler, { once: true });
+        document.addEventListener('mousemove', interactionHandler, { once: true });
+      });
+    </script>
   </body>
 </html>
