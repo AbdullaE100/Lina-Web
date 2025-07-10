@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { TouchButton } from "@/components/ui/touch-button";
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, Award, Building, Globe, Users, ChevronRight, Star, Shield, Clock, BarChart3, Rocket, Mail, Linkedin, X } from 'lucide-react';
 import heroImage from "../assets/lina-nizar-hero.jpg";
@@ -9,6 +10,7 @@ import altairProject from '../assets/altair-project.jpg';
 import crystalSandsProject from '../assets/crystal-sands-project.jpg';
 import oneGalleFaceProject from '../assets/one-galle-face-project.jpg';
 import YouTubeBackground from "@/components/YouTubeBackground";
+import { ResponsiveImage } from "@/components/ui/responsive-image";
 import {
   Dialog,
   DialogContent,
@@ -111,24 +113,28 @@ const Homepage = () => {
               transition={{ duration: 0.8, delay: 1.1 }}
               className="flex flex-wrap gap-8 justify-center"
             >
-              <Button 
-                className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 glow-gold pulse-animation-gold"
+              <TouchButton 
+                className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold"
+                ripple={true}
+                scaleOnPress={true}
               >
                 <Link to="/contact" className="flex items-center">
                   <span className="relative z-10">SCHEDULE CONSULTATION</span>
                   <ChevronRight className="ml-3 w-4 h-4 relative z-10" />
                 </Link>
-              </Button>
+              </TouchButton>
               
-              <Button 
+              <TouchButton 
                 variant="outline" 
-                className="bg-transparent border-[2px] border-[#D4BC8A] text-[#D4BC8A] hover:bg-[#D4BC8A]/10 rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 glow-gold pulse-animation-gold"
+                className="bg-transparent border-[2px] border-[#D4BC8A] text-[#D4BC8A] hover:bg-[#D4BC8A]/10 rounded-none px-10 py-7 h-auto text-sm tracking-[0.15em] font-ui shadow-xl hover:shadow-2xl transition-all duration-300 glow-gold pulse-animation-gold"
+                ripple={true}
+                scaleOnPress={true}
               >
                 <Link to="/portfolio" className="flex items-center">
                   <span>VIEW PORTFOLIO</span>
                   <ArrowRight className="ml-3 w-4 h-4" />
                 </Link>
-              </Button>
+              </TouchButton>
             </motion.div>
           </motion.div>
         </div>
@@ -137,42 +143,42 @@ const Homepage = () => {
       </section>
 
       {/* Featured Properties Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-16 xs:py-20 sm:py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/30 to-transparent"></div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <div className="inline-flex items-center gap-2 text-[#C0A875] mb-4 tracking-wider font-medium">
               <div className="h-px w-8 bg-[#C0A875]"></div>
-              <span>CURATED SELECTION</span>
+              <span className="text-responsive-sm">CURATED SELECTION</span>
               <div className="h-px w-8 bg-[#C0A875]"></div>
             </div>
             
-            <h2 className="font-luxury text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
+            <h2 className="font-luxury text-3xl xs:text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
               Exceptional Properties
             </h2>
             
             <motion.div 
-              className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-8"
+              className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             />
         
-            <p className="text-[#666666] max-w-2xl mx-auto text-lg font-serif">
+            <p className="text-[#666666] max-w-2xl mx-auto text-responsive-base px-4 xs:px-6 sm:px-0">
               Premium real estate opportunities in the most sought-after locations across Dubai and Sri Lanka.
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8">
             {[
               {
                 title: "One Galle Face",
@@ -228,10 +234,14 @@ const Homepage = () => {
               >
                 <div className="relative overflow-hidden">
                   <div className="aspect-[3/4] overflow-hidden">
-                    <img 
+                    <ResponsiveImage 
                       src={property.image} 
                       alt={property.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full"
+                      aspectRatio="aspect-[3/4]"
+                      objectFit="cover"
+                      blur={true}
+                      priority={index === 0}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -268,42 +278,36 @@ const Homepage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-to-b from-[#F8F5EF] to-[#F5F5F5] relative overflow-hidden">
+      <section className="py-16 xs:py-20 sm:py-24 bg-gradient-to-b from-[#F8F5EF] to-[#F5F5F5] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/30 to-transparent"></div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <div className="inline-flex items-center gap-2 text-[#C0A875] mb-4 tracking-wider font-medium">
               <div className="h-px w-8 bg-[#C0A875]"></div>
-              <span>BESPOKE SOLUTIONS</span>
+              <span className="text-responsive-sm">COMPREHENSIVE SOLUTIONS</span>
               <div className="h-px w-8 bg-[#C0A875]"></div>
             </div>
             
-            <h2 className="font-luxury text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
-              Premium Services
+            <h2 className="font-luxury text-3xl xs:text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
+              Tailored Services
             </h2>
             
-            <motion.div 
-              className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-8"
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true, margin: "-100px" }}
-            />
+            <div className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-6 sm:mb-8"></div>
             
-            <p className="text-[#666666] max-w-2xl mx-auto text-lg font-serif">
-              Bespoke investment solutions meticulously crafted for discerning global investors seeking exceptional returns.
+            <p className="text-[#666666] max-w-2xl mx-auto text-responsive-base px-4 xs:px-6 sm:px-0">
+              Expert guidance throughout every stage of your luxury real estate journey.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8">
             {[
               {
                 title: "Investment Advisory",

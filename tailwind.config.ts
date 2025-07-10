@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -12,12 +13,40 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				xs: '1rem',
+				sm: '1.5rem',
+				md: '2rem',
+			},
 			screens: {
-				'2xl': '1400px'
+				xs: '480px',
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
+				'2xl': '1536px',
 			}
 		},
+		screens: {
+			'xs': '480px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
+		},
 		extend: {
+			aspectRatio: {
+				'1/1': '1 / 1',
+				'4/3': '4 / 3',
+				'3/2': '3 / 2',
+				'16/9': '16 / 9',
+				'2/1': '2 / 1',
+				'1/2': '1 / 2',
+				'3/4': '3 / 4',
+				'9/16': '9 / 16',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -70,12 +99,28 @@ export default {
 				'title': ['clamp(1.5rem, 4vw, 2.5rem)', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '500' }],
 				'subtitle': ['clamp(1.125rem, 3vw, 1.5rem)', { lineHeight: '1.3', letterSpacing: '0em', fontWeight: '500' }],
 				'body': ['clamp(1rem, 2vw, 1.125rem)', { lineHeight: '1.6' }],
+				'xs': ['0.75rem', { lineHeight: '1rem' }],
+				'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+				'base': ['1rem', { lineHeight: '1.5rem' }],
+				'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+				'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+				'2xl': ['1.5rem', { lineHeight: '2rem' }],
+				'3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+				'4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+				'5xl': ['3rem', { lineHeight: '1.16' }],
+				'6xl': ['3.75rem', { lineHeight: '1.1' }],
+				'7xl': ['4.5rem', { lineHeight: '1.05' }],
+				'8xl': ['6rem', { lineHeight: '1' }],
 			},
 			spacing: {
 				'18': '4.5rem',
 				'88': '22rem',
 				'112': '28rem',
 				'128': '32rem',
+				'safe-top': 'env(safe-area-inset-top)',
+				'safe-bottom': 'env(safe-area-inset-bottom)',
+				'safe-left': 'env(safe-area-inset-left)',
+				'safe-right': 'env(safe-area-inset-right)',
 			},
 			maxWidth: {
 				'8xl': '88rem',
@@ -151,6 +196,14 @@ export default {
 				'glow': {
 					'0%, 100%': { opacity: '0.5' },
 					'50%': { opacity: '1' }
+				},
+				'ripple': {
+					'0%': { transform: 'scale(0)', opacity: '0.7' },
+					'100%': { transform: 'scale(1)', opacity: '0' }
+				},
+				'tap-highlight': {
+					'0%, 100%': { opacity: '0' },
+					'50%': { opacity: '0.2' }
 				}
 			},
 			animation: {
@@ -163,9 +216,38 @@ export default {
 				'float': 'float 4s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
 				'magnetic': 'magnetic 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)',
-				'glow': 'glow 2s ease-in-out infinite'
+				'glow': 'glow 2s ease-in-out infinite',
+				'ripple': 'ripple 0.6s cubic-bezier(0.1, 0.4, 0.8, 1) forwards',
+				'tap-highlight': 'tap-highlight 0.4s ease-out'
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		animate,
+		function ({ addUtilities }) {
+			const newUtilities = {
+				'.text-balance': {
+					'text-wrap': 'balance',
+				},
+				'.text-pretty': {
+					'text-wrap': 'pretty',
+				},
+				'.hide-scrollbar': {
+					'scrollbar-width': 'none',
+					'-ms-overflow-style': 'none',
+					'&::-webkit-scrollbar': {
+						display: 'none',
+					},
+				},
+				'.touch-callout-none': {
+					'-webkit-touch-callout': 'none',
+					'user-select': 'none',
+				},
+				'.tap-highlight-transparent': {
+					'-webkit-tap-highlight-color': 'transparent',
+				},
+			}
+			addUtilities(newUtilities)
+		}
+	],
 } satisfies Config;

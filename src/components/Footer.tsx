@@ -1,23 +1,27 @@
 import { Link } from "react-router-dom";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { TouchButton } from "./ui/touch-button";
 import { ArrowRight, Mail, Phone, Instagram, Linkedin, Facebook, Twitter, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useDeviceSize } from "@/hooks/use-mobile";
 
 const Footer = () => {
+  const { isExtraSmall, isMobile } = useDeviceSize();
+  
   return (
-    <footer className="bg-[#1A2330] text-white pt-24 pb-8 relative overflow-hidden">
+    <footer className="bg-[#1A2330] text-white pt-16 xs:pt-20 sm:pt-24 pb-6 sm:pb-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-5"></div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/30 to-transparent"></div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12 sm:mb-16">
           {/* Column 1: Brand */}
-          <div className="md:col-span-5">
-            <Link to="/" className="inline-block mb-6">
+          <div className="sm:col-span-2 lg:col-span-5">
+            <Link to="/" className="inline-block mb-5 sm:mb-6">
               <div className="mb-1">
                 <h2 
-                  className="font-display text-3xl tracking-[0.15em] text-[#C0A875]"
+                  className="font-display text-2xl xs:text-3xl tracking-[0.15em] text-[#C0A875]"
                   style={{ 
                     fontWeight: 300,
                     letterSpacing: '0.2em',
@@ -29,49 +33,49 @@ const Footer = () => {
                 </h2>
               </div>
               <span 
-                className="text-[10px] tracking-[0.3em] text-gray-400"
+                className="text-[9px] xs:text-[10px] tracking-[0.3em] text-gray-400"
                 style={{ letterSpacing: '0.3em' }}
               >
-                LUXURY REAL ESTATE CONSULTANT
+                {isExtraSmall ? 'LUXURY REAL ESTATE' : 'LUXURY REAL ESTATE CONSULTANT'}
               </span>
             </Link>
             
-            <div className="flex items-center gap-2 text-[#C0A875] mb-6">
-              <div className="h-px w-8 bg-[#C0A875]"></div>
-              <span className="text-xs tracking-wider">CEO, EXPATKEY PROPERTIES</span>
+            <div className="flex items-center gap-2 text-[#C0A875] mb-5 sm:mb-6">
+              <div className="h-px w-6 xs:w-8 bg-[#C0A875]"></div>
+              <span className="text-[10px] xs:text-xs tracking-wider">CEO, EXPATKEY PROPERTIES</span>
             </div>
             
-            <p className="text-gray-300 leading-relaxed mb-8">
+            <p className="text-gray-300 text-sm xs:text-base leading-relaxed mb-6 sm:mb-8 pr-0 sm:pr-4">
               Smart Real Estate. Global Vision. Strategic guidance for luxury real estate investments 
               across Sri Lanka and Dubai with two decades of proven market expertise and cultural 
               intelligence.
             </p>
             
             <div className="flex flex-col space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center group hover:bg-[#C0A875] transition-colors duration-300">
-                  <Mail className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+              <a href="mailto:lina@expatkey.com" className="flex items-center space-x-3 xs:space-x-4 group">
+                <div className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300">
+                  <Mail className="w-4 h-4 xs:w-5 xs:h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="text-gray-300 group-hover:text-white transition-colors duration-300">lina@expatkey.com</span>
-              </div>
+                <span className="text-gray-300 text-sm xs:text-base group-hover:text-white transition-colors duration-300">lina@expatkey.com</span>
+              </a>
               
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center group hover:bg-[#C0A875] transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+              <a href="tel:+94777725485" className="flex items-center space-x-3 xs:space-x-4 group">
+                <div className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300">
+                  <Phone className="w-4 h-4 xs:w-5 xs:h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="text-gray-300">+94 77 772 5485</span>
-              </div>
+                <span className="text-gray-300 text-sm xs:text-base group-hover:text-white transition-colors duration-300">+94 77 772 5485</span>
+              </a>
             </div>
           </div>
 
           {/* Column 2: Navigation */}
-          <div className="md:col-span-3">
-            <h3 className="text-lg font-medium mb-6 relative inline-block">
+          <div className="sm:col-span-1 lg:col-span-3 mt-2 sm:mt-0">
+            <h3 className="text-base xs:text-lg font-medium mb-5 xs:mb-6 relative inline-block">
               Navigation
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#C0A875]"></div>
+              <div className="absolute -bottom-2 left-0 w-10 xs:w-12 h-0.5 bg-[#C0A875]"></div>
             </h3>
             
-            <nav className="flex flex-col space-y-4 mt-8">
+            <nav className="flex flex-col space-y-3 xs:space-y-4 mt-6 xs:mt-8">
               {[
                 { to: "/about", label: "About" },
                 { to: "/portfolio", label: "Portfolio" },
@@ -79,95 +83,102 @@ const Footer = () => {
                 { to: "/insights", label: "Insights" },
                 { to: "/contact", label: "Contact" },
               ].map((link, index) => (
-                  <Link
+                <Link
                   key={index}
                   to={link.to} 
-                  className="text-gray-300 hover:text-white transition-colors group flex items-center"
-                  >
+                  className="text-gray-300 text-sm xs:text-base hover:text-white transition-colors group flex items-center tap-highlight-transparent"
+                >
                   <span className="w-0 h-px bg-[#C0A875] mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span>
                   {link.label}
-                  </Link>
+                </Link>
               ))}
             </nav>
           </div>
 
           {/* Column 3: Connect */}
-          <div className="md:col-span-4">
-            <h3 className="text-lg font-medium mb-6 relative inline-block">
+          <div className="sm:col-span-1 lg:col-span-4 mt-2 sm:mt-0">
+            <h3 className="text-base xs:text-lg font-medium mb-5 xs:mb-6 relative inline-block">
               Exclusive Updates
-              <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#C0A875]"></div>
+              <div className="absolute -bottom-2 left-0 w-10 xs:w-12 h-0.5 bg-[#C0A875]"></div>
             </h3>
             
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Subscribe for exclusive market insights and investment opportunities delivered directly to your inbox.
+            <p className="text-gray-300 text-sm xs:text-base mb-5 xs:mb-6 leading-relaxed">
+              Subscribe for exclusive market insights and investment opportunities.
             </p>
             
             <div className="flex space-x-2">
               <Input 
                 type="email" 
                 placeholder="Your email" 
-                className="bg-[#2A3441] border-0 text-white placeholder:text-gray-500 focus:ring-1 focus:ring-[#C0A875]"
+                className="bg-[#2A3441] border-0 text-white h-10 text-sm placeholder:text-gray-500 focus:ring-1 focus:ring-[#C0A875]"
               />
-              <Button className="bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-0 group flex items-center">
-                <span>Join</span>
-                <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
+              <TouchButton 
+                className="bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-0 h-10 px-3 xs:px-4"
+                ripple={true}
+                scaleOnPress={true}
+              >
+                <span className="flex items-center text-sm">
+                  <span className="hidden xs:inline">Join</span>
+                  <span className="xs:hidden">Go</span>
+                  <ChevronRight className="ml-1 w-3 h-3 xs:w-4 xs:h-4" />
+                </span>
+              </TouchButton>
             </div>
             
-            <div className="mt-12">
-              <h3 className="text-lg font-medium mb-6 relative inline-block">
+            <div className="mt-10 sm:mt-12">
+              <h3 className="text-base xs:text-lg font-medium mb-5 xs:mb-6 relative inline-block">
                 Connect
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#C0A875]"></div>
+                <div className="absolute -bottom-2 left-0 w-10 xs:w-12 h-0.5 bg-[#C0A875]"></div>
               </h3>
               
-              <div className="flex items-center space-x-4">
-              <a
+              <div className="flex items-center space-x-3 xs:space-x-4">
+                <a
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300"
+                  className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300 tap-highlight-transparent"
                 >
-                  <Instagram className="w-5 h-5 text-gray-300" />
+                  <Instagram className="w-4 h-4 xs:w-5 xs:h-5 text-gray-300" />
                 </a>
                 <a 
                   href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300"
+                  className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300 tap-highlight-transparent"
                 >
-                  <Linkedin className="w-5 h-5 text-gray-300" />
+                  <Linkedin className="w-4 h-4 xs:w-5 xs:h-5 text-gray-300" />
                 </a>
                 <a 
                   href="https://facebook.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300"
-              >
-                  <Facebook className="w-5 h-5 text-gray-300" />
-              </a>
-              <a
-                  href="https://twitter.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300 tap-highlight-transparent"
                 >
-                  <Twitter className="w-5 h-5 text-gray-300" />
+                  <Facebook className="w-4 h-4 xs:w-5 xs:h-5 text-gray-300" />
+                </a>
+                <a
+                  href="https://twitter.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300 tap-highlight-transparent"
+                >
+                  <Twitter className="w-4 h-4 xs:w-5 xs:h-5 text-gray-300" />
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-500">
+        <div className="border-t border-gray-800 pt-6 sm:pt-8 mt-10 sm:mt-12">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-xs sm:text-sm text-gray-500">
               © {new Date().getFullYear()} Lina Nizar. All rights reserved.
-          </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+            </p>
+            <div className="flex space-x-4 sm:space-x-6 mt-4 sm:mt-0">
+              <a href="#" className="text-xs sm:text-sm text-gray-500 hover:text-gray-400 transition-colors tap-highlight-transparent">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-gray-500 hover:text-gray-400 transition-colors">
+              <a href="#" className="text-xs sm:text-sm text-gray-500 hover:text-gray-400 transition-colors tap-highlight-transparent">
                 Terms of Service
               </a>
             </div>

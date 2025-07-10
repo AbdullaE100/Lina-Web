@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
-import { ChevronRight } from 'lucide-react';
-import { useDeviceSize } from '@/hooks/use-mobile';
+import { ChevronRight, Menu, X } from 'lucide-react';
+import { useDeviceSize, useIsExtraSmall } from '@/hooks/use-mobile';
 
 const navLinks = [
   { path: '/about', label: 'ABOUT' },
@@ -17,8 +17,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { isMobile, isTablet } = useDeviceSize();
+  const { isMobile, isTablet, isSmallDevice, isExtraSmall } = useDeviceSize();
   const showMobileMenu = isMobile || isTablet;
+  const isVerySmallScreen = isExtraSmall;
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -57,16 +58,17 @@ const Header = () => {
           color: isTransparent ? 'white' : '#1A1A1A',
           borderBottom: isTransparent ? 'none' : '1px solid rgba(0,0,0,0.05)',
           backdropFilter: isTransparent ? 'none' : 'blur(10px)',
+          paddingTop: 'env(safe-area-inset-top)',
         }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between">
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 xs:h-18 sm:h-20 md:h-24 flex items-center justify-between">
           <Link to="/" className="flex flex-col group z-50">
             <div className="mb-1">
               <span 
-                className={`font-luxury text-2xl sm:text-3xl tracking-[0.15em] ${
+                className={`font-luxury text-xl xs:text-2xl sm:text-2xl md:text-3xl tracking-[0.15em] ${
                   isMenuOpen ? 'text-white' : ''
                 }`}
                 style={{ 
@@ -89,12 +91,12 @@ const Header = () => {
               </span>
             </div>
             <span 
-              className={`text-[10px] sm:text-[11px] tracking-[0.3em] opacity-100 font-medium ${
+              className={`text-[9px] xs:text-[10px] sm:text-[11px] tracking-[0.3em] opacity-100 font-medium ${
                 isMenuOpen ? 'text-white' : ''
               }`}
               style={{ letterSpacing: '0.3em' }}
             >
-              LUXURY REAL ESTATE ADVISORY
+              {isVerySmallScreen ? 'LUXURY REAL ESTATE' : 'LUXURY REAL ESTATE ADVISORY'}
             </span>
           </Link>
           
@@ -105,7 +107,7 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `relative text-xs tracking-widest transition-all hover:opacity-100 group font-ui ${
+                  `relative text-xs tracking-widest transition-all hover:opacity-100 group font-ui tap-highlight-transparent ${
                     isActive ? 'opacity-100' : 'opacity-80'
                   }`
                 }
@@ -146,39 +148,68 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - Improved for touch */}
           <button 
-            className="md:hidden flex flex-col space-y-1.5 z-50"
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 touch-callout-none z-50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
-            <motion.span 
-              className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
-              animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 6 : 0 }}
-            />
-            <motion.span 
-              className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
-              animate={{ opacity: isMenuOpen ? 0 : 1 }}
-            />
-            <motion.span 
-              className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
-              animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -6 : 0 }}
-            />
+            <AnimatePresence initial={false} mode="wait">
+              {isMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className={`w-6 h-6 ${isTransparent || isMenuOpen ? 'text-white' : 'text-[#1A1A1A]'}`} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex flex-col space-y-1.5"
+                >
+                  <span 
+                    className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
+                  />
+                  <span 
+                    className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
+                  />
+                  <span 
+                    className={`block w-5 sm:w-6 h-0.5 ${isTransparent || isMenuOpen ? 'bg-white' : 'bg-[#1A1A1A]'}`}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </motion.header>
 
-      {/* Mobile menu - Improved animation and layout */}
+      {/* Mobile menu - Improved animation, layout and touch interactions */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-menu"
             className="fixed inset-0 bg-[#1A1A1A] z-40 flex flex-col justify-center items-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{
+              paddingTop: 'calc(env(safe-area-inset-top) + 1rem)',
+              paddingBottom: 'env(safe-area-inset-bottom)',
+              paddingLeft: 'env(safe-area-inset-left)',
+              paddingRight: 'env(safe-area-inset-right)',
+            }}
           >
-            <nav className="flex flex-col items-center gap-6 sm:gap-8">
+            <nav className="flex flex-col items-center gap-5 xs:gap-6 sm:gap-8">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -186,11 +217,14 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ delay: 0.1 * index, duration: 0.4 }}
+                  className="w-full text-center"
                 >
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `text-white text-xl sm:text-2xl font-ui tracking-wide ${isActive ? 'text-[#C0A875]' : ''}`
+                      `inline-block py-2 px-4 text-white text-lg xs:text-xl sm:text-2xl font-ui tracking-wide 
+                      ${isActive ? 'text-[#C0A875]' : ''} 
+                      active:scale-95 transition-transform duration-150 touch-callout-none tap-highlight-transparent`
                     }
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -203,18 +237,56 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
-                className="mt-4 sm:mt-6"
+                className="mt-4 sm:mt-6 w-full flex justify-center"
               >
                 <Button 
-                  className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-6 sm:px-8 py-5 sm:py-6 text-sm tracking-wide font-ui shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 glow-gold pulse-animation-gold"
+                  className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] 
+                  text-black border-none rounded-none px-6 sm:px-8 py-5 sm:py-6 text-sm tracking-wide font-ui 
+                  shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-95 w-3/4 xs:w-auto
+                  tap-highlight-transparent touch-callout-none"
                 >
-                  <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="flex items-center">
+                  <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center w-full">
                     <span>CONTACT US</span>
                     <ChevronRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
               </motion.div>
             </nav>
+            
+            {/* Social links for mobile menu */}
+            <motion.div 
+              className="absolute bottom-8 sm:bottom-12 flex gap-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+            >
+              <a 
+                href="https://instagram.com/lina_in_realestate" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white opacity-70 hover:opacity-100 transition-opacity"
+                aria-label="Instagram"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a 
+                href="https://linkedin.com/in/lina-nizar" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white opacity-70 hover:opacity-100 transition-opacity"
+                aria-label="LinkedIn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

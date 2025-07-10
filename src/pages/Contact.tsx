@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { TouchButton } from "@/components/ui/touch-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -237,189 +238,124 @@ const Contact = () => {
           />
         </div>
 
-        <Button 
-          type="submit" 
-          variant="gold" 
-          size="lg" 
-          className="w-full font-ui group"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              <span>Sending...</span>
-            </>
-          ) : (
-            <>
-              <span>Send Message</span>
-              <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </>
-          )}
-        </Button>
+        <div className="mt-8">
+          <TouchButton 
+            type="submit"
+            className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-6 py-5 text-sm tracking-wide font-ui shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+            disabled={isSubmitting}
+            ripple={true}
+            scaleOnPress={true}
+          >
+            <span className="flex items-center justify-center">
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <span>Sending...</span>
+                </>
+              ) : (
+                <>
+                  <Send className="mr-2 h-4 w-4" />
+                  <span>Send Message</span>
+                </>
+              )}
+            </span>
+          </TouchButton>
+        </div>
       </form>
     );
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section with Subtle Gradient Background */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-sand/30 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-5 z-0"></div>
+    <div className="bg-white min-h-screen">
+      {/* Hero section with adjusted padding for mobile */}
+      <section className="relative pt-24 pb-16 xs:pt-28 xs:pb-20 sm:pt-32 sm:pb-24 bg-gradient-to-br from-[#F8F7F4] to-[#F2F0ED] overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'url("/patterns/subtle-dots.svg")' }}></div>
         
-        <motion.div 
-          className="container mx-auto px-6 relative z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1 
-              className="text-5xl md:text-7xl font-luxury mb-6 text-primary"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Let's Connect
-            </motion.h1>
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-luxury tracking-tight text-[#1A1A1A] mb-6">
+              Connect with Lina
+            </h1>
             
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-serif">
-                Ready to explore premier real estate opportunities? Schedule a personalized 
-                strategy session with Lina Nizar to discuss your investment goals.
-              </p>
-            </motion.div>
+            <div className="h-1 w-24 bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] mb-6"></div>
+            
+            <p className="text-lg xs:text-xl text-[#666666] max-w-xl mb-0 font-serif">
+              Whether you're looking to invest in luxury real estate or need expert market insights, I'm here to assist you.
+            </p>
           </div>
-        </motion.div>
+        </div>
       </section>
-
-      {/* Contact Form & Info Section */}
-      <section className="py-16 md:py-24 bg-sand/30 relative">
-        <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-5"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 max-w-7xl mx-auto">
-            {/* Form Section - 3 columns wide */}
-            <motion.div 
-              className="lg:col-span-3 order-2 lg:order-1"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="bg-background rounded-2xl shadow-elevated p-8 md:p-12 backdrop-blur-sm border border-border/10">
-                <h2 className="text-3xl font-luxury text-primary mb-2">
-                  Send a Message
-                </h2>
-                <p className="text-muted-foreground mb-8 font-serif">Complete the form below and I'll respond within 24 hours.</p>
+      
+      {/* Main contact section */}
+      <section className="py-12 xs:py-16 sm:py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+            {/* Contact form */}
+            <div className="lg:col-span-7 xl:col-span-8">
+              <div className="bg-white border border-gray-100 shadow-sm p-6 xs:p-8 sm:p-10">
+                <h2 className="text-2xl xs:text-3xl font-luxury text-[#1A1A1A] mb-6">Send a Message</h2>
                 
                 {renderForm()}
               </div>
-            </motion.div>
-
-            {/* Contact Information - 2 columns wide */}
-            <div className="lg:col-span-2 order-1 lg:order-2 space-y-8">
-              <motion.div 
-                className="bg-background p-8 rounded-2xl shadow-soft border border-border/10 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h3 className="text-2xl font-luxury text-primary mb-6">
-                  Get in Touch
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8 font-serif">
-                  Whether you're exploring your first property investment or expanding 
-                  your portfolio, I provide personalized guidance tailored to your goals.
-                </p>
-
-                <motion.div 
-                  className="space-y-6"
-                  variants={staggerContainer}
-                  initial="initial"
-                  animate="animate"
-                >
+            </div>
+            
+            {/* Contact info sidebar */}
+            <div className="lg:col-span-5 xl:col-span-4">
+              <div className="bg-[#F8F7F4] p-6 xs:p-8 sm:p-10 h-full">
+                <h2 className="text-2xl xs:text-3xl font-luxury text-[#1A1A1A] mb-6">Contact Details</h2>
+                
+                <div className="space-y-8">
                   {contactInfo.map((item, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="flex items-center space-x-4 group"
-                      variants={fadeInUp}
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      className="flex items-start"
                     >
-                      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/5 text-gold group-hover:bg-gold/10 transition-all">
+                      <div className="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white flex-shrink-0">
                         {item.icon}
                       </div>
-                      <div>
-                        <div className="text-xs text-muted-foreground mb-1 font-ui">
-                          {item.title}
-                        </div>
+                      <div className="ml-4">
+                        <h3 className="font-ui uppercase text-xs tracking-wider text-[#666666] mb-1">{item.title}</h3>
                         <a
                           href={item.link}
-                          target={item.link.startsWith('http') ? '_blank' : undefined}
-                          rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-primary hover:text-gold transition-elegant font-medium text-sm"
+                          className="text-lg font-medium text-[#1A1A1A] hover:text-[#C0A875] transition-colors"
+                          target={item.title === "Instagram" || item.title === "LinkedIn" ? "_blank" : undefined}
+                          rel={item.title === "Instagram" || item.title === "LinkedIn" ? "noopener noreferrer" : undefined}
                         >
                           {item.value}
                         </a>
                       </div>
                     </motion.div>
                   ))}
-                </motion.div>
-              </motion.div>
-
-              {/* Schedule Card */}
-              <motion.div 
-                className="bg-gradient-luxury p-8 rounded-2xl text-primary shadow-elevated relative overflow-hidden border border-gold/10"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/patterns/subtle-dots.svg')] opacity-5"></div>
-                <div className="relative z-10">
-                  <div className="flex items-center mb-4">
-                    <Calendar className="w-5 h-5 mr-2 text-gold" />
-                    <h3 className="text-2xl font-luxury">
-                      Strategy Call
-                    </h3>
-                  </div>
-                  <p className="mb-6 leading-relaxed font-serif">
-                    Schedule a personalized 30-minute consultation to discuss your investment 
-                    objectives in Sri Lanka and Dubai markets.
+                </div>
+                
+                {/* Schedule meeting call to action */}
+                <div className="mt-10 pt-8 border-t border-gray-200">
+                  <h3 className="text-xl font-luxury text-[#1A1A1A] mb-3">Prefer a Meeting?</h3>
+                  <p className="text-[#666666] mb-6 text-sm">
+                    Schedule a personal consultation at a time that's convenient for you.
                   </p>
-                  <Button 
-                    variant="gold" 
-                    size="lg" 
-                    className="w-full group shadow-gold hover:shadow-floating"
+                  <TouchButton 
+                    className="w-full bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] text-black border-none rounded-none px-4 py-3 text-sm tracking-wide font-ui shadow-md hover:shadow-lg"
+                    ripple={true}
+                    scaleOnPress={true}
                   >
-                    <span>Book Appointment</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                    <span className="flex items-center justify-center">
+                      <Calendar className="mr-2 w-4 h-4" />
+                      <span>SCHEDULE A CONSULTATION</span>
+                    </span>
+                  </TouchButton>
                 </div>
-              </motion.div>
-
-              {/* Response Time */}
-              <motion.div 
-                className="bg-background p-6 rounded-2xl shadow-soft text-center border border-border/10 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6 text-gold animate-pulse" />
-                </div>
-                <div className="text-lg font-semibold text-primary mb-1 font-luxury">
-                  Quick Response
-                </div>
-                <p className="text-muted-foreground text-sm font-serif">
-                  I typically respond within 24 hours
-                </p>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
+      
+      {/* Additional sections like location, FAQ, etc. */}
       {/* Location Section */}
       <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-6">
