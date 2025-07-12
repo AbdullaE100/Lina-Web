@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import aboutImage from "../assets/About-Me.jpeg";
+import aboutImage from "../assets/about-me.jpeg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Check, Briefcase, Star, TrendingUp } from 'lucide-react';
