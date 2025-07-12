@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ArticleDetail from "@/components/ArticleDetail";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 // Import images using dynamic import
 import dubaiColomboPic from '../assets/insights/dubai-colombo-comparison.jpg';
@@ -34,6 +35,8 @@ interface BlogPost {
 const Insights = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<number | null>(null);
+  
+  const categories = ["All", "Market Analysis", "Investment Strategy", "Investment Guide", "Risk Management", "Market Insights"];
   
   const articleContents = [
     `The real estate landscape in 2025 presents a fascinating dichotomy between Dubai's established luxury market and Colombo's emerging investment frontier. This comprehensive analysis provides investors with actionable intelligence based on proprietary data and on-the-ground research across both markets.
@@ -252,157 +255,117 @@ const Insights = () => {
       ]
     },
     {
-      title: "Pre-Launch Investment: Evaluation Framework",
-      excerpt: "A systematic methodology for evaluating pre-launch property investments, incorporating developer track record and market absorption rates.",
+      title: "Pre-Launch Investment Framework: A Guide",
+      excerpt: "A data-driven framework for identifying high-potential pre-launch property investments while mitigating common risks.",
       date: "December 15, 2024",
-      readTime: "5 min read",
-      category: "Investment Strategy",
+      readTime: "11 min read",
+      category: "Investment Guide",
       image: preLaunchPic,
       author: "Lina Nizar",
       content: articleContents[5],
       stats: [
-        { label: "Early Discount", value: "15-22%" },
-        { label: "Risk Level", value: "Variable" },
-        { label: "Appreciation", value: "31%" }
+        { label: "Avg. Discount", value: "15-22%" },
+        { label: "Success Rate", value: "82%" },
+        { label: "Risk Mitigation", value: "High" }
       ]
     }
   ];
 
-  const categories = ["All", "Market Analysis", "Investment Strategy", "Investment Guide", "Risk Management", "Market Insights"];
-  
-  const filteredPosts = activeCategory === "All" 
-    ? blogPosts 
+  const filteredPosts = activeCategory === "All"
+    ? blogPosts
     : blogPosts.filter(post => post.category === activeCategory);
 
   const handleReadArticle = (index: number) => {
-    setSelectedArticle(index);
-    document.body.style.overflow = 'hidden';
+    const originalIndex = blogPosts.findIndex(p => p.title === filteredPosts[index].title);
+    setSelectedArticle(originalIndex);
+    window.scrollTo(0, 0);
   };
 
   const handleCloseArticle = () => {
     setSelectedArticle(null);
-    document.body.style.overflow = 'auto';
   };
 
+  if (selectedArticle !== null) {
+    return <ArticleDetail {...blogPosts[selectedArticle]} onClose={handleCloseArticle} />;
+  }
+
   return (
-    <div className="min-h-screen pt-24">
-      {/* Hero Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl mb-8 text-primary">
+    <div className="bg-white min-h-screen">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 text-center bg-gradient-to-b from-[#F8F6F1] to-white relative">
+        <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-5"></div>
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <motion.h1 
+            className="font-luxury text-4xl md:text-6xl text-[#1A1A1A] mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             Market Insights
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-serif">
-            Strategic intelligence, market analysis, and investment wisdom from two decades 
-            of real estate expertise across Sri Lanka and Dubai markets.
-          </p>
+          </motion.h1>
+          <motion.p 
+            className="text-lg md:text-xl text-[#666666] max-w-2xl mx-auto font-serif"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Explore our latest articles and analyses on the evolving real estate landscape.
+          </motion.p>
         </div>
       </section>
 
-      {/* Categories Filter */}
-      <section className="py-12 bg-[#F8F5EF]">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
-              <Button
-                key={index}
-                variant={category === activeCategory ? "default" : "outline"}
-                size="lg"
-                className={`transition-all duration-300 font-ui tracking-wider ${
-                  category === activeCategory 
-                    ? "bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-none" 
-                    : "border-[#C0A875] text-[#C0A875] hover:bg-[#C0A875]/5"
-                }`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
+      <div className="container mx-auto px-4 sm:px-6 py-8 md:py-12">
+        <div className="mb-8 md:mb-12 border-b border-gray-200">
+          <div className="overflow-x-auto -mb-px">
+            <ul className="flex whitespace-nowrap">
+              {categories.map(category => (
+                <li key={category}>
+                  <button
+                    onClick={() => setActiveCategory(category)}
+                    className={`px-4 py-3 text-sm md:text-base font-medium transition-colors duration-300 border-b-2 ${
+                      activeCategory === category
+                        ? 'border-[#C0A875] text-[#C0A875]'
+                        : 'border-transparent text-gray-500 hover:text-gray-800'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </section>
 
-      {/* Blog Posts Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {filteredPosts.map((post, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer bg-white border border-[#EEEEEE] rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
-                whileHover={{ y: -5 }}
-                onClick={() => handleReadArticle(filteredPosts.indexOf(post))}
-              >
-                <div className="relative overflow-hidden">
-                  <div className="aspect-[16/9] overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="absolute top-0 left-0 bg-[#C0A875] text-white text-xs tracking-wider py-2 px-4 font-ui font-medium">
-                    {post.category}
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {filteredPosts.map((post, index) => (
+            <motion.div
+              key={index}
+              className="group flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              onClick={() => handleReadArticle(index)}
+            >
+              <div className="relative overflow-hidden rounded-lg cursor-pointer">
+                <img src={post.image} alt={post.title} className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+              <div className="py-4 flex-grow flex flex-col">
+                <p className="text-sm text-[#C0A875] font-semibold mb-1">{post.category}</p>
+                <h2 className="text-xl font-luxury text-[#1A1A1A] mb-2 group-hover:text-[#C0A875] transition-colors duration-300 flex-grow">
+                  {post.title}
+                </h2>
+                <p className="text-sm text-gray-600 font-serif mb-4 flex-grow">{post.excerpt}</p>
+                <div className="text-sm text-gray-500 mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
+                  <span>{post.date}</span>
+                  <span className="inline-flex items-center text-[#C0A875] font-medium">
+                    Read More <ArrowRight className="w-4 h-4 ml-1" />
+                  </span>
                 </div>
-                
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4 text-sm text-[#666666] font-medium">
-                    <span className="font-ui">{post.date}</span>
-                    <span className="font-ui">{post.readTime}</span>
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl mb-3 group-hover:text-[#C0A875] transition-colors duration-300 leading-tight">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-[#666666] mb-6 line-clamp-3 font-serif">
-                    {post.excerpt}
-                  </p>
-                  
-                  {/* Stats - Improved Layout */}
-                  <div className="grid grid-cols-3 gap-2 mb-6">
-                    {post.stats.map((stat, i) => (
-                      <div key={i} className="bg-[#F8F7F5] p-3 rounded">
-                        <div className="text-xs text-[#666666] font-ui font-medium mb-1 truncate">{stat.label}</div>
-                        <div className="text-base font-medium text-[#1A1A1A]">{stat.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="inline-flex items-center text-[#C0A875] font-ui text-sm font-medium group-hover:translate-x-2 transition-transform duration-300">
-                    <span className="mr-2">Read Article</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
-
-      {/* Article Detail Modal */}
-      {selectedArticle !== null && (
-        <ArticleDetail
-          title={filteredPosts[selectedArticle].title}
-          excerpt={filteredPosts[selectedArticle].excerpt}
-          content={filteredPosts[selectedArticle].content}
-          date={filteredPosts[selectedArticle].date}
-          readTime={filteredPosts[selectedArticle].readTime}
-          category={filteredPosts[selectedArticle].category}
-          image={filteredPosts[selectedArticle].image}
-          author={filteredPosts[selectedArticle].author}
-          stats={filteredPosts[selectedArticle].stats}
-          onClose={handleCloseArticle}
-          thumbnail={filteredPosts[selectedArticle].thumbnail}
-        />
-      )}
+      </div>
     </div>
   );
 };

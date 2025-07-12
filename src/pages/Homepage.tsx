@@ -509,9 +509,9 @@ const Homepage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'The Pre-Launch Advantage', description: 'A framework for identifying and capitalizing on pre-launch and off-market properties.', image: '/src/assets/insights/pre-launch-framework.jpg', link: '/insights/pre-launch-advantage' },
-              { title: 'Diaspora Investment Guide', description: 'Navigating the opportunities and challenges of investing in Sri Lanka from abroad.', image: '/src/assets/insights/diaspora-investment.jpg', link: '/insights/diaspora-investment-guide' },
-              { title: 'Currency Risk in Real Estate', description: 'Strategies to mitigate the impact of currency fluctuations on your property investments.', image: '/src/assets/insights/currency-risk.jpg', link: '/insights/currency-risk-strategies' },
+              { title: 'The Pre-Launch Advantage', description: 'A framework for identifying and capitalizing on pre-launch and off-market properties.', image: '/images/insights/pre-launch-framework.jpg', link: '/insights/pre-launch-advantage' },
+              { title: 'Diaspora Investment Guide', description: 'Navigating the opportunities and challenges of investing in Sri Lanka from abroad.', image: '/images/insights/diaspora-investment.jpg', link: '/insights/diaspora-investment-guide' },
+              { title: 'Currency Risk in Real Estate', description: 'Strategies to mitigate the impact of currency fluctuations on your property investments.', image: '/images/insights/currency-risk.jpg', link: '/insights/currency-risk-strategies' },
             ].map((article, index) => (
               <motion.div
                 key={index}
