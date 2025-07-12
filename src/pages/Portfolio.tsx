@@ -49,25 +49,59 @@ const Portfolio = () => {
       pricesStartingFrom: "AED3,222,000.00",
       description: "Flora Isle offers a unique investment opportunity with its prime beachfront location on Dubai Islands, providing exceptional views and resort-style living.",
       details: {
-        developer: "OCTA",
+        pricePoint: "Available from AED3,222,000.00",
+        paymentPlan: "50/50",
+        location: "Dubai Islands",
+        developer: "Flora Isle Real Estate Development",
+        completionDate: "31/03/2028",
+        whyInvest: [
+          "Prime Beachfront Location: Offers direct beach access on the developing Dubai Islands, a powerful draw for luxury rentals and sales.",
+          "Strategic Airport Proximity: Located just 18 minutes from Dubai International Airport, ideal for international investors and frequent travelers.",
+          "Flexible Financial Structure: An initial 20% payment followed by construction-linked installments eases the investment burden.",
+          "Aligned with Dubai's Vision: Its location and concept are in line with the Dubai 2040 Urban Master Plan, signaling strong long-term growth.",
+          "Attractive Investor Discounts: Offers up to 5% discounts for full-floor acquisitions and up to 6% for accelerated payments.",
+          "High-Specification Residences: A choice of premium ocean or garden view apartments equipped with high-end appliances.",
+          "Reputable Operator Association: Supported by Flora Hospitality's established track record, adding a layer of quality assurance.",
+          "Resort-Style Amenities: Features swimming pools, wellness facilities, and recreational areas for an exclusive lifestyle.",
+          "Defined Investment Timeline: A clear completion date of Q1 2028 allows for precise financial planning.",
+          "Competitive Service Fees: Projected service charges of AED 18 per sq. ft. are competitive for a prime waterfront development."
+        ],
+        details: "Flora Isle presents a compelling investment opportunity in Dubai's premium real estate market. This beachfront development, situated on Dubai Islands, comprises 251 residential units across three seven-story buildings, with direct beach access.\n\nThe project offers one to three-bedroom apartments ranging from 800 to 2,100 square feet, with prices starting from AED 2,088,888. The development features both ocean-facing and garden-view residences, complete with high-end appliances and contemporary interiors.\n\nKey advantages include:\n• Strategic location: 18 minutes from Dubai International Airport\n• Premium amenities: Swimming pools, wellness facilities, and recreational areas\n• Flexible payment structure: 20% initial payment with construction-linked instalments\n• Completion scheduled for Q1 2028\n\nAdditional investor benefits include bulk purchase discounts of up to 5% for full-floor acquisitions and accelerated payment discounts of up to 6%. The projected service fees are set at 18 AED per square foot.\n\nThe development aligns with Dubai's 2040 Urban Master Plan, positioning it favorably for long-term value appreciation. Construction is managed by Flora Isle Real Estate Development LLC, supported by Flora Hospitality's established track record.",
         propertyType: "Apartment",
-        bedrooms: "1, 2, 3",
-        pricePoint: "Available from AED3,222,000.00"
+        propertyView: "City View, Sea View, Pool View, Beach, Waterfront, Water",
+        propertyAmenities: "Gym, Swimming Pool, Parking, 24/7 Security, Children's Play Area, Barbecue Area, Balcony"
       }
     },
     {
       title: "Jumeirah Residences Emirates Towers",
-      location: "Emirates Towers",
+      location: "Zabeel",
       image: "/images/properties/jumeirah-residences.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED3,510,000.00",
       description: "Jumeirah Residences Emirates Towers offers a unique investment opportunity with its prime location near Sheikh Zayed Road, providing exceptional city views and luxury amenities.",
       details: {
-        developer: "Jumeirah",
+        pricePoint: "Available from AED3,510,000.00",
+        paymentPlan: "60/40",
+        location: "Zabeel",
+        developer: "Meraas",
+        completionDate: "01/08/2030",
+        whyInvest: [
+          "Iconic Landmark Location: Situated next to the Museum of the Future and Emirates Towers on Sheikh Zayed Road.",
+          "Operated by Jumeirah Group: Offers residents world-class signature hospitality services and management.",
+          "Award-Winning Architectural Design: A unique cantilevered design by SCDA Architects with column-free interiors.",
+          "Prime Financial District Proximity: Adjacent to Dubai International Financial Centre (DIFC), ensuring strong rental demand from finance professionals.",
+          "Flexible 60/40 Payment Plan: A manageable payment structure for a luxury asset, with handover in August 2030.",
+          "Elite Sky-Level Amenities: Includes sky infinity pools, wellness centers, and private cinemas with panoramic city views.",
+          "Pathway to UAE Residency: Investment provides eligibility for the UAE Golden Visa program.",
+          "Unobstructed Panoramic Views: Thoughtfully designed to offer stunning, unobstructed views of the city skyline.",
+          "Strong Capital Appreciation Potential: A landmark branded residence in a prime CBD location is poised for significant long-term growth.",
+          "Seamless Connectivity: Direct access to Sheikh Zayed Road and key destinations like The Dubai Mall and City Walk."
+        ],
+        details: "Jumeirah Residences Emirates Towers by Meraas is a landmark residential development redefining luxury living beside Dubai's financial district. Designed by the acclaimed SCDA Architects, the twin towers feature cantilevered structures with column-free interiors, offering unobstructed layouts and panoramic views of the city skyline.\n\nComprising 754 meticulously crafted units ranging from one to four bedrooms, each residence boasts floor-to-ceiling windows, private terraces, and premium finishes. Residents enjoy an array of world-class amenities, including sky-level infinity pools, exclusive wellness centres, private cinemas, and co-working lounges.\n\nOperated by the renowned Jumeirah Group, the development provides signature hospitality services such as 24/7 concierge, housekeeping, and personalised event planning. Strategically located adjacent to Sheikh Zayed Road and the Museum of the Future, the residences offer seamless access to key destinations like DIFC, The Dubai Mall, and City Walk.\n\nWith a flexible 60/40 payment plan and handover expected in August 2030, Jumeirah Residences Emirates Towers presents a compelling investment opportunity for discerning buyers seeking unparalleled luxury and convenience in the heart of Dubai.",
         propertyType: "Apartment",
-        bedrooms: "1, 2, 3, 4",
-        pricePoint: "Available from AED3,510,000.00"
+        propertyView: "Museum of the Future, Emirates Towers, City View, Skyline View, Pool View, Community View",
+        propertyAmenities: "Cinema, Sky Pool, Wellness Centre, Paddle Court, Co-Working space"
       }
     },
     {
