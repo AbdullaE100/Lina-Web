@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import aboutImage from "@/assets/lina-about-portrait.jpg";
+import aboutImage from "../assets/About-Me.jpeg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Check, Briefcase, Star, TrendingUp } from 'lucide-react';
@@ -53,7 +53,7 @@ const About = () => {
             className="w-full h-full object-cover object-center"
             style={{ y: heroImageY }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl text-white">

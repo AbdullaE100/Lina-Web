@@ -9,6 +9,11 @@ import heroImage from "../assets/lina-nizar-hero.jpg";
 import altairProject from '../assets/altair-project.jpg';
 import crystalSandsProject from '../assets/crystal-sands-project.jpg';
 import oneGalleFaceProject from '../assets/one-galle-face-project.jpg';
+
+import insightPreLaunch from '../assets/insights/pre-launch-framework.jpg';
+import insightDiaspora from '../assets/insights/diaspora-investment.jpg';
+import insightCurrencyRisk from '../assets/insights/currency-risk.jpg';
+
 import VideoBackground from "@/components/Video-background";
 import heroVideo from "../assets/videos/luxury-video.mp4";
 import { ResponsiveImage } from "@/components/ui/responsive-image";
@@ -509,9 +514,9 @@ const Homepage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'The Pre-Launch Advantage', description: 'A framework for identifying and capitalizing on pre-launch and off-market properties.', image: '/images/insights/pre-launch-framework.jpg', link: '/insights/pre-launch-advantage' },
-              { title: 'Diaspora Investment Guide', description: 'Navigating the opportunities and challenges of investing in Sri Lanka from abroad.', image: '/images/insights/diaspora-investment.jpg', link: '/insights/diaspora-investment-guide' },
-              { title: 'Currency Risk in Real Estate', description: 'Strategies to mitigate the impact of currency fluctuations on your property investments.', image: '/images/insights/currency-risk.jpg', link: '/insights/currency-risk-strategies' },
+              { title: 'The Pre-Launch Advantage', description: 'A framework for identifying and capitalizing on pre-launch and off-market properties.', image: insightPreLaunch, link: '/insights/pre-launch-advantage' },
+              { title: 'Diaspora Investment Guide', description: 'Navigating the opportunities and challenges of investing in Sri Lanka from abroad.', image: insightDiaspora, link: '/insights/diaspora-investment-guide' },
+              { title: 'Currency Risk in Real Estate', description: 'Strategies to mitigate the impact of currency fluctuations on your property investments.', image: insightCurrencyRisk, link: '/insights/currency-risk-strategies' },
             ].map((article, index) => (
               <motion.div
                 key={index}
