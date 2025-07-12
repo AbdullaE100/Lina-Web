@@ -63,9 +63,8 @@ const Homepage = () => {
             className="max-w-5xl mx-auto text-center"
             style={{ opacity: textOpacity, y: textY }}
           >
-            <div className="inline-flex items-center gap-2 text-white mb-4 md:mb-8 tracking-widest font-medium">
+            <div className="inline-flex items-center gap-2 text-white mb-4 md:mb-8">
                 <div className="h-px w-8 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
-                <span className="font-ui text-[10px] sm:text-sm tracking-widest drop-shadow-md">LUXURY REAL ESTATE ADVISORY</span>
                 <div className="h-px w-8 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
             </div>
 
@@ -276,8 +275,8 @@ const Homepage = () => {
                 >
                   <div className="relative overflow-hidden aspect-[4/3] rounded-t-lg">
                     <img 
-                      src={property.image} 
-                      alt={property.title} 
+                        src={property.image} 
+                        alt={property.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -431,14 +430,14 @@ const Homepage = () => {
             className="w-full"
           >
             <CarouselContent>
-              {[
-                {
+            {[
+              {
                   name: 'Jonathan L.',
                   location: 'Dubai, UAE',
                   quote: 'Lina’s insights into the Dubai market are unparalleled. Her team guided us to a lucrative off-market opportunity we would have otherwise missed. A truly bespoke and professional service.',
                   image: 'https://randomuser.me/api/portraits/men/75.jpg'
-                },
-                {
+              },
+              {
                   name: 'Aanya S.',
                   location: 'Colombo, Sri Lanka',
                   quote: 'As a first-time investor in Sri Lanka, I was nervous. Lina’s expertise and patient guidance made the entire process seamless and successful. Her cultural understanding is a huge asset.',
@@ -459,7 +458,7 @@ const Homepage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                    >
+              >
                       <div className="flex items-center mb-4">
                         <div className="flex-shrink-0">
                           <img className="w-12 h-12 rounded-full" src={testimonial.image} alt={testimonial.name} />
@@ -473,7 +472,7 @@ const Homepage = () => {
                     </motion.div>
                     </div>
                 </CarouselItem>
-              ))}
+                  ))}
             </CarouselContent>
             <CarouselPrevious className="-left-4" />
             <CarouselNext className="-right-4" />
