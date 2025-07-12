@@ -51,7 +51,7 @@ const Homepage = () => {
         className="relative h-[85vh] min-h-[550px] md:h-screen md:min-h-[800px] flex items-center justify-center overflow-hidden"
       >
         {/* Video Background */}
-        <VideoBackground src={heroVideo} fallbackImage={videoFallbackImage} />
+        <VideoBackground src={heroVideo} fallbackImage={videoFallbackImage} quality="high" />
         
         <div 
           className="container px-4 sm:px-6 relative z-10"
