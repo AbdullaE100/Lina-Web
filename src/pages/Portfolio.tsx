@@ -4,6 +4,20 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
+// Import thumbnails
+import sixSensesThumb from "@/assets/properties-thumbnails/six-senses-thumb.svg";
+import floraIsleThumb from "@/assets/properties-thumbnails/flora-isle-thumb.svg";
+import jumeirahResidencesThumb from "@/assets/properties-thumbnails/jumeirah-residences-thumb.svg";
+import solLevanteThumb from "@/assets/properties-thumbnails/sol-levante-thumb.svg";
+import koroOneThumb from "@/assets/properties-thumbnails/koro-one-thumb.svg";
+import silvaEmaarThumb from "@/assets/properties-thumbnails/silva-emaar-thumb.svg";
+import sidrResidencesThumb from "@/assets/properties-thumbnails/sidr-residences-thumb.svg";
+import terraHeightsThumb from "@/assets/properties-thumbnails/terra-heights-thumb.svg";
+import wynwoodThumb from "@/assets/properties-thumbnails/wynwood-thumb.svg";
+import camdenThumb from "@/assets/properties-thumbnails/camden-thumb.svg";
+import oraGhantootThumb from "@/assets/properties-thumbnails/ora-ghantoot-thumb.svg";
+import taleaThumb from "@/assets/properties-thumbnails/talea-thumb.svg";
+
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -12,7 +26,7 @@ const Portfolio = () => {
     {
       title: "Six Senses Residences Dubai Marina by Select",
       location: "Dubai Marina",
-      image: "/images/properties-thumbnails/six-senses-thumb.jpg",
+      image: sixSensesThumb,
       category: "apartment",
       bedrooms: "2, 3, 4",
       pricesStartingFrom: "AED10,351,000.00",
@@ -44,7 +58,7 @@ const Portfolio = () => {
     {
       title: "Flora Isle in Dubai Islands",
       location: "Dubai Islands",
-      image: "/images/properties-thumbnails/flora-isle-thumb.jpg",
+      image: floraIsleThumb,
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED3,222,000.00",
@@ -76,7 +90,7 @@ const Portfolio = () => {
     {
       title: "Jumeirah Residences Emirates Towers",
       location: "Zabeel",
-      image: "/images/properties-thumbnails/jumeirah-residences-thumb.jpg",
+      image: jumeirahResidencesThumb,
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED3,510,000.00",
@@ -108,7 +122,7 @@ const Portfolio = () => {
     {
       title: "SOL Levante",
       location: "Jumeirah Village Triangle (JVT)",
-      image: "/images/properties-thumbnails/sol-levante-thumb.jpg",
+      image: solLevanteThumb,
       category: "apartment",
       bedrooms: "Studio, 1, 2, 3",
       pricesStartingFrom: "AED800,000.00",
@@ -140,7 +154,7 @@ const Portfolio = () => {
     {
       title: "KORO One by ALTA",
       location: "Jumeirah Garden City",
-      image: "/images/properties-thumbnails/koro-one-thumb.jpg",
+      image: koroOneThumb,
       category: "apartment",
       bedrooms: "Studio, 1, 2",
       pricesStartingFrom: "AED877,000.00",
@@ -172,7 +186,7 @@ const Portfolio = () => {
     {
       title: "Silva by Emaar in Dubai Creek Harbour",
       location: "Dubai Creek Harbour",
-      image: "/images/properties-thumbnails/silva-emaar-thumb.jpg",
+      image: silvaEmaarThumb,
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,800,000.00",
@@ -204,7 +218,7 @@ const Portfolio = () => {
     {
       title: "Sidr Residences - EXPO City",
       location: "Expo City",
-      image: "/images/properties-thumbnails/sidr-residences-thumb.jpg",
+      image: sidrResidencesThumb,
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,900,000.00",
@@ -236,7 +250,7 @@ const Portfolio = () => {
     {
       title: "Terra Heights in Emaar Expo Living",
       location: "Expo City",
-      image: "/images/properties-thumbnails/terra-heights-thumb.jpg",
+      image: terraHeightsThumb,
       category: "apartment",
       bedrooms: "2",
       pricesStartingFrom: "AED2,080,000.00",
@@ -268,7 +282,7 @@ const Portfolio = () => {
     {
       title: "Wynwood on Dubai Islands",
       location: "Dubai Islands",
-      image: "/images/properties-thumbnails/wynwood-thumb.jpg",
+      image: wynwoodThumb,
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED2,000,000.00",
@@ -300,7 +314,7 @@ const Portfolio = () => {
     {
       title: "Camden in Town Square",
       location: "Town Square",
-      image: "/images/properties-thumbnails/camden-thumb.jpg",
+      image: camdenThumb,
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,156,888.00",
@@ -331,7 +345,7 @@ const Portfolio = () => {
     {
       title: "ORA Ghantoot – Redefining Coastal Living Between Two Emirates",
       location: "Ghantoot",
-      image: "/images/properties-thumbnails/ora-ghantoot-thumb.jpg",
+      image: oraGhantootThumb,
       category: "apartment,villa,townhouse",
       bedrooms: "3, 4, 5, 6",
       pricesStartingFrom: "AED3,000,000.00",
@@ -363,7 +377,7 @@ const Portfolio = () => {
     {
       title: "Talea by Beyond at Maritime City",
       location: "Maritime City",
-      image: "/images/properties-thumbnails/talea-thumb.jpg",
+      image: taleaThumb,
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED2,200,000.00",
@@ -449,14 +463,17 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
               className="bg-background rounded-xl shadow-soft overflow-hidden border border-gold/10 hover:shadow-floating transition-all duration-300 group"
             >
               {/* Project Image with Overlay */}
               <div className="relative h-72 overflow-hidden">
-                <img
+                <motion.img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.7 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                 
@@ -477,7 +494,7 @@ const Portfolio = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 line-clamp-2">{project.title}</h3>
+                <h3 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-gold transition-colors duration-300">{project.title}</h3>
                 
                 {/* Property Details */}
                 <div className="flex flex-wrap gap-4 mb-4">
@@ -588,22 +605,25 @@ const Portfolio = () => {
             className="bg-background rounded-xl shadow-floating max-w-5xl w-full max-h-[90vh] overflow-y-auto"
           >
             <div className="relative h-80 md:h-96">
-              <img 
-                src={projects[selectedProject].image.replace('-thumb', '')} 
+              <motion.img 
+                src={projects[selectedProject].image} 
                 alt={projects[selectedProject].title}
                 className="w-full h-full object-cover"
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.05 }}
+                transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               
               {/* Close Button */}
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="absolute top-4 right-4 h-10 w-10 rounded-full p-0 bg-black/30 border-white/20 text-white hover:bg-black/50"
+              <motion.button 
+                className="absolute top-4 right-4 h-10 w-10 rounded-full p-0 bg-black/30 border border-white/20 text-white hover:bg-black/50 flex items-center justify-center"
                 onClick={() => setSelectedProject(null)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </Button>
+              </motion.button>
               
               {/* Property Title Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
@@ -624,7 +644,12 @@ const Portfolio = () => {
 
             <div className="p-6 md:p-8">
               {/* Property Overview */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-gray-50 p-4 rounded-lg">
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-gray-50 p-4 rounded-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 <div className="text-center p-3">
                   <div className="text-muted-foreground text-sm mb-1">Bedrooms</div>
                   <div className="font-semibold">{projects[selectedProject].bedrooms}</div>
@@ -641,57 +666,78 @@ const Portfolio = () => {
                   <div className="text-muted-foreground text-sm mb-1">Completion</div>
                   <div className="font-semibold">{new Date(projects[selectedProject].details.completionDate).toLocaleDateString('en-GB', {year: 'numeric', month: 'short'})}</div>
                 </div>
-              </div>
+              </motion.div>
               
               {/* Property Description */}
-              <div className="mb-8">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
+              <motion.div 
+                className="mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <h3 className="text-xl font-bold mb-4 flex items-center text-gold">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
                   Property Description
                 </h3>
-                <p className="whitespace-pre-line">{projects[selectedProject].details.details}</p>
-              </div>
+                <p className="whitespace-pre-line text-muted-foreground">{projects[selectedProject].details.details}</p>
+              </motion.div>
               
               {/* Why Invest Section */}
               {projects[selectedProject].details.whyInvest && (
-                <div className="mb-8 bg-gold/5 p-6 rounded-lg border border-gold/10">
+                <motion.div 
+                  className="mb-8 bg-gold/5 p-6 rounded-lg border border-gold/10"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
                   <h3 className="text-xl font-bold mb-6 flex items-center text-gold">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M12 9v6"/></svg>
                     Why Invest
                   </h3>
                   <div className="space-y-4">
                     {projects[selectedProject].details.whyInvest.map((reason, i) => (
-                      <div key={i} className="flex items-start">
+                      <motion.div 
+                        key={i} 
+                        className="flex items-start"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + (i * 0.05) }}
+                      >
                         <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold mr-3 mt-0.5 flex-shrink-0">
                           {i + 1}
                         </div>
                         <p className="flex-1">{reason}</p>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               )}
               
               {/* Property Details Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
                 {projects[selectedProject].details.propertyType && (
                   <div className="border-t pt-4">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center">
+                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                       Property Type
                     </h3>
-                    <p>{projects[selectedProject].details.propertyType}</p>
+                    <p className="text-muted-foreground">{projects[selectedProject].details.propertyType}</p>
                   </div>
                 )}
                 
                 {projects[selectedProject].details.propertyView && (
                   <div className="border-t pt-4">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center">
+                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                       Property View
                     </h3>
                     <div className="flex flex-wrap gap-2">
-                      {projects[selectedProject].details.propertyView.split(', ').map((view, i) => (
+                      {projects[selectedProject].details.propertyView.split(', ').filter(view => view.trim()).map((view, i) => (
                         <Badge key={i} variant="outline" className="bg-gray-50">
                           {view}
                         </Badge>
@@ -702,7 +748,7 @@ const Portfolio = () => {
                 
                 {projects[selectedProject].details.propertyAmenities && (
                   <div className="border-t pt-4 md:col-span-2">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center">
+                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M20 22h-2"/><path d="M20 15v7"/><path d="M4 22h16"/><path d="M15 22v-4a3 3 0 0 0-3-3v0a3 3 0 0 0-3 3v4"/><path d="m2 15 10-10 10 10"/><path d="M12 12v3"/></svg>
                       Amenities
                     </h3>
@@ -715,13 +761,18 @@ const Portfolio = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t">
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 pt-4 border-t"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
                 <Button 
-                  variant="gold"
-                  size="lg"
+                  variant="gold" 
+                  size="lg" 
                   className="flex-1"
                   asChild
                 >
@@ -747,7 +798,7 @@ const Portfolio = () => {
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                 </Button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
