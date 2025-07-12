@@ -100,17 +100,18 @@ const Services = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="relative inline-block">
-                  Premium
-                  <motion.div 
-                    className="absolute -bottom-3 left-0 h-px w-full bg-[#C0A875]"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                  />
-                </span>
-                {" "}
-                <span className="text-[#C0A875]">Services</span>
+                <div className="flex flex-col md:flex-row md:items-center md:gap-3 justify-center">
+                  <span className="relative inline-block">
+                    Premium
+                    <motion.div 
+                      className="absolute -bottom-3 left-0 h-px w-full bg-[#C0A875]"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 1 }}
+                    />
+                  </span>
+                  <span className="text-[#C0A875]">Services</span>
+                </div>
               </motion.h1>
               
               <motion.p 
