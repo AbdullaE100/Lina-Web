@@ -44,16 +44,15 @@ const About = () => {
   return (
     <div ref={scrollRef} className="bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="relative h-[90vh] md:h-[80vh] min-h-[600px] flex items-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.img
-            src="/images/about-me.jpeg"
-            alt="Lina Nizar"
-            className="w-full h-full object-cover object-center"
-            style={{ y: heroImageY }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
-        </div>
+      <section 
+        className="relative h-[90vh] md:h-[80vh] min-h-[600px] flex items-center bg-cover bg-center" 
+        style={{ 
+          backgroundImage: 'url("/images/lina-profile.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl text-white">
             <motion.h1 
