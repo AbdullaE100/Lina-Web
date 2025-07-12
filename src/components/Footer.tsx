@@ -2,12 +2,65 @@ import { Link } from "react-router-dom";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { TouchButton } from "./ui/touch-button";
-import { ArrowRight, Mail, Phone, Instagram, Linkedin, Facebook, Twitter, ChevronRight } from "lucide-react";
+import { ArrowRight, Mail, Phone, Instagram, Linkedin, Facebook, Twitter, ChevronRight, Loader2, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useDeviceSize } from "@/hooks/use-mobile";
+import { useState } from "react";
+import { subscribeToNewsletter } from "@/lib/newsletter";
+import { toast } from "@/components/ui/use-toast";
 
 const Footer = () => {
   const { isExtraSmall, isMobile } = useDeviceSize();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const result = await subscribeToNewsletter(email);
+      
+      if (result.success) {
+        setIsSuccess(true);
+        setEmail("");
+        toast({
+          title: "Subscription successful!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+        
+        // Reset success state after 3 seconds
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: result.error || "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "An unexpected error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   return (
     <footer className="bg-[#1A2330] text-white pt-16 xs:pt-20 sm:pt-24 pb-6 sm:pb-8 relative overflow-hidden">
@@ -106,24 +159,38 @@ const Footer = () => {
               Subscribe for exclusive market insights and investment opportunities.
             </p>
             
-            <div className="flex space-x-2">
+            <form onSubmit={handleSubscribe} className="flex space-x-2">
               <Input 
                 type="email" 
                 placeholder="Your email" 
                 className="bg-[#2A3441] border-0 text-white h-10 text-sm placeholder:text-gray-500 focus:ring-1 focus:ring-[#C0A875]"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting || isSuccess}
+                required
               />
               <TouchButton 
+                type="submit"
                 className="bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-0 h-10 px-3 xs:px-4"
                 ripple={true}
                 scaleOnPress={true}
+                disabled={isSubmitting || isSuccess}
               >
                 <span className="flex items-center text-sm">
-                  <span className="hidden xs:inline">Join</span>
-                  <span className="xs:hidden">Go</span>
-                  <ChevronRight className="ml-1 w-3 h-3 xs:w-4 xs:h-4" />
+                  {isSubmitting ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : isSuccess ? (
+                    <Check className="w-4 h-4" />
+                  ) : (
+                    <>
+                      <span className="hidden xs:inline">Join</span>
+                      <span className="xs:hidden">Go</span>
+                      <ChevronRight className="ml-1 w-3 h-3 xs:w-4 xs:h-4" />
+                    </>
+                  )}
                 </span>
               </TouchButton>
-            </div>
+            </form>
             
             <div className="mt-10 sm:mt-12">
               <h3 className="text-base xs:text-lg font-medium mb-5 xs:mb-6 relative inline-block">

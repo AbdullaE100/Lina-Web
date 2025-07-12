@@ -71,3 +71,35 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Setting up Newsletter Subscription Functionality
+
+This project includes a newsletter subscription feature that uses Supabase as the backend. Follow these steps to set it up:
+
+### 1. Create the Newsletter Subscriptions Table
+
+The project includes a migration script to create the necessary table in your Supabase database:
+
+```sh
+# Set your Supabase service key as an environment variable
+export SUPABASE_SERVICE_KEY=your_supabase_service_key
+
+# Run the migration script
+node create-newsletter-table.js
+```
+
+### 2. How the Newsletter Subscription Works
+
+- The subscription form is located in the footer of the website
+- When a user submits their email, it's stored in the `newsletter_subscriptions` table in Supabase
+- The system checks for duplicate emails to prevent multiple subscriptions
+- Success/error messages are displayed using toast notifications
+
+### 3. Accessing Subscriber Data
+
+You can access and manage your newsletter subscribers through the Supabase dashboard:
+
+1. Go to your Supabase project dashboard
+2. Navigate to the "Table Editor" section
+3. Select the `newsletter_subscriptions` table
+4. Here you can view, export, or manage your subscriber list
