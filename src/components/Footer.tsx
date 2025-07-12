@@ -89,7 +89,7 @@ const Footer = () => {
                 className="text-[9px] xs:text-[10px] tracking-[0.3em] text-gray-400"
                 style={{ letterSpacing: '0.3em' }}
               >
-                {isExtraSmall ? 'LUXURY REAL ESTATE' : 'LUXURY REAL ESTATE CONSULTANT'}
+                LUXURY REAL ESTATE ADVISORY
               </span>
             </Link>
             
@@ -99,7 +99,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 text-sm xs:text-base leading-relaxed mb-6 sm:mb-8 pr-0 sm:pr-4">
-              Smart Real Estate. Global Vision. Strategic guidance for luxury real estate investments 
+              Smart Real Estate. Global Vision. Strategic guidance for investments 
               across Sri Lanka and Dubai with two decades of proven market expertise and cultural 
               intelligence.
             </p>

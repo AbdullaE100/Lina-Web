@@ -65,7 +65,7 @@ const Homepage = () => {
           >
             <div className="inline-flex items-center gap-2 text-white mb-4 md:mb-8 tracking-widest font-medium">
                 <div className="h-px w-8 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
-                <span className="font-ui text-[10px] sm:text-sm tracking-widest drop-shadow-md">LUXURY REAL ESTATE</span>
+                <span className="font-ui text-[10px] sm:text-sm tracking-widest drop-shadow-md">LUXURY REAL ESTATE ADVISORY</span>
                 <div className="h-px w-8 bg-gradient-to-r from-transparent via-[#D4BC8A] to-transparent"></div>
             </div>
 

@@ -96,7 +96,7 @@ const Header = () => {
               }`}
               style={{ letterSpacing: '0.25em' }}
             >
-              {isVerySmallScreen ? 'LUXURY REAL ESTATE' : 'LUXURY REAL ESTATE ADVISORY'}
+              LUXURY REAL ESTATE ADVISORY
             </span>
           </Link>
           

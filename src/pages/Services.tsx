@@ -226,14 +226,14 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             />
-            <motion.p 
+                          <motion.p 
               className="text-[#666666] text-base sm:text-lg leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              We provide a comprehensive range of services to cater to every aspect of your luxury real estate journey, ensuring a seamless and successful investment experience.
+              Our luxury real estate advisory services cater to every aspect of your investment journey, ensuring a seamless and successful experience.
             </motion.p>
           </div>
 
