@@ -523,7 +523,7 @@ const Homepage = () => {
               >
                 <Link to={article.link} className="block">
                   <div className="relative overflow-hidden aspect-[16/9]">
-                    <ResponsiveImage src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-6">
                     <h3 className="font-luxury text-xl text-[#1A1A1A] mb-2">{article.title}</h3>
