@@ -106,17 +106,34 @@ const Portfolio = () => {
     },
     {
       title: "SOL Levante",
-      location: "Jumeirah Village Triangle",
+      location: "Jumeirah Village Triangle (JVT)",
       image: "/images/properties/sol-levante.jpg",
       category: "apartment",
       bedrooms: "Studio, 1, 2, 3",
-      pricesStartingFrom: "AED1,200,000.00",
+      pricesStartingFrom: "AED800,000.00",
       description: "SOL Levante stands out due to its strategic location in Jumeirah Village Triangle, a rapidly appreciating area, offering excellent investment potential and modern living spaces.",
       details: {
-        developer: "SOL Properties",
+        pricePoint: "Available from AED800,000.00",
+        paymentPlan: "50/50",
+        location: "Jumeirah Village Triangle (JVT)",
+        developer: "SOL",
+        completionDate: "30/09/2028",
+        whyInvest: [
+          "Unique Wellness Focus: Taps into the growing market demand for health-oriented living with extensive wellness amenities.",
+          "High-Growth Location: Situated in Jumeirah Village Triangle (JVT), a suburban neighborhood known for its rapid value appreciation.",
+          "Affordable Entry to Premium Market: Starting prices of AED 735,000 for studios provide an accessible investment route.",
+          "Leveraged Investment Plan: Requires only a 24% down payment, with 50% upon completion in Q3 2028, maximizing potential returns on initial capital.",
+          "Extensive Amenity Package: Over 50,000 sq. ft. of facilities significantly boosts its competitive edge and rental value.",
+          "Developer Reliability: Backed by the Bhatia Group's 50-year history and completion of over 250 projects, ensuring investment security.",
+          "Broad Market Appeal: A diverse mix of units caters to various tenants and buyers, from professionals to families.",
+          "Strong Appreciation Potential: The combination of location, unique concept, and competitive pricing indicates a high chance of capital growth.",
+          "Freehold Ownership: Secures investment for both local and international buyers with full ownership rights.",
+          "Landmark Residential Status: Positioned to become an iconic wellness-focused residence within the JVT community."
+        ],
+        details: "Sol Levante is poised to become the most prestigious wellness residence in the heart of Jumeirah Village Triangle, one of Dubai's most dynamic and rapidly developing neighborhoods. This iconic development will offer 599 premium freehold units, catering to discerning investors who seek unparalleled luxury living. With a distinctive focus on wellness and an exceptional range of world-class amenities, Sol Levante provides a unique opportunity to invest in the thriving Dubai real estate market.",
         propertyType: "Apartment, Studio",
-        bedrooms: "Studio, 1, 2, 3",
-        pricePoint: "Available from AED1,200,000.00"
+        propertyView: "City View, Skyline View, Pool View, Community View, Park View, Garden View",
+        propertyAmenities: "Outdoor Cinema, Gym, Swimming Pool, Parking, 24/7 Security, Children's Play Area, Pet-Friendly Areas, Balcony, High-Speed Elevators, Concierge Services, Business Center, Shared Workspace, Supermarkets Nearby"
       }
     },
     {
@@ -125,13 +142,30 @@ const Portfolio = () => {
       image: "/images/properties/koro-one.jpg",
       category: "apartment",
       bedrooms: "Studio, 1, 2",
-      pricesStartingFrom: "AED950,000.00",
+      pricesStartingFrom: "AED877,000.00",
       description: "KORO One offers a prime investment opportunity with its strategic location in Jumeirah Garden City, benefiting from excellent connectivity and modern design.",
       details: {
+        pricePoint: "Available from AED877,000.00",
+        paymentPlan: "30/70",
+        location: "Jumeirah Garden City",
         developer: "ALTA",
+        completionDate: "31/01/2026",
+        whyInvest: [
+          "Prime Jumeirah Garden City Location: Situated in a central, emerging freehold zone just five minutes from Downtown Dubai and DIFC.",
+          "Government-Backed Regeneration Zone: Located within an area undergoing significant government-backed upgrades, ensuring long-term growth.",
+          "Flexible 30/70 Payment Plan: A highly attractive structure for investors, minimising upfront costs and maximising leverage.",
+          "Short Time to Handover: With completion in early 2026, it offers a faster path to rental income and capital returns.",
+          "Boutique, Design-Led Development: A contemporary project focused on efficient layouts and lifestyle amenities for modern urbanites.",
+          "Competitive Pricing for a Central Location: Offers a better value proposition compared to adjacent, more established areas like City Walk.",
+          "Ideal for Professional Tenant Market: The unit mix and location are perfectly suited for the growing population of young professionals and digital nomads.",
+          "Trusted Developer Backing: ALTA Real Estate has a proven track record of delivering high-quality residential projects.",
+          "Excellent Connectivity: Offers seamless access via Sheikh Zayed Road and nearby public transport links.",
+          "Low-Risk, Well-Timed Opportunity: A well-calibrated investment in a central neighbourhood poised for significant transformation."
+        ],
+        details: "KORO One by ALTA Real Estate Development is a thoughtfully curated residential project located in the heart of Jumeirah Garden City—one of Dubai's most dynamic emerging neighbourhoods. Blending city energy with tranquil living, KORO One is designed for modern lifestyles, where flexibility, connectivity, and design-led spaces converge to create an authentic sense of home.\n\nRooted in the concept of \"core\" and \"cuore\" (Italian for heart), KORO One offers a fresh take on central urban living. The development features a range of intelligently designed residences, including studios, one- and two-bedroom apartments, and a signature three-bedroom duplex. Each home maximises natural light through floor-to-ceiling windows and open-plan layouts, with soft textures and neutral palettes adding warmth and timeless appeal.\n\nPositioned just five minutes from Downtown Dubai and DIFC, and ten minutes from Jumeirah Beach and Port Rashid, KORO One enjoys excellent accessibility via Sheikh Zayed Road and public transport. Its location within a government-backed regeneration zone ensures strong long-term investment potential, enhanced further by surrounding infrastructure upgrades and a growing lifestyle ecosystem.\n\nResidents benefit from a suite of curated amenities, including rooftop swimming pools, a landscaped roof garden, Technogym-equipped fitness centre and yoga studio, co-working lounges, sauna and steam rooms, and boutique communal spaces. Ground-floor retail outlets offer everyday convenience, while tree-lined boulevards and nearby cafés create a welcoming community atmosphere.\n\nWith a flexible 30/70 payment plan and freehold ownership open to both local and international buyers, KORO One presents an attractive opportunity for investors and end-users alike. ALTA's proven track record in high-quality delivery adds to the project's appeal. In every sense, KORO One is built for the future—designed for how people truly live, work, and connect today.",
         propertyType: "Apartment, Studio",
-        bedrooms: "Studio, 1, 2",
-        pricePoint: "Available from AED950,000.00"
+        propertyView: "City View, Park View, Pool View, Community View, Landscaping",
+        propertyAmenities: "Rooftop Swimming Pools, Fully Equipped Gym with Technogym Equipment, Yoga Studio, Landscaped Roof Garden with panoramic city views, Co-working Lounge, Courtyard spaces for relaxation and socialising"
       }
     },
     {
@@ -141,12 +175,93 @@ const Portfolio = () => {
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,800,000.00",
-      description: "Altan by Emaar presents a compelling investment opportunity in one of Dubai's most ambitious master-planned communities, offering waterfront living and premium amenities.",
+      description: "Silva by Emaar presents a compelling investment opportunity in one of Dubai's most ambitious master-planned communities, offering waterfront living and premium amenities.",
       details: {
+        pricePoint: "Available from AED1,800,000.00",
+        paymentPlan: "80/20",
+        location: "Dubai Creek Harbour",
         developer: "Emaar",
+        completionDate: "30/09/2029",
+        whyInvest: [
+          "Silva is developed by Emaar, one of the most trusted names in real estate with a consistent track record of delivering high-quality projects. The location is excellent—just minutes from Dubai International Airport and positioned in the Green Gate district, which already includes the community school and upcoming metro access.",
+          "The views are a major highlight, with unobstructed outlooks over the golf course and direct sightlines to the Dubai Creek Tower, making it a visually compelling long-term investment.",
+          "The project offers a limited supply of large-format apartments and three-bedroom townhouses, a rarity in Creek Harbour, ensuring long-term demand and desirability.",
+          "Residents benefit from a full suite of lifestyle amenities, including a large community park, pools, padel court, fitness zones, co-working space, retail promenade, and more—attracting end users and tenants alike.",
+          "The payment plan is well structured, allowing investors to secure a unit with just 10 percent upfront and spread the remaining payments over the build period until completion in Q3 2029.",
+          "Silva is part of a master-planned community that includes new infrastructure, hospitality, green spaces, and commercial elements—positioning it for strong capital appreciation.",
+          "The design and finish are high-spec, with large living spaces, earthy interiors, and floor-to-ceiling windows that maximise views and light.",
+          "Creek Harbour is emerging as a strong alternative to Downtown Dubai, but with more open space, better pricing, and high potential for long-term growth.",
+          "The surrounding community is walkable, family-friendly, and ideal for both end users and tenants seeking a lifestyle-led location.",
+          "And finally, Emaar's developments typically benefit from strong post-handover resale and rental performance, offering flexibility whether you choose to hold or exit."
+        ],
+        details: "Silva at Dubai Creek Harbour is a premier residential development by Emaar, located in the thriving Green Gate district—home to the new community school. The 50‑storey tower offers a refined collection of one to three bedroom apartments, along with a limited selection of spacious three bedroom townhouses.\n\nEach residence is crafted to maximise light and comfort, featuring warm, natural finishes and flowing layouts. Generously sized living areas open onto private balconies or terraces, offering sweeping views over the golf course and towards the iconic Dubai Creek Tower. It's a home that feels both elegant and welcoming.\n\nSilva brings together nature, community and lifestyle in perfect harmony. Residents enjoy beautifully landscaped gardens, a serene community park, jogging tracks, outdoor fitness zones, padel and multi‑sport courts, and sparkling swimming pools. Children's play areas, picnic lawns, BBQ spaces and a neighbourhood retail plaza with boutique shops add to the family‑friendly atmosphere. For those working from home, a co‑working lounge offers a quiet, professional space.\n\nConnectivity is one of Silva's strengths. It is just minutes from Dubai International Airport, making travel effortless for residents and visitors alike. The future Blue Line Metro will further enhance access and convenience.\n\nWhat this really means is that Silva at Dubai Creek Harbour is more than just a place to live—it delivers a full lifestyle. With generous living spaces, high‑quality finishes, extensive amenities and panoramic views, it's an ideal choice for families, professionals and investors. This is a unique opportunity to own a contemporary, well‑connected home in one of Dubai's most exciting waterfront communities.",
         propertyType: "Apartment",
-        bedrooms: "1, 2, 3",
-        pricePoint: "Available from AED1,800,000.00"
+        propertyView: "City View, Golf Course View, Creek Tower",
+        propertyAmenities: "Gym, Swimming Pool, Parking, 24/7 Security, Children's Play Area, Balcony, High-Speed Elevators, Barbecue Area"
+      }
+    },
+    {
+      title: "Sidr Residences - EXPO City",
+      location: "Expo City",
+      image: "/images/properties/sidr-residences.jpg",
+      category: "apartment",
+      bedrooms: "1, 2, 3",
+      pricesStartingFrom: "AED1,900,000.00",
+      description: "Sidr Residences offers premium living in the heart of Expo City Dubai, combining innovation, sustainability, and urban comfort in a connected smart city environment.",
+      details: {
+        pricePoint: "Available from AED1,900,000.00",
+        paymentPlan: "60/40 Post Handover Payment Plan",
+        location: "Expo City",
+        developer: "Expo City",
+        completionDate: "31/12/2027",
+        whyInvest: [
+          "Strategic Expo City Location: Situated in the heart of a future-focused city with strong government backing and infrastructure.",
+          "Exceptional Connectivity: Steps away from the Dubai Metro and minutes from Al Maktoum International Airport.",
+          "Limited Supply, Growing Demand: A limited number of residences in a high-demand area ensures strong potential for capital appreciation.",
+          "Larger-Than-Average Layouts: Apartments are designed to be more spacious than the market average, enhancing liveability and rental appeal.",
+          "Flexible Post-Handover Payment Plan: A 2-year post-handover payment plan provides financial flexibility and attracts a wider range of buyers.",
+          "Walkable Smart City Concept: Part of a sustainable, walkable community with integrated technology and lifestyle amenities.",
+          "High-Quality Community Planning: Features curated amenities like community gardens, toy libraries, and meditation pods.",
+          "Proximity to Commercial Hubs: Close to the Dubai Exhibition Centre and other commercial hubs, driving rental demand from professionals.",
+          "Sweeping Views of Expo Landmarks: Offers prime views of the UAE Pavilion, Al Wasl Plaza, and the Surreal water feature.",
+          "Future-Proof Investment: A sustainable, tech-integrated home in a master-planned environment poised for long-term growth."
+        ],
+        details: "Sidr Residences is a premium residential development in the heart of Expo City Dubai, offering a unique blend of innovation, sustainability, and serene urban living. Drawing inspiration from the Sidr tree, known for its resilience and deep-rooted heritage, the development delivers thoughtfully designed homes set within a connected, walkable smart city.\n\nComprising three mid-rise towers, Sidr Residences offers one to three-bedroom apartments and duplexes, each finished to an exceptional standard and framed by floor-to-ceiling windows. With larger-than-average layouts, spacious balconies, and sweeping views over the UAE Pavilion, Terra, Al Wasl Plaza, and the Surreal water feature, every home is designed for modern comfort and natural harmony.\n\nPositioned just steps from the Dubai Exhibition Centre and Metro Station, the development offers seamless access to Expo City's cultural landmarks, retail and dining venues, and commercial hubs—while Al Maktoum International Airport is just minutes away. With home automation, 5 G-enabled connectivity, and a community ethos grounded in sustainability, Sidr Residences is ideal for future-focused professionals and families.",
+        propertyType: "Apartment",
+        propertyView: "City View, Skyline View, Pool View, Park View, Community View",
+        propertyAmenities: "Gym, Swimming Pool, Parking, 24/7 Security, Children's Play Area, Barbecue Area, Cycling Track, Jogging Track, Balcony, High-Speed Elevators, Smart Home Systems, Restaurants and Cafes, Supermarkets Nearby"
+      }
+    },
+    {
+      title: "Terra Heights in Emaar Expo Living",
+      location: "Expo City",
+      image: "/images/properties/terra-heights.jpg",
+      category: "apartment",
+      bedrooms: "2",
+      pricesStartingFrom: "AED2,080,000.00",
+      description: "Terra Heights offers premium living in Emaar Expo Living, with excellent connectivity to Dubai's major attractions and a comprehensive suite of lifestyle amenities.",
+      details: {
+        pricePoint: "Available from AED2,080,000.00",
+        paymentPlan: "80/20",
+        location: "Expo City",
+        developer: "Emaar",
+        completionDate: "31/03/2029",
+        whyInvest: [
+          "Proximity to Expo City: Located a 5-minute walk from the major exhibitions and events hub, ensuring consistent rental demand.",
+          "Exceptional Connectivity: Just a 10-minute drive to Al Maktoum International Airport and 15 minutes to Dubai Marina, with nearby metro access.",
+          "Trusted Developer: Developed by Emaar, a globally recognised brand synonymous with quality and iconic projects.",
+          "Future Growth Corridor: Situated within the Dubai South area, a key zone for development under the Dubai 2040 Urban Master Plan.",
+          "Accessible Price Point: Starting from AED 1.5 million, it offers a cost-effective entry into a premium Emaar community.",
+          "Investor-Friendly Payment Plan: A flexible structure with payments staggered until the 2029 completion date.",
+          "Comprehensive Lifestyle Amenities: Features two tranquil courtyards, pools, a gym, sports courts, and a unique mini-golf area.",
+          "Modern Architectural Design: Apartments feature floor-to-ceiling windows and open-plan layouts for a bright, contemporary feel.",
+          "Proximity to Future Landmarks: Close to the upcoming Palm Jebel Ali, poised to enhance long-term property value.",
+          "Financially Stable Developer: Emaar's robust 2023 revenue of AED 26.7 billion reinforces their capacity to deliver."
+        ],
+        details: "Prime Location\n• Situated within Expo Living, Terra Heights is a 5-minute walk from Expo City, the region's future exhibitions and events hub.\n• Proximity to Al Maktoum International Airport (10-minute drive) ensures seamless global connectivity.\n• Located within a 15-minute drive to Dubai Marina and near the metro station, offering excellent access to Dubai's coastal destinations and major transit routes.\n\nWorld-Class Amenities\n• Designed around two tranquil courtyards, offering relaxation and social spaces.\n• Features include:\n  o Landscaped podium courtyards with adult and kids' pools, yoga deck, and play areas.\n  o A well-equipped gym, multipurpose sports courts, and community lawns.\n  o Social spaces like barbecue areas, event rooms, and meeting spaces.\n  o A unique mini golf area for added recreational value.\n\nLifestyle and Design\n• One- and two-bedroom apartments with floor-to-ceiling windows maximize natural light and offer scenic views of Expo City and lush courtyards.\n• Open layouts promote a bright, airy living environment with a balance of urban and green surroundings.\n• Thoughtful architectural sophistication and an elegant blend of luxury and comfort.\n\nDeveloper Track Record\n• Developed by Emaar, a globally recognized brand with a proven history of delivering iconic landmarks, including Burj Khalifa and Dubai Mall.\n• Emaar's revenue for 2023 was AED 26.7 billion (US$ 7.3 billion), reinforcing their financial stability and expertise.\n\nPayment Plan\n• Flexible payment schedule with a down payment as low as 10%, followed by staggered installments linked to construction milestones, culminating in 2029.\n• Offers a hassle-free payment structure for investors and end-users alike.\n\nAttractive Price Points\n• Competitive pricing for one-bedroom units starting at AED 1.5 million and two-bedroom units starting at AED 2.0 million, making it a cost-effective investment in a premium community.\n\nFuture Prospects\n• The surrounding Dubai South area is positioned for dynamic growth, driven by the Dubai 2040 Urban Master Plan.\n• Proximity to Palm Jebel Ali and other attractions enhances leisure opportunities and long-term value appreciation.\n\nInvesting in Terra Heights provides a blend of strategic location, luxurious living, and the reliability of an iconic developer, making it an attractive option for investors and homeowners alike.",
+        propertyType: "Apartment",
+        propertyView: "",
+        propertyAmenities: "Gym, Swimming Pool, Parking, 24/7 Security"
       }
     }
   ];
