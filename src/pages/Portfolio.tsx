@@ -1,8 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import altairImage from "@/assets/altair-project.jpg";
-import crystalSandsImage from "@/assets/crystal-sands-project.jpg";
-import oneGalleFaceImage from "@/assets/one-galle-face-project.jpg";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
@@ -12,99 +9,110 @@ const Portfolio = () => {
   
   const projects = [
     {
-      title: "One Galle Face",
-      location: "Colombo, Sri Lanka",
-      image: oneGalleFaceImage,
-      role: "Investment Strategist",
-      description: "Shangri-La's flagship integrated development combines 390 premium residences, Grade-A offices, a 5-star hotel, and Sri Lanka's most prestigious retail destination.",
-      highlights: [
-        "Largest integrated resort development in Sri Lanka ($700M+)",
-        "Exclusive 'East-meets-West' architectural concept",
-        "Residents-only 50,000 sq ft amenity podium",
-        "Direct connection to Shangri-La Hotel Colombo"
-      ],
-      category: "colombo",
+      title: "Six Senses Residences Dubai Marina by Select",
+      location: "Dubai Marina",
+      image: "/images/properties/six-senses.jpg",
+      category: "apartment",
+      bedrooms: "2, 3, 4",
+      pricesStartingFrom: "AED10,351,000.00",
+      description: "Six Senses Residences Dubai Marina offers a unique investment opportunity with its strategic pricing, significantly lower than other branded residences in the area.",
       details: {
-        developer: "Shangri-La Group",
-        totalValue: "$700+ million",
-        completionDate: "2019",
-        totalUnits: "390 luxury residences",
-        priceRange: "$500,000 - $3.5 million",
-        amenities: "Private pool, fitness center, residents' lounge, children's play area, 24/7 concierge",
-        returnOnInvestment: "8-10% annual rental yield",
-        website: "www.onegallefaceresidences.com"
+        pricePoint: "Available from AED10,351,000.00",
+        paymentPlan: "40/60, 30/70",
+        location: "Dubai Marina",
+        developer: "Select",
+        completionDate: "31/10/2028",
+        whyInvest: [
+          "Iconic Landmark Status: Set to be the world's tallest residential tower, ensuring global recognition and premium value.",
+          "Unmatched Wellness Focus: Over 61,000 sq. ft. of amenities are dedicated to wellness, including a longevity clinic and hydrotherapy spa.",
+          "Exclusive Residences-Only Concept: With no hotel component, it guarantees privacy and exclusivity for residents.",
+          "Prime Dubai Marina Location: Situated in a prime, evolving part of Dubai Marina with excellent connectivity and views.",
+          "Attractive Value Proposition: Priced competitively compared to other branded residences in prime Dubai locations.",
+          "Favourable 40/60 Payment Plan: Requires only 40% during construction, offering significant leverage and potential ROI upon completion in 2028.",
+          "Strong Potential for Capital Appreciation: Projections suggest returns could exceed 300% on the initial investment.",
+          "Ultra-Luxury Branding: The Six Senses brand is synonymous with world-class luxury, wellness, and service.",
+          "Limited and Exclusive Inventory: With only 251 residences, the project's scarcity will drive long-term value.",
+          "Biophilic and Sustainable Design: The focus on wellness-centric and sustainable architecture appeals to the modern luxury buyer."
+        ],
+        details: "Six Senses Residences Dubai Marina is a landmark ultra-luxury development by Select Group in partnership with Six Senses, set to become the world's tallest residential tower at 517 metres across 122 floors. Located in Dubai Marina, this exclusive project offers just 251 residences – including two- to four-bedroom apartments, duplexes, and triplex sky mansions – all designed with wellness, sustainability, and biophilic design principles.\n\nResidents will enjoy over 61,000 sq. ft. of dedicated amenities, including a sky deck infinity pool on the 109th floor, private longevity clinic, cryotherapy rooms, hydrotherapy spa, wellness centre, fitness studios, indoor/outdoor cinemas, and more. With a unique residences-only concept and no hotel component, it promises unmatched privacy and exclusivity.\n\nPriced from AED 3,000-4,000 per sq. ft. with a 40/60 payment plan and handover in 2028, this project presents one of the strongest investment opportunities in Dubai's branded residential market.",
+        propertyType: "Apartment",
+        propertyView: "City View, Sea View, Marina View, Golf Course View, Skyline View",
+        propertyAmenities: "Gym, Swimming Pool, Parking, 24/7 Security, Spa, Sauna, Steam Room, Pet-Friendly Areas, Balcony, High-Speed Elevators, Smart Home Systems, Concierge Services, Rooftop Terrace, Shared Workspace, Restaurants and Cafes, Supermarkets Nearby"
       }
     },
     {
-      title: "Expo City Dubai",
-      location: "Dubai, UAE",
-      image: crystalSandsImage,
-      role: "Strategic Investment Advisor",
-      description: "A visionary 15-minute city evolving from Expo 2020's legacy, offering premium residential, commercial, and educational spaces centered around the iconic Al Wasl Plaza.",
-      highlights: [
-        "First 15-minute city concept in Dubai",
-        "Net-zero carbon emissions target by 2050",
-        "85% of Expo 2020 infrastructure repurposed",
-        "Integrated with Dubai 2040 Urban Master Plan"
-      ],
-      category: "dubai",
+      title: "Flora Isle in Dubai Islands",
+      location: "Dubai Islands",
+      image: "/images/properties/flora-isle.jpg",
+      category: "apartment",
+      bedrooms: "1, 2, 3",
+      pricesStartingFrom: "AED3,222,000.00",
+      description: "Flora Isle offers a unique investment opportunity with its prime beachfront location on Dubai Islands, providing exceptional views and resort-style living.",
       details: {
-        developer: "Dubai Holding",
-        totalValue: "$8+ billion",
-        completionDate: "Phase 1: 2023, Full completion: 2040",
-        totalUnits: "10,000+ residential units planned",
-        priceRange: "$400,000 - $5 million",
-        amenities: "Al Wasl Plaza, Mobility Pavilion, Terra Sustainability Pavilion, Conference & Exhibition Centre",
-        returnOnInvestment: "7-9% projected annual appreciation",
-        website: "www.expocitydubai.ae"
+        developer: "OCTA",
+        propertyType: "Apartment",
+        bedrooms: "1, 2, 3",
+        pricePoint: "Available from AED3,222,000.00"
       }
     },
     {
-      title: "Altair",
-      location: "Colombo, Sri Lanka",
-      image: altairImage,
-      role: "Lead Sales Director",
-      description: "Designed by Moshe Safdie, this 68-story twin-tower masterpiece features a revolutionary leaning design with 400+ ultra-luxury residences and panoramic Indian Ocean views.",
-      highlights: [
-        "Iconic 240m twisted twin-tower design",
-        "4,000+ sq ft Sky Mansions with private pools",
-        "First development with helicopter landing pad",
-        "Award-winning structural engineering"
-      ],
-      category: "colombo",
+      title: "Jumeirah Residences Emirates Towers",
+      location: "Emirates Towers",
+      image: "/images/properties/jumeirah-residences.jpg",
+      category: "apartment",
+      bedrooms: "1, 2, 3, 4",
+      pricesStartingFrom: "AED3,510,000.00",
+      description: "Jumeirah Residences Emirates Towers offers a unique investment opportunity with its prime location near Sheikh Zayed Road, providing exceptional city views and luxury amenities.",
       details: {
-        developer: "Indocean Developers",
-        totalValue: "$300+ million",
-        completionDate: "2021",
-        totalUnits: "404 luxury apartments",
-        priceRange: "$400,000 - $2.8 million",
-        amenities: "Infinity pool, sky garden, fitness center, private cinema, business center",
-        returnOnInvestment: "6-8% annual rental yield",
-        website: "www.altair.lk"
+        developer: "Jumeirah",
+        propertyType: "Apartment",
+        bedrooms: "1, 2, 3, 4",
+        pricePoint: "Available from AED3,510,000.00"
       }
     },
     {
-      title: "Cinnamon Life",
-      location: "Colombo, Sri Lanka",
-      image: crystalSandsImage,
-      role: "Investment Strategy Consultant",
-      description: "Designed by Cecil Balmond, this $1B+ waterfront destination spans 4.5M sq ft, featuring premium residences, offices, retail, entertainment, and the flagship Cinnamon hotel.",
-      highlights: [
-        "$1B+ investment by John Keells Holdings",
-        "800+ luxury residential apartments",
-        "30-story office tower with smart building technology",
-        "Largest elevated retail and lifestyle complex in Sri Lanka"
-      ],
-      category: "colombo",
+      title: "SOL Levante",
+      location: "Jumeirah Village Triangle",
+      image: "/images/properties/sol-levante.jpg",
+      category: "apartment",
+      bedrooms: "Studio, 1, 2, 3",
+      pricesStartingFrom: "AED1,200,000.00",
+      description: "SOL Levante stands out due to its strategic location in Jumeirah Village Triangle, a rapidly appreciating area, offering excellent investment potential and modern living spaces.",
       details: {
-        developer: "John Keells Holdings",
-        totalValue: "$1+ billion",
-        completionDate: "2023",
-        totalUnits: "800+ residential apartments",
-        priceRange: "$350,000 - $1.8 million",
-        amenities: "Rooftop infinity pool, fitness center, multipurpose hall, landscaped gardens",
-        returnOnInvestment: "7-9% annual rental yield",
-        website: "www.cinnamonlife.com"
+        developer: "SOL Properties",
+        propertyType: "Apartment, Studio",
+        bedrooms: "Studio, 1, 2, 3",
+        pricePoint: "Available from AED1,200,000.00"
+      }
+    },
+    {
+      title: "KORO One by ALTA",
+      location: "Jumeirah Garden City",
+      image: "/images/properties/koro-one.jpg",
+      category: "apartment",
+      bedrooms: "Studio, 1, 2",
+      pricesStartingFrom: "AED950,000.00",
+      description: "KORO One offers a prime investment opportunity with its strategic location in Jumeirah Garden City, benefiting from excellent connectivity and modern design.",
+      details: {
+        developer: "ALTA",
+        propertyType: "Apartment, Studio",
+        bedrooms: "Studio, 1, 2",
+        pricePoint: "Available from AED950,000.00"
+      }
+    },
+    {
+      title: "Silva by Emaar in Dubai Creek Harbour",
+      location: "Dubai Creek Harbour",
+      image: "/images/properties/silva-emaar.jpg",
+      category: "apartment",
+      bedrooms: "1, 2, 3",
+      pricesStartingFrom: "AED1,800,000.00",
+      description: "Altan by Emaar presents a compelling investment opportunity in one of Dubai's most ambitious master-planned communities, offering waterfront living and premium amenities.",
+      details: {
+        developer: "Emaar",
+        propertyType: "Apartment",
+        bedrooms: "1, 2, 3",
+        pricePoint: "Available from AED1,800,000.00"
       }
     }
   ];
@@ -118,10 +126,10 @@ const Portfolio = () => {
       {/* Page Header */}
       <div className="container mx-auto px-6 mb-12">
         <h1 className="text-headline font-luxury text-center text-primary mb-4">
-          Signature <span className="text-gradient-gold">Projects</span>
+          Premium <span className="text-gradient-gold">Properties</span>
         </h1>
         <p className="text-body-xl text-center text-muted-foreground max-w-3xl mx-auto font-serif">
-          Premium real estate opportunities in the most sought-after locations across Dubai and Sri Lanka.
+          Exclusive luxury real estate opportunities in Dubai's most prestigious locations.
         </p>
       </div>
 
@@ -134,30 +142,30 @@ const Portfolio = () => {
             onClick={() => setActiveTab("all")}
             className="min-w-[100px]"
           >
-            All Projects
+            All Properties
           </Button>
           <Button 
-            variant={activeTab === "dubai" ? "gold" : "outline"} 
+            variant={activeTab === "apartment" ? "gold" : "outline"} 
             size="sm"
-            onClick={() => setActiveTab("dubai")}
+            onClick={() => setActiveTab("apartment")}
             className="min-w-[100px]"
           >
-            Dubai
+            Apartment
           </Button>
           <Button 
-            variant={activeTab === "colombo" ? "gold" : "outline"} 
+            variant={activeTab === "studio" ? "gold" : "outline"} 
             size="sm"
-            onClick={() => setActiveTab("colombo")}
+            onClick={() => setActiveTab("studio")}
             className="min-w-[100px]"
           >
-            Colombo
+            Studio
           </Button>
         </div>
       </div>
 
       {/* Project Cards */}
       <div className="container mx-auto px-6 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <div 
               key={index}
@@ -166,53 +174,55 @@ const Portfolio = () => {
               {/* Project Image */}
               <div className="relative h-64">
                 <img
-                  src={project.image}
+                  src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6">
-                  <div className="text-gold font-semibold text-sm mb-1 font-ui">{project.location}</div>
-                  <h3 className="text-subtitle font-luxury text-white mb-1">{project.title}</h3>
-                  <div className="text-sm text-white/80 font-ui">{project.role}</div>
+                <div className="absolute top-4 left-4">
+                  <span className="bg-white text-primary font-medium text-sm py-1 px-3 rounded-md">
+                    {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                  </span>
                 </div>
               </div>
 
               {/* Project Content */}
               <div className="p-6">
-                <p className="text-muted-foreground mb-6 font-serif line-clamp-3">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-muted-foreground mb-4 line-clamp-2">
                   {project.description}
                 </p>
 
-                {/* Key Highlights */}
-                <h4 className="text-primary font-medium mb-3 font-ui">Key Highlights:</h4>
-                <ul className="space-y-2 mb-6">
-                  {project.highlights.map((highlight, i) => (
-                    <li key={i} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-2" />
-                      <span className="text-sm text-muted-foreground font-serif">
-                        {highlight}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Property Details */}
+                <div className="space-y-4 mb-6">
+                  <div>
+                    <h4 className="text-sm text-muted-foreground">Bedrooms</h4>
+                    <p>{project.bedrooms}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm text-muted-foreground">Prices Starting From</h4>
+                    <p>{project.pricesStartingFrom}</p>
+                  </div>
+                </div>
 
                 {/* Action Buttons */}
                 <div className="flex justify-between items-center">
                   <Button 
-                    variant="gold" 
+                    variant="default" 
                     size="sm"
+                    className="bg-blue-500 hover:bg-blue-600 text-white"
                     onClick={() => setSelectedProject(index)}
                   >
-                    View Details
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                    Details
                   </Button>
                   
                   <Button 
                     variant="outline" 
                     size="sm"
-                    asChild
+                    className="border-blue-500 text-blue-500 hover:bg-blue-50"
                   >
-                    <Link to="/contact">Inquire</Link>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Watchlist
                   </Button>
                 </div>
               </div>
@@ -229,7 +239,7 @@ const Portfolio = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
               { metric: "$10B+", label: "Total Portfolio Value" },
-              { metric: "4", label: "Landmark Projects" },
+              { metric: "25+", label: "Premium Properties" },
               { metric: "82%", label: "International Investors" },
               { metric: "97%", label: "Client Satisfaction" }
             ].map((item, index) => (
@@ -250,7 +260,7 @@ const Portfolio = () => {
       <div className="container mx-auto px-6 py-16 text-center">
         <h2 className="text-title font-display mb-4">Ready to Explore Investment Opportunities?</h2>
         <p className="text-body text-muted-foreground max-w-2xl mx-auto mb-8">
-          Discover exclusive opportunities in luxury real estate across Dubai and Sri Lanka's most prestigious developments.
+          Discover exclusive opportunities in luxury real estate across Dubai's most prestigious developments.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <Button 
@@ -278,7 +288,7 @@ const Portfolio = () => {
           <div className="bg-background rounded-xl shadow-floating max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative h-64 md:h-80">
               <img 
-                src={projects[selectedProject].image} 
+                src={projects[selectedProject].image || "/placeholder.svg"} 
                 alt={projects[selectedProject].title}
                 className="w-full h-full object-cover"
               />
@@ -291,80 +301,112 @@ const Portfolio = () => {
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
               </Button>
-              <div className="absolute bottom-0 left-0 p-6">
-                <div className="text-gold font-semibold text-sm mb-1 font-ui">{projects[selectedProject].location}</div>
-                <h3 className="text-title font-luxury text-white mb-1">{projects[selectedProject].title}</h3>
-                <div className="text-sm text-white/80 font-ui">{projects[selectedProject].role}</div>
-              </div>
             </div>
 
             <div className="p-6 md:p-8">
-              <p className="text-body-xl text-muted-foreground leading-relaxed mb-8 font-serif">
-                {projects[selectedProject].description}
-              </p>
+              <h2 className="text-2xl font-bold mb-2">{projects[selectedProject].title}</h2>
+              <p className="text-muted-foreground mb-6">{projects[selectedProject].category.charAt(0).toUpperCase() + projects[selectedProject].category.slice(1)} | {projects[selectedProject].bedrooms} Bedroom(s)</p>
               
-              <h4 className="text-primary font-medium mb-4 font-ui text-lg">Key Highlights</h4>
-              <div className="space-y-4 mb-8">
-                {projects[selectedProject].highlights.map((highlight, i) => (
-                  <div key={i} className="flex items-start space-x-4">
-                    <div className="w-3 h-3 rounded-full bg-gradient-gold flex-shrink-0 mt-1.5" />
-                    <span className="text-muted-foreground font-serif">
-                      {highlight}
-                    </span>
+              <div className="border-t border-b py-6 mb-6">
+                <h3 className="text-lg font-semibold mb-4">Price Point</h3>
+                <p>Available from {projects[selectedProject].pricesStartingFrom}</p>
+                
+                {projects[selectedProject].details.paymentPlan && (
+                  <>
+                    <h3 className="text-lg font-semibold mt-6 mb-4">Payment Plan</h3>
+                    <div className="flex gap-2">
+                      {projects[selectedProject].details.paymentPlan.split(', ').map((plan, i) => (
+                        <span key={i} className="bg-gray-100 text-gray-800 py-1 px-3 rounded-full text-sm">{plan}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
+                
+                <h3 className="text-lg font-semibold mt-6 mb-4">Location</h3>
+                <p>{projects[selectedProject].location}</p>
+                
+                <h3 className="text-lg font-semibold mt-6 mb-4">Developer</h3>
+                <p>{projects[selectedProject].details.developer}</p>
+                
+                {projects[selectedProject].details.completionDate && (
+                  <>
+                    <h3 className="text-lg font-semibold mt-6 mb-4">Completion Date</h3>
+                    <p>{projects[selectedProject].details.completionDate}</p>
+                  </>
+                )}
+              </div>
+              
+              {projects[selectedProject].details.whyInvest && (
+                <div className="mb-8">
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-blue-500"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    <h3 className="text-xl font-bold">Why Invest</h3>
                   </div>
-                ))}
-              </div>
+                  <div className="space-y-4">
+                    {projects[selectedProject].details.whyInvest.map((reason, i) => (
+                      <div key={i} className="flex items-start">
+                        <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 mr-2"></div>
+                        <p className="flex-1">{reason}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               
-              <h4 className="text-primary font-medium mb-4 font-ui text-lg">Project Details</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">Developer</div>
-                  <div className="font-medium">{projects[selectedProject].details.developer}</div>
+              {projects[selectedProject].details.details && (
+                <div className="mb-8">
+                  <div className="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-blue-500"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                    <h3 className="text-xl font-bold">Details</h3>
+                  </div>
+                  <p className="whitespace-pre-line">{projects[selectedProject].details.details}</p>
                 </div>
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">Total Value</div>
-                  <div className="font-medium">{projects[selectedProject].details.totalValue}</div>
-                </div>
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">Completion Date</div>
-                  <div className="font-medium">{projects[selectedProject].details.completionDate}</div>
-                </div>
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">Total Units</div>
-                  <div className="font-medium">{projects[selectedProject].details.totalUnits}</div>
-                </div>
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">Price Range</div>
-                  <div className="font-medium">{projects[selectedProject].details.priceRange}</div>
-                </div>
-                <div className="bg-muted/30 p-4 rounded-lg">
-                  <div className="text-sm text-muted-foreground font-ui">ROI</div>
-                  <div className="font-medium">{projects[selectedProject].details.returnOnInvestment}</div>
-                </div>
-              </div>
+              )}
               
-              <div className="bg-muted/30 p-4 rounded-lg mb-8">
-                <div className="text-sm text-muted-foreground font-ui mb-1">Key Amenities</div>
-                <div className="font-medium">{projects[selectedProject].details.amenities}</div>
-              </div>
+              {projects[selectedProject].details.propertyType && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Number Of Bedrooms</h3>
+                    <p>{projects[selectedProject].bedrooms}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Property Type</h3>
+                    <p>{projects[selectedProject].details.propertyType}</p>
+                  </div>
+                  
+                  {projects[selectedProject].details.propertyView && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Property View</h3>
+                      <p>{projects[selectedProject].details.propertyView}</p>
+                    </div>
+                  )}
+                  
+                  {projects[selectedProject].details.propertyAmenities && (
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Property Amenities</h3>
+                      <p>{projects[selectedProject].details.propertyAmenities}</p>
+                    </div>
+                  )}
+                </div>
+              )}
               
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col md:flex-row gap-4">
                 <Button 
-                  variant="gold" 
-                  size="lg" 
+                  variant="default"
+                  size="lg"
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
                   asChild
                 >
-                  <Link to="/contact">Contact About This Project</Link>
+                  <Link to="/contact">Contact Lina</Link>
                 </Button>
                 
                 <Button 
                   variant="outline" 
                   size="lg"
-                  asChild 
+                  className="border-blue-500 text-blue-500 hover:bg-blue-50"
                 >
-                  <a href={`https://${projects[selectedProject].details.website}`} target="_blank" rel="noopener noreferrer">
-                    Visit Website
-                  </a>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Watchlist
                 </Button>
               </div>
             </div>
