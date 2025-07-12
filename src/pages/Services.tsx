@@ -101,15 +101,15 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:gap-3 justify-center">
-                  <span className="relative inline-block">
-                    Premium
-                    <motion.div 
-                      className="absolute -bottom-3 left-0 h-px w-full bg-[#C0A875]"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: 1 }}
-                    />
-                  </span>
+                <span className="relative inline-block">
+                  Premium
+                  <motion.div 
+                    className="absolute -bottom-3 left-0 h-px w-full bg-[#C0A875]"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                  />
+                </span>
                   <span className="relative inline-block text-[#C0A875]">
                     Services
                     <motion.div 
@@ -226,7 +226,7 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             />
-                          <motion.p 
+            <motion.p 
               className="text-[#666666] text-base sm:text-lg leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -236,20 +236,20 @@ const Services = () => {
               Our luxury real estate advisory services cater to every aspect of your investment journey, ensuring a seamless and successful experience.
             </motion.p>
           </div>
-
+          
           <div className="hidden md:flex gap-8 max-w-7xl mx-auto">
             <div className="w-1/3 space-y-4">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.id}
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
                   className={`p-6 cursor-pointer border-l-4 transition-all duration-300 ${
                     activeService === index ? 'border-[#C0A875] bg-[#F8F6F1]' : 'border-transparent hover:bg-gray-50'
-                  }`}
-                  onClick={() => setActiveService(index)}
+                }`}
+                onClick={() => setActiveService(index)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -20 }}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                >
+              >
                   <div className="flex items-center gap-4 mb-2">
                     <div className={`p-2 rounded-full bg-gradient-to-br ${activeService === index ? 'text-[#C0A875]' : 'text-gray-500'}`}>
                       {service.icon}
@@ -257,20 +257,20 @@ const Services = () => {
                     <h3 className="font-luxury text-xl text-[#1A1A1A]">{service.title}</h3>
                   </div>
                   <p className="text-sm text-[#666666] ml-12">{service.description}</p>
-                </motion.div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
+          </div>
 
             <div className="w-2/3">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeService}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeService}
                   className="bg-gradient-to-br from-[#F8F6F1] to-white p-8 rounded-lg shadow-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                >
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
                   <h3 className="font-luxury text-2xl text-[#1A1A1A] mb-6">Key Benefits</h3>
                   <ul className="space-y-4">
                     {services[activeService].benefits.map((benefit, index) => (
@@ -278,9 +278,9 @@ const Services = () => {
                         key={index}
                         className="flex items-start gap-3"
                         initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                          animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 * index }}
-                      >
+                        >
                         <div className="w-5 h-5 mt-1 flex-shrink-0 rounded-full bg-[#C0A875] flex items-center justify-center">
                           <Check className="w-3 h-3 text-white" />
                         </div>
@@ -288,14 +288,14 @@ const Services = () => {
                       </motion.li>
                     ))}
                   </ul>
-                </motion.div>
-              </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
             </div>
           </div>
 
           <div className="md:hidden space-y-4">
             {services.map((service, index) => (
-              <motion.div
+                <motion.div
                 key={service.id}
                 className="border border-[#EEEEEE] rounded-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
@@ -311,7 +311,7 @@ const Services = () => {
                     <h3 className="font-luxury text-lg text-[#1A1A1A]">{service.title}</h3>
                   </div>
                   <ChevronRight className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${activeService === index ? 'rotate-90' : ''}`} />
-                </div>
+                      </div>
                 <AnimatePresence>
                   {activeService === index && (
                     <motion.div
@@ -339,8 +339,8 @@ const Services = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
           </div>
         </div>
       </section>

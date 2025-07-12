@@ -270,9 +270,9 @@ const Insights = () => {
       ]
     }
   ];
-
-  const filteredPosts = activeCategory === "All"
-    ? blogPosts
+  
+  const filteredPosts = activeCategory === "All" 
+    ? blogPosts 
     : blogPosts.filter(post => post.category === activeCategory);
 
   const handleReadArticle = (index: number) => {
@@ -326,33 +326,33 @@ const Insights = () => {
                         ? 'border-[#C0A875] text-[#C0A875]'
                         : 'border-transparent text-gray-500 hover:text-gray-800'
                     }`}
-                  >
-                    {category}
+              >
+                {category}
                   </button>
                 </li>
-              ))}
+            ))}
             </ul>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {filteredPosts.map((post, index) => (
-            <motion.div
-              key={index}
+            {filteredPosts.map((post, index) => (
+              <motion.div
+                key={index}
               className="group flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => handleReadArticle(index)}
-            >
+              >
               <div className="relative overflow-hidden rounded-lg cursor-pointer">
                 <img src={post.image} alt={post.title} className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20"></div>
-              </div>
+                  </div>
               <div className="py-4 flex-grow flex flex-col">
                 <p className="text-sm text-[#C0A875] font-semibold mb-1">{post.category}</p>
                 <h2 className="text-xl font-luxury text-[#1A1A1A] mb-2 group-hover:text-[#C0A875] transition-colors duration-300 flex-grow">
-                  {post.title}
+                    {post.title}
                 </h2>
                 <p className="text-sm text-gray-600 font-serif mb-4 flex-grow">{post.excerpt}</p>
                 <div className="text-sm text-gray-500 mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
@@ -360,12 +360,12 @@ const Insights = () => {
                   <span className="inline-flex items-center text-[#C0A875] font-medium">
                     Read More <ArrowRight className="w-4 h-4 ml-1" />
                   </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
     </div>
   );
 };

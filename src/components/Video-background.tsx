@@ -50,8 +50,8 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
         // Play with a slight delay to ensure browser is ready
         setTimeout(() => {
           video.play().catch(error => {
-            console.error("Video autoplay was prevented:", error);
-          });
+        console.error("Video autoplay was prevented:", error);
+      });
         }, 100);
       }
     };

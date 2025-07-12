@@ -183,9 +183,9 @@ const Footer = () => {
                     <Check className="w-4 h-4" />
                   ) : (
                     <>
-                      <span className="hidden xs:inline">Join</span>
-                      <span className="xs:hidden">Go</span>
-                      <ChevronRight className="ml-1 w-3 h-3 xs:w-4 xs:h-4" />
+                  <span className="hidden xs:inline">Join</span>
+                  <span className="xs:hidden">Go</span>
+                  <ChevronRight className="ml-1 w-3 h-3 xs:w-4 xs:h-4" />
                     </>
                   )}
                 </span>

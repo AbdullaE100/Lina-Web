@@ -63,7 +63,7 @@ const About = () => {
             >
               Lina Nizar
             </motion.h1>
-            <motion.div 
+            <motion.div
               className="text-lg md:text-xl font-semibold text-[#D4BC8A] mb-6 tracking-wider"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const About = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -138,7 +138,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
+          
       {/* Key Achievements Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6">
@@ -199,23 +199,23 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 md:py-32 bg-white">
         <div className="container mx-auto px-6 text-center">
-          <motion.div
+        <motion.div 
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
+          transition={{ duration: 0.8 }}
+        >
             <h2 className="font-luxury text-3xl md:text-4xl text-[#1A1A1A] max-w-2xl mx-auto mb-6">
               Let's Build Your Real Estate Legacy
-            </h2>
+          </h2>
             <p className="text-lg text-gray-600 max-w-xl mx-auto mb-8">
               Whether you're seeking to expand your portfolio or embark on a new development project, my expertise is at your service. Let's connect to explore the possibilities.
-            </p>
+          </p>
             <Button asChild className="bg-[#C0A875] text-black font-semibold tracking-wider rounded-none px-10 py-7 text-sm hover:bg-[#D4BC8A] transition-colors duration-300">
               <Link to="/contact">Schedule a Consultation</Link>
             </Button>
           </motion.div>
-        </div>
+          </div>
       </section>
     </div>
   );

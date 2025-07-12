@@ -527,7 +527,7 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button 
+          <Button 
               variant="outline" 
               className="border-white text-white hover:bg-white/10 rounded-none px-6 py-6 h-auto text-xs tracking-wide"
             >
@@ -729,7 +729,7 @@ const Portfolio = () => {
                     index={index}
                     onSelect={() => setSelectedProject(index)}
                   />
-                ))}
+                    ))}
                 </motion.div>
               )}
           </AnimatePresence>
