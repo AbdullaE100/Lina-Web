@@ -1,32 +1,47 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-
-// Import thumbnails
-import sixSensesThumb from "@/assets/properties-thumbnails/six-senses-thumb.svg";
-import floraIsleThumb from "@/assets/properties-thumbnails/flora-isle-thumb.svg";
-import jumeirahResidencesThumb from "@/assets/properties-thumbnails/jumeirah-residences-thumb.svg";
-import solLevanteThumb from "@/assets/properties-thumbnails/sol-levante-thumb.svg";
-import koroOneThumb from "@/assets/properties-thumbnails/koro-one-thumb.svg";
-import silvaEmaarThumb from "@/assets/properties-thumbnails/silva-emaar-thumb.svg";
-import sidrResidencesThumb from "@/assets/properties-thumbnails/sidr-residences-thumb.svg";
-import terraHeightsThumb from "@/assets/properties-thumbnails/terra-heights-thumb.svg";
-import wynwoodThumb from "@/assets/properties-thumbnails/wynwood-thumb.svg";
-import camdenThumb from "@/assets/properties-thumbnails/camden-thumb.svg";
-import oraGhantootThumb from "@/assets/properties-thumbnails/ora-ghantoot-thumb.svg";
-import taleaThumb from "@/assets/properties-thumbnails/talea-thumb.svg";
+import { ResponsiveImage } from "@/components/ui/responsive-image";
+import { PropertyCard, PropertyListItem } from "@/components/ui/property-card";
+import { PropertyDetail } from "@/components/ui/property-detail";
+import { ArrowRight, ChevronRight, X, MapPin, Home, Tag, Calendar, Banknote, ChevronDown } from "lucide-react";
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [isGridView, setIsGridView] = useState(true);
+  const [featuredIndex, setFeaturedIndex] = useState(0); // Add a featured project
+  const [isFilterExpanded, setIsFilterExpanded] = useState(false);
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  // Category definitions with icons
+  const categories = [
+    { id: "all", label: "All Properties", count: 12 },
+    { id: "apartment", label: "Apartments", count: 8 },
+    { id: "villa", label: "Villas", count: 2 },
+    { id: "penthouse", label: "Penthouses", count: 1 },
+    { id: "townhouse", label: "Townhouses", count: 1 }
+  ];
+  
+  // Locations for additional filtering
+  const locations = [
+    "Dubai Marina",
+    "Downtown Dubai",
+    "Palm Jumeirah",
+    "Dubai Islands",
+    "Expo City",
+    "Dubai Creek Harbour"
+  ];
   
   const projects = [
     {
       title: "Six Senses Residences Dubai Marina by Select",
       location: "Dubai Marina",
-      image: sixSensesThumb,
+      image: "/images/properties-thumbnails/six-senses-thumb.jpg",
+      fullImage: "/images/properties/six-senses.jpg",
       category: "apartment",
       bedrooms: "2, 3, 4",
       pricesStartingFrom: "AED10,351,000.00",
@@ -58,7 +73,8 @@ const Portfolio = () => {
     {
       title: "Flora Isle in Dubai Islands",
       location: "Dubai Islands",
-      image: floraIsleThumb,
+      image: "/images/properties-thumbnails/flora-isle-thumb.jpg",
+      fullImage: "/images/properties/flora-isle.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED3,222,000.00",
@@ -90,7 +106,8 @@ const Portfolio = () => {
     {
       title: "Jumeirah Residences Emirates Towers",
       location: "Zabeel",
-      image: jumeirahResidencesThumb,
+      image: "/images/properties-thumbnails/jumeirah-residences-thumb.jpg",
+      fullImage: "/images/properties/jumeirah-residences.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED3,510,000.00",
@@ -122,7 +139,8 @@ const Portfolio = () => {
     {
       title: "SOL Levante",
       location: "Jumeirah Village Triangle (JVT)",
-      image: solLevanteThumb,
+      image: "/images/properties-thumbnails/sol-levante-thumb.jpg",
+      fullImage: "/images/properties/sol-levante.jpg",
       category: "apartment",
       bedrooms: "Studio, 1, 2, 3",
       pricesStartingFrom: "AED800,000.00",
@@ -154,7 +172,8 @@ const Portfolio = () => {
     {
       title: "KORO One by ALTA",
       location: "Jumeirah Garden City",
-      image: koroOneThumb,
+      image: "/images/properties-thumbnails/koro-one-thumb.jpg",
+      fullImage: "/images/properties/koro-one.jpg",
       category: "apartment",
       bedrooms: "Studio, 1, 2",
       pricesStartingFrom: "AED877,000.00",
@@ -186,7 +205,8 @@ const Portfolio = () => {
     {
       title: "Silva by Emaar in Dubai Creek Harbour",
       location: "Dubai Creek Harbour",
-      image: silvaEmaarThumb,
+      image: "/images/properties-thumbnails/silva-emaar-thumb.jpg",
+      fullImage: "/images/properties/silva-emaar.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,800,000.00",
@@ -218,7 +238,8 @@ const Portfolio = () => {
     {
       title: "Sidr Residences - EXPO City",
       location: "Expo City",
-      image: sidrResidencesThumb,
+      image: "/images/properties-thumbnails/sidr-residences-thumb.jpg",
+      fullImage: "/images/properties/sidr-residences.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,900,000.00",
@@ -250,7 +271,8 @@ const Portfolio = () => {
     {
       title: "Terra Heights in Emaar Expo Living",
       location: "Expo City",
-      image: terraHeightsThumb,
+      image: "/images/properties-thumbnails/terra-heights-thumb.jpg",
+      fullImage: "/images/properties/terra-heights.jpg",
       category: "apartment",
       bedrooms: "2",
       pricesStartingFrom: "AED2,080,000.00",
@@ -282,7 +304,8 @@ const Portfolio = () => {
     {
       title: "Wynwood on Dubai Islands",
       location: "Dubai Islands",
-      image: wynwoodThumb,
+      image: "/images/properties-thumbnails/wynwood-thumb.jpg",
+      fullImage: "/images/properties/wynwood.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED2,000,000.00",
@@ -314,7 +337,8 @@ const Portfolio = () => {
     {
       title: "Camden in Town Square",
       location: "Town Square",
-      image: camdenThumb,
+      image: "/images/properties-thumbnails/camden-thumb.jpg",
+      fullImage: "/images/properties/camden.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3",
       pricesStartingFrom: "AED1,156,888.00",
@@ -345,7 +369,8 @@ const Portfolio = () => {
     {
       title: "ORA Ghantoot – Redefining Coastal Living Between Two Emirates",
       location: "Ghantoot",
-      image: oraGhantootThumb,
+      image: "/images/properties-thumbnails/ora-ghantoot-thumb.jpg",
+      fullImage: "/images/properties/ora-ghantoot.jpg",
       category: "apartment,villa,townhouse",
       bedrooms: "3, 4, 5, 6",
       pricesStartingFrom: "AED3,000,000.00",
@@ -377,7 +402,8 @@ const Portfolio = () => {
     {
       title: "Talea by Beyond at Maritime City",
       location: "Maritime City",
-      image: taleaThumb,
+      image: "/images/properties-thumbnails/talea-thumb.jpg",
+      fullImage: "/images/properties/talea.jpg",
       category: "apartment",
       bedrooms: "1, 2, 3, 4",
       pricesStartingFrom: "AED2,200,000.00",
@@ -408,401 +434,341 @@ const Portfolio = () => {
     }
   ];
 
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    setSelectedProject(null);
+    setIsFilterExpanded(false);
+  };
+
   const filteredProjects = activeTab === "all" 
     ? projects 
     : projects.filter(project => project.category === activeTab);
+    
+  useEffect(() => {
+    if (selectedProject !== null && detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Rotate featured project periodically
+    const interval = setInterval(() => {
+      setFeaturedIndex(prev => (prev + 1) % filteredProjects.length);
+    }, 10000);
+    
+    return () => clearInterval(interval);
+  }, [selectedProject, filteredProjects.length]);
+  
+  useEffect(() => {
+    // Close filter dropdown when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+        setIsFilterExpanded(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const formatPrice = (price: string) => {
+    // Extract the number part
+    const numericPart = price.replace(/[^\d.]/g, '');
+    const formattedNumber = parseFloat(numericPart).toLocaleString('en-AE', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+    
+    // Get the currency part
+    const currencyPart = price.replace(/[\d,.]/g, '');
+    
+    return `${currencyPart}${formattedNumber}`;
+  };
 
   return (
-    <div className="min-h-screen pt-24 bg-gradient-platinum">
-      {/* Page Header */}
-      <div className="container mx-auto px-6 mb-12">
-        <h1 className="text-headline font-luxury text-center text-primary mb-4">
-          Premium <span className="text-gradient-gold">Properties</span>
-        </h1>
-        <p className="text-body-xl text-center text-muted-foreground max-w-3xl mx-auto font-serif">
-          Exclusive luxury real estate opportunities in Dubai's most prestigious locations.
-        </p>
-      </div>
-
-      {/* Filter Tabs */}
-      <div className="container mx-auto px-6 mb-10">
-        <div className="flex justify-center space-x-2 md:space-x-6 overflow-x-auto pb-2">
-          <Button 
-            variant={activeTab === "all" ? "gold" : "outline"} 
-            size="sm"
-            onClick={() => setActiveTab("all")}
-            className="min-w-[100px]"
-          >
-            All Properties
-          </Button>
-          <Button 
-            variant={activeTab === "apartment" ? "gold" : "outline"} 
-            size="sm"
-            onClick={() => setActiveTab("apartment")}
-            className="min-w-[100px]"
-          >
-            Apartment
-          </Button>
-          <Button 
-            variant={activeTab === "studio" ? "gold" : "outline"} 
-            size="sm"
-            onClick={() => setActiveTab("studio")}
-            className="min-w-[100px]"
-          >
-            Studio
-          </Button>
-        </div>
-      </div>
-
-      {/* Project Cards */}
-      <div className="container mx-auto px-6 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-background rounded-xl shadow-soft overflow-hidden border border-gold/10 hover:shadow-floating transition-all duration-300 group"
-            >
-              {/* Project Image with Overlay */}
-              <div className="relative h-72 overflow-hidden">
-                <motion.img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-                
-                {/* Location Badge */}
-                <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                  <Badge className="bg-white/90 text-primary hover:bg-white">
-                    {project.location}
-                  </Badge>
-                </div>
-                
-                {/* Price Badge */}
-                <div className="absolute bottom-4 left-4">
-                  <Badge className="bg-gold/90 text-white hover:bg-gold">
-                    {project.pricesStartingFrom}
-                  </Badge>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-gold transition-colors duration-300">{project.title}</h3>
-                
-                {/* Property Details */}
-                <div className="flex flex-wrap gap-4 mb-4">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/><path d="M12 3v6"/></svg>
-                    {project.bedrooms} Bed
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    {project.location}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 14v1"/><path d="M9 8v1"/><path d="M15 14v1"/><path d="M15 8v1"/><path d="M9 12h6"/></svg>
-                    {project.details.developer}
-                  </div>
-                </div>
-                
-                <p className="text-muted-foreground mb-6 line-clamp-2">
-                  {project.description}
-                </p>
-
-                {/* Action Buttons */}
-                <div className="flex justify-between items-center">
-                  <Button 
-                    variant="default" 
-                    size="sm"
-                    className="bg-gold hover:bg-gold/90 text-white"
-                    onClick={() => setSelectedProject(index)}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    View Details
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="border-gold text-gold hover:bg-gold/10"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    Watchlist
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Portfolio Stats */}
-      <div className="bg-gradient-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-title font-display text-center mb-12">Portfolio Highlights</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {[
-              { metric: "$10B+", label: "Total Portfolio Value" },
-              { metric: "25+", label: "Premium Properties" },
-              { metric: "82%", label: "International Investors" },
-              { metric: "97%", label: "Client Satisfaction" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-display font-light text-gradient-gold mb-2">
-                  {item.metric}
-                </div>
-                <div className="text-sm md:text-base text-primary-foreground/80">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="container mx-auto px-6 py-16 text-center">
-        <h2 className="text-title font-display mb-4">Ready to Explore Investment Opportunities?</h2>
-        <p className="text-body text-muted-foreground max-w-2xl mx-auto mb-8">
-          Discover exclusive opportunities in luxury real estate across Dubai's most prestigious developments.
-        </p>
-        <div className="flex flex-col md:flex-row gap-4 justify-center">
-          <Button 
-            variant="gold" 
-            size="lg" 
-            className="min-w-[200px]" 
-            asChild
-          >
-            <Link to="/contact">Schedule Consultation</Link>
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="min-w-[200px]" 
-            asChild
-          >
-            <Link to="/services">Explore Services</Link>
-          </Button>
-        </div>
-      </div>
-
-      {/* Project Detail Modal */}
-      {selectedProject !== null && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+    <div className="bg-white min-h-screen">
+      {/* Hero Section with Parallax */}
+      <section className="relative h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden">
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: "url('/images/properties/six-senses.jpg')", 
+            transform: "scale(1.1)" 
+          }}
+        >
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-            className="bg-background rounded-xl shadow-floating max-w-5xl w-full max-h-[90vh] overflow-y-auto"
-          >
-            <div className="relative h-80 md:h-96">
-              <motion.img 
-                src={projects[selectedProject].image} 
-                alt={projects[selectedProject].title}
-                className="w-full h-full object-cover"
-                initial={{ scale: 1 }}
-                animate={{ scale: 1.05 }}
-                transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              
-              {/* Close Button */}
-              <motion.button 
-                className="absolute top-4 right-4 h-10 w-10 rounded-full p-0 bg-black/30 border border-white/20 text-white hover:bg-black/50 flex items-center justify-center"
-                onClick={() => setSelectedProject(null)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </motion.button>
-              
-              {/* Property Title Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{projects[selectedProject].title}</h2>
-                <div className="flex flex-wrap gap-3">
-                  <Badge className="bg-gold/90 text-white">
-                    {projects[selectedProject].pricesStartingFrom}
-                  </Badge>
-                  <Badge className="bg-white/90 text-primary">
-                    {projects[selectedProject].location}
-                  </Badge>
-                  <Badge className="bg-primary/90 text-white">
-                    {projects[selectedProject].category.charAt(0).toUpperCase() + projects[selectedProject].category.slice(1)}
-                  </Badge>
-                </div>
-              </div>
-            </div>
+            className="absolute inset-0"
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1.0 }}
+            transition={{ duration: 20, ease: "easeOut" }}
+          />
+      </div>
 
-            <div className="p-6 md:p-8">
-              {/* Property Overview */}
-              <motion.div 
-                className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-gray-50 p-4 rounded-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="text-center p-3">
-                  <div className="text-muted-foreground text-sm mb-1">Bedrooms</div>
-                  <div className="font-semibold">{projects[selectedProject].bedrooms}</div>
-                </div>
-                <div className="text-center p-3">
-                  <div className="text-muted-foreground text-sm mb-1">Developer</div>
-                  <div className="font-semibold">{projects[selectedProject].details.developer}</div>
-                </div>
-                <div className="text-center p-3">
-                  <div className="text-muted-foreground text-sm mb-1">Payment Plan</div>
-                  <div className="font-semibold">{projects[selectedProject].details.paymentPlan}</div>
-                </div>
-                <div className="text-center p-3">
-                  <div className="text-muted-foreground text-sm mb-1">Completion</div>
-                  <div className="font-semibold">{new Date(projects[selectedProject].details.completionDate).toLocaleDateString('en-GB', {year: 'numeric', month: 'short'})}</div>
-                </div>
-              </motion.div>
-              
-              {/* Property Description */}
-              <motion.div 
-                className="mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <h3 className="text-xl font-bold mb-4 flex items-center text-gold">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                  Property Description
-                </h3>
-                <p className="whitespace-pre-line text-muted-foreground">{projects[selectedProject].details.details}</p>
-              </motion.div>
-              
-              {/* Why Invest Section */}
-              {projects[selectedProject].details.whyInvest && (
-                <motion.div 
-                  className="mb-8 bg-gold/5 p-6 rounded-lg border border-gold/10"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <h3 className="text-xl font-bold mb-6 flex items-center text-gold">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M12 9v6"/></svg>
-                    Why Invest
-                  </h3>
-                  <div className="space-y-4">
-                    {projects[selectedProject].details.whyInvest.map((reason, i) => (
-                      <motion.div 
-                        key={i} 
-                        className="flex items-start"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 + (i * 0.05) }}
-                      >
-                        <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold mr-3 mt-0.5 flex-shrink-0">
-                          {i + 1}
-                        </div>
-                        <p className="flex-1">{reason}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-              
-              {/* Property Details Grid */}
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                {projects[selectedProject].details.propertyType && (
-                  <div className="border-t pt-4">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                      Property Type
-                    </h3>
-                    <p className="text-muted-foreground">{projects[selectedProject].details.propertyType}</p>
-                  </div>
-                )}
-                
-                {projects[selectedProject].details.propertyView && (
-                  <div className="border-t pt-4">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-                      Property View
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {projects[selectedProject].details.propertyView.split(', ').filter(view => view.trim()).map((view, i) => (
-                        <Badge key={i} variant="outline" className="bg-gray-50">
-                          {view}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                {projects[selectedProject].details.propertyAmenities && (
-                  <div className="border-t pt-4 md:col-span-2">
-                    <h3 className="text-lg font-semibold mb-2 flex items-center text-gold">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 text-gold"><path d="M20 22h-2"/><path d="M20 15v7"/><path d="M4 22h16"/><path d="M15 22v-4a3 3 0 0 0-3-3v0a3 3 0 0 0-3 3v4"/><path d="m2 15 10-10 10 10"/><path d="M12 12v3"/></svg>
-                      Amenities
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {projects[selectedProject].details.propertyAmenities.split(', ').map((amenity, i) => (
-                        <Badge key={i} variant="outline" className="bg-gray-50">
-                          {amenity}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-              
-              {/* Action Buttons */}
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4 pt-4 border-t"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Button 
-                  variant="gold" 
-                  size="lg" 
-                  className="flex-1"
-                  asChild
-                >
-                  <Link to="/contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    Schedule Viewing
-                  </Link>
-                </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="flex-1 border-gold text-gold hover:bg-gold/10"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  Download Brochure
-                </Button>
-                
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="sm:max-w-[50px] h-12 p-0 flex items-center justify-center border-gold text-gold hover:bg-gold/10"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                </Button>
-              </motion.div>
-            </div>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 h-full flex flex-col justify-center items-center text-center">
+          <motion.h1 
+            className="font-luxury text-3xl md:text-5xl lg:text-7xl text-white mb-4 tracking-wider"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            EXCLUSIVE PORTFOLIO
+          </motion.h1>
+          <motion.p 
+            className="text-white/90 max-w-2xl mx-auto text-sm md:text-base lg:text-lg tracking-wide"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Discover a curated selection of the finest luxury properties in Dubai's most prestigious locations
+          </motion.p>
+          
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white/10 rounded-none px-6 py-6 h-auto text-xs tracking-wide"
+            >
+              <Link to="/contact" className="flex items-center gap-2">
+                <span>REQUEST PROPERTY PORTFOLIO</span>
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+          </Button>
           </motion.div>
         </div>
+      </section>
+
+      {/* Filter and View Toggle */}
+      <section className="sticky top-24 bg-white z-30 border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div ref={filterRef} className="relative w-full md:w-auto">
+              <button 
+                className="flex items-center justify-between gap-4 w-full md:w-auto bg-gray-50 px-4 py-3 text-sm"
+                onClick={() => setIsFilterExpanded(!isFilterExpanded)}
+              >
+                <span className="font-medium">
+                  {categories.find(cat => cat.id === activeTab)?.label || "All Properties"}
+                </span>
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-300 ${isFilterExpanded ? "rotate-180" : ""}`}
+                />
+              </button>
+              
+              {/* Expanded Filter Panel */}
+              <AnimatePresence>
+                {isFilterExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-0 right-0 bg-white shadow-lg z-50 mt-1 p-4 border border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-4"
+                  >
+                    <div>
+                      <h3 className="font-medium mb-3 text-sm text-gray-500">PROPERTY TYPE</h3>
+                      <div className="space-y-2">
+                        {categories.map((category) => (
+                          <div 
+                            key={category.id} 
+                            className={`flex items-center justify-between cursor-pointer p-2 ${
+                              activeTab === category.id ? "bg-gray-50" : ""
+                            }`}
+                            onClick={() => handleTabChange(category.id)}
+                          >
+                            <span>{category.label}</span>
+                            <Badge variant="secondary" className="bg-gray-100 text-gray-600">
+                              {category.count}
+                            </Badge>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium mb-3 text-sm text-gray-500">LOCATION</h3>
+                      <div className="space-y-2">
+                        {locations.map((location) => (
+                          <div key={location} className="flex items-center gap-2 p-2">
+                            <input type="checkbox" id={location} className="rounded-sm" />
+                            <label htmlFor={location}>{location}</label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="md:col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-end">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="mr-2"
+                        onClick={() => setIsFilterExpanded(false)}
+                      >
+                        Close
+                      </Button>
+                      <Button size="sm">Apply Filters</Button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+      </div>
+
+            <div className="flex gap-2 self-end md:self-auto">
+              <button 
+                onClick={() => setIsGridView(true)} 
+                className={`p-2 ${isGridView ? 'bg-gray-200' : 'bg-gray-100'}`}
+                aria-label="Grid view"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+              </button>
+              <button 
+                onClick={() => setIsGridView(false)} 
+                className={`p-2 ${!isGridView ? 'bg-gray-200' : 'bg-gray-100'}`}
+                aria-label="List view"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="12" y2="12" /><line x1="3" x2="21" y1="6" y2="6" /><line x1="3" x2="21" y1="18" y2="18" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Project Banner */}
+      {filteredProjects.length > 0 && (
+        <section className="bg-gray-50 py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="mb-8">
+              <h2 className="text-lg font-medium text-gray-400 mb-1">FEATURED PROPERTY</h2>
+              <h3 className="text-2xl md:text-3xl font-medium">{filteredProjects[featuredIndex].title}</h3>
+            </div>
+            
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-3/5 relative overflow-hidden aspect-video">
+                <ResponsiveImage 
+                  src={filteredProjects[featuredIndex].fullImage}
+                  alt={filteredProjects[featuredIndex].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <Badge className="bg-white text-black mb-2">{filteredProjects[featuredIndex].category}</Badge>
+                  <p className="text-white text-xl md:text-2xl font-medium">{filteredProjects[featuredIndex].location}</p>
+                </div>
+              </div>
+
+              <div className="md:w-2/5 flex flex-col">
+                <div className="mb-4">
+                  <Badge variant="outline" className="mb-2">{filteredProjects[featuredIndex].details.developer}</Badge>
+                  <p className="text-xl font-medium mb-2">Starting from {filteredProjects[featuredIndex].pricesStartingFrom}</p>
+                  <p className="text-gray-600">{filteredProjects[featuredIndex].description}</p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 my-6">
+                  <div className="border-l-2 border-[#C0A875] pl-4">
+                    <p className="text-sm text-gray-500">PAYMENT PLAN</p>
+                    <p className="font-medium">{filteredProjects[featuredIndex].details.paymentPlan}</p>
+                  </div>
+                  <div className="border-l-2 border-[#C0A875] pl-4">
+                    <p className="text-sm text-gray-500">COMPLETION</p>
+                    <p className="font-medium">{filteredProjects[featuredIndex].details.completionDate}</p>
+                  </div>
+                </div>
+                
+                <div className="mt-auto">
+                  <Button 
+                    className="w-full rounded-none bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] text-black py-6 h-auto"
+                    onClick={() => setSelectedProject(featuredIndex)}
+                  >
+                    VIEW DETAILS
+                  </Button>
+                </div>
+                </div>
+              </div>
+          </div>
+        </section>
       )}
+
+      {/* Projects Grid/List */}
+      <section className="py-12 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <AnimatePresence mode="wait">
+            {isGridView ? (
+              <motion.div 
+                key="grid"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+              >
+                {filteredProjects.map((project, index) => (
+                  <PropertyCard
+                    key={index}
+                    {...project}
+                    index={index}
+                    featured={index === 0 && filteredProjects.length > 4} // Make the first item featured in large layouts
+                    onSelect={() => setSelectedProject(index)}
+                  />
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="list"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-6"
+              >
+                {filteredProjects.map((project, index) => (
+                  <PropertyListItem
+                    key={index}
+                    {...project}
+                    index={index}
+                    onSelect={() => setSelectedProject(index)}
+                  />
+                ))}
+                </motion.div>
+              )}
+          </AnimatePresence>
+                  </div>
+      </section>
+
+      {/* Property Details Modal using the new component */}
+      <AnimatePresence>
+        {selectedProject !== null && (
+          <div ref={detailsRef}>
+            <PropertyDetail 
+              {...filteredProjects[selectedProject]}
+              onClose={() => setSelectedProject(null)}
+            />
+                  </div>
+                )}
+      </AnimatePresence>
+
+      {/* Contact Section */}
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="font-luxury text-2xl md:text-3xl lg:text-4xl mb-4 tracking-wider text-white">
+            DISCOVER YOUR NEXT INVESTMENT
+          </h2>
+          <p className="text-gray-300 max-w-xl mx-auto mb-8">
+            Connect with our team for personalized real estate investment advice and exclusive off-market opportunities
+          </p>
+                <Button 
+                  variant="outline" 
+            className="border-[#D4BC8A] text-[#D4BC8A] hover:bg-[#D4BC8A]/10
+            rounded-none px-8 py-6 h-auto text-sm tracking-wide"
+          >
+            <Link to="/contact" className="flex items-center gap-2">
+              <span>SCHEDULE A CONSULTATION</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+                </Button>
+        </div>
+      </section>
     </div>
   );
 };
