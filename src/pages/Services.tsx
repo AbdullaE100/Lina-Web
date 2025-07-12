@@ -123,7 +123,7 @@ const Services = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-[#666666] text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-8 md:mb-12 font-serif"
+                className="text-[#666666] text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-8 md:mb-12 font-serif mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -203,12 +203,7 @@ const Services = () => {
           </div>
         </div>
         
-        <motion.div 
-          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C0A875]/50 to-transparent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1 }}
-        />
+        {/* Remove the decorative line at the bottom of the hero section */}
       </section>
 
       {/* Services Section */}
