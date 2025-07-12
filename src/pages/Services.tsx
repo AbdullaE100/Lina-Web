@@ -110,7 +110,15 @@ const Services = () => {
                       transition={{ duration: 0.8, delay: 1 }}
                     />
                   </span>
-                  <span className="text-[#C0A875]">Services</span>
+                  <span className="relative inline-block text-[#C0A875]">
+                    Services
+                    <motion.div 
+                      className="absolute -bottom-3 left-0 h-px w-full bg-[#C0A875]"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 1.2 }}
+                    />
+                  </span>
                 </div>
               </motion.h1>
               
