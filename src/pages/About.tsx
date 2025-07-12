@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import aboutImage from "../assets/about-me.jpeg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Check, Briefcase, Star, TrendingUp } from 'lucide-react';
@@ -48,7 +47,7 @@ const About = () => {
       <section className="relative h-[90vh] md:h-[80vh] min-h-[600px] flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <motion.img
-            src={aboutImage}
+            src="/images/about-me.jpeg"
             alt="Lina Nizar"
             className="w-full h-full object-cover object-center"
             style={{ y: heroImageY }}
