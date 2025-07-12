@@ -16,7 +16,6 @@ import insightCurrencyRisk from '../assets/insights/currency-risk.jpg';
 
 import VideoBackground from "@/components/Video-background";
 import heroVideo from "../assets/videos/luxury-video.mp4";
-import { ResponsiveImage } from "@/components/ui/responsive-image";
 import {
   Dialog,
   DialogContent,
@@ -222,7 +221,7 @@ const Homepage = () => {
                       className="group cursor-pointer relative overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300 h-full"
                     >
                       <div className="relative overflow-hidden aspect-[3/4]">
-                        <ResponsiveImage 
+                        <img 
                           src={property.image} 
                           alt={property.title} 
                           className="w-full h-full object-cover"
@@ -276,7 +275,7 @@ const Homepage = () => {
                   className="group cursor-pointer relative overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300 rounded-lg"
                 >
                   <div className="relative overflow-hidden aspect-[4/3] rounded-t-lg">
-                    <ResponsiveImage 
+                    <img 
                       src={property.image} 
                       alt={property.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -331,7 +330,7 @@ const Homepage = () => {
               Leveraging deep market knowledge and a vast network to deliver unparalleled real estate advisory.
             </p>
           </motion.div>
-          
+
           {isMobile ? (
             <Carousel opts={{ align: "start", loop: true, }} className="w-full">
               <CarouselContent>
@@ -344,7 +343,7 @@ const Homepage = () => {
                   { icon: Rocket, title: 'Innovative Solutions', description: 'Creative strategies for complex real estate challenges.' }
                 ].map((feature, index) => (
                   <CarouselItem key={index} className="basis-full">
-                    <motion.div 
+                    <motion.div
                       className="text-center p-6 bg-transparent h-full"
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -373,17 +372,17 @@ const Homepage = () => {
                 { icon: BarChart3, title: 'Data-Driven Insights', description: 'In-depth market analysis for informed decision-making.' },
                 { icon: Rocket, title: 'Innovative Solutions', description: 'Creative strategies for complex real estate challenges.' }
               ].map((feature, index) => (
-                <motion.div 
+          <motion.div 
                   key={index} 
                   className="text-center p-6 bg-transparent"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="inline-block p-4 bg-gradient-to-br from-[#D4BC8A]/20 to-transparent rounded-full mb-4">
                     <feature.icon className="w-8 h-8 text-[#C0A875]" />
-                  </div>
+              </div>
                   <h3 className="font-luxury text-xl text-[#1A1A1A] mb-2">{feature.title}</h3>
                   <p className="text-[#666666]">{feature.description}</p>
                 </motion.div>
@@ -412,7 +411,7 @@ const Homepage = () => {
             <h2 className="font-luxury text-3xl xs:text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
               What Our Clients Say
             </h2>
-            <motion.div
+            <motion.div 
               className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
@@ -423,7 +422,7 @@ const Homepage = () => {
               Discover why discerning investors trust our expertise and guidance.
             </p>
           </motion.div>
-
+          
           <Carousel
             opts={{
               align: "start",
@@ -454,12 +453,12 @@ const Homepage = () => {
               ].map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1 h-full">
-                    <motion.div
+              <motion.div
                       className="bg-white p-8 rounded-lg shadow-sm h-full flex flex-col"
-                      initial={{ opacity: 0, y: 40 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
                       <div className="flex items-center mb-4">
                         <div className="flex-shrink-0">
@@ -472,7 +471,7 @@ const Homepage = () => {
                       </div>
                       <p className="text-[#666666] italic font-serif flex-grow">"{testimonial.quote}"</p>
                     </motion.div>
-                  </div>
+                    </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -481,7 +480,7 @@ const Homepage = () => {
           </Carousel>
         </div>
       </section>
-      
+
       {/* Insights Section */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -499,8 +498,8 @@ const Homepage = () => {
             </div>
             <h2 className="font-luxury text-3xl xs:text-4xl md:text-5xl mb-6 tracking-tight text-[#1A1A1A]">
               Stay Informed
-            </h2>
-            <motion.div
+          </h2>
+            <motion.div 
               className="h-[1px] w-16 bg-[#C0A875] mx-auto mb-6 sm:mb-8"
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
@@ -511,7 +510,7 @@ const Homepage = () => {
               Explore our latest articles and analyses on the evolving real estate landscape.
             </p>
           </motion.div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { title: 'The Pre-Launch Advantage', description: 'A framework for identifying and capitalizing on pre-launch and off-market properties.', image: insightPreLaunch, link: '/insights/pre-launch-advantage' },
@@ -535,7 +534,7 @@ const Homepage = () => {
                     <p className="text-[#666666] font-serif mb-4">{article.description}</p>
                     <span className="inline-flex items-center gap-2 text-[#C0A875] text-sm font-medium">
                       Read More <ArrowRight className="w-4 h-4" />
-                    </span>
+              </span>
                   </div>
                 </Link>
               </motion.div>
