@@ -430,13 +430,12 @@ const Contact = () => {
                   Office Locations
                 </h2>
                 <p className="text-muted-foreground max-w-xl leading-relaxed mb-8 font-serif">
-                  With strategic offices in Sri Lanka and Dubai, I serve clients
-                  across both markets with personalized attention and local
-                  expertise.
+                  With strategic office in Dubai, I serve clients across both
+                  markets with personalized attention and local expertise.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <motion.div
+                  {/* <motion.div
                     className="p-6 rounded-xl bg-primary/5 border border-border/10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -455,7 +454,7 @@ const Contact = () => {
                       <br />
                       Sri Lanka
                     </address>
-                  </motion.div>
+                  </motion.div> */}
 
                   <motion.div
                     className="p-6 rounded-xl bg-primary/5 border border-border/10"
@@ -496,7 +495,7 @@ const Contact = () => {
                     title="Dubai Office Location Map"
                   ></iframe>
                 </div>
-                <div className="relative h-[250px] rounded-2xl overflow-hidden shadow-elevated">
+                {/* <div className="relative h-[250px] rounded-2xl overflow-hidden shadow-elevated">
                   <div className="absolute top-2 left-2 z-10 bg-background/90 px-3 py-1 rounded-lg text-xs font-medium border border-border/20 backdrop-blur-sm">
                     Colombo Office
                   </div>
@@ -510,7 +509,7 @@ const Contact = () => {
                     className="absolute inset-0"
                     title="Colombo Office Location Map"
                   ></iframe>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
@@ -556,7 +555,7 @@ const Contact = () => {
               {
                 question: "What markets do you cover?",
                 answer:
-                  "We specialize in Sri Lanka and Dubai real estate markets, with extensive networks and deep local knowledge in both regions.",
+                  "We specialize in  Dubai real estate markets, with extensive networks and deep local knowledge in both regions.",
               },
               {
                 question: "How long does the investment process take?",

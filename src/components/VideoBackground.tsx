@@ -11,12 +11,15 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
 
   useEffect(() => {
     console.log("VideoBackground mounted");
-    
+
     // Preload video and handle loading status
     const video = videoRef.current;
     if (video) {
-      console.log("Video element exists, initial readyState:", video.readyState);
-      
+      console.log(
+        "Video element exists, initial readyState:",
+        video.readyState
+      );
+
       // Add event listeners
       const handleCanPlayThrough = () => {
         console.log("Video can play through");
@@ -27,7 +30,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
         console.log("Video data loaded");
         playVideo();
       };
-      
+
       const handleError = (e: Event) => {
         const target = e.target as HTMLVideoElement;
         console.error("Video error:", target.error);
@@ -38,7 +41,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
       const playVideo = () => {
         if (video) {
           console.log("Attempting to play video");
-          video.play().catch(error => {
+          video.play().catch((error) => {
             console.error("Video playback error:", error);
             setVideoError(error.message);
           });
@@ -46,13 +49,13 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
       };
 
       // Set up event listeners
-      video.addEventListener('canplaythrough', handleCanPlayThrough);
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('error', handleError);
+      video.addEventListener("canplaythrough", handleCanPlayThrough);
+      video.addEventListener("loadeddata", handleLoadedData);
+      video.addEventListener("error", handleError);
 
       // Set preload attribute to auto to encourage early loading
       video.preload = "auto";
-      
+
       // Load the video
       if (video.readyState >= 3) {
         console.log("Video already has enough data");
@@ -62,7 +65,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
         // Force load
         console.log("Forcing video load");
         video.load();
-        
+
         // Attempt to play if the video is interactable
         setTimeout(() => {
           playVideo();
@@ -71,21 +74,24 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
 
       // Try again when document becomes visible (helps with some browser restrictions)
       const handleVisibilityChange = () => {
-        if (document.visibilityState === 'visible') {
+        if (document.visibilityState === "visible") {
           console.log("Document became visible, trying to play video");
           playVideo();
         }
       };
-      
-      document.addEventListener('visibilitychange', handleVisibilityChange);
+
+      document.addEventListener("visibilitychange", handleVisibilityChange);
 
       return () => {
         // Clean up event listeners
         console.log("Cleaning up video event listeners");
-        video.removeEventListener('canplaythrough', handleCanPlayThrough);
-        video.removeEventListener('loadeddata', handleLoadedData);
-        video.removeEventListener('error', handleError);
-        document.removeEventListener('visibilitychange', handleVisibilityChange);
+        video.removeEventListener("canplaythrough", handleCanPlayThrough);
+        video.removeEventListener("loadeddata", handleLoadedData);
+        video.removeEventListener("error", handleError);
+        document.removeEventListener(
+          "visibilitychange",
+          handleVisibilityChange
+        );
       };
     } else {
       console.error("Video element not found");
@@ -99,10 +105,12 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
         <img
           src={fallbackImage}
           alt="Background"
-          className={`w-full h-full object-cover ${isVideoLoaded ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}
+          className={`w-full h-full object-cover ${
+            isVideoLoaded ? "opacity-0" : "opacity-100"
+          } transition-opacity duration-500`}
         />
       </div>
-      
+
       <video
         id="hero-video"
         ref={videoRef}
@@ -110,20 +118,25 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
         muted
         loop
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover ${isVideoLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+        className={`absolute inset-0 w-full h-full object-cover ${
+          isVideoLoaded ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-500`}
         poster={fallbackImage}
         preload="auto"
       >
-        <source src="/videos/Ultra-luxury penthouse apartment in Hillside.mp4" type="video/mp4" />
+        <source
+          src="/videos/Ultra-luxury penthouse apartment in Hillside.mp4"
+          type="video/mp4"
+        />
         <source src="/videos/luxury-video.webm" type="video/webm" />
         Your browser does not support HTML5 video.
       </video>
-      
+
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      
+
       {/* Error indicator (only in development) */}
-      {videoError && process.env.NODE_ENV === 'development' && (
+      {videoError && process.env.NODE_ENV === "development" && (
         <div className="absolute bottom-4 right-4 text-xs text-white/50 bg-black/30 p-2 rounded">
           Error: {videoError}
         </div>
@@ -132,4 +145,4 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ fallbackImage }) => {
   );
 };
 
-export default VideoBackground; 
+export default VideoBackground;

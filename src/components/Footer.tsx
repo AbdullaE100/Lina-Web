@@ -114,8 +114,8 @@ const Footer = () => {
 
             <p className="text-gray-300 text-sm xs:text-base leading-relaxed mb-6 sm:mb-8 pr-0 sm:pr-4">
               Smart Real Estate. Global Vision. Strategic guidance for
-              investments across Sri Lanka and Dubai with two decades of proven
-              market expertise and cultural intelligence.
+              investments across Dubai with two decades of proven market
+              expertise and cultural intelligence.
             </p>
 
             <div className="flex flex-col space-y-4">

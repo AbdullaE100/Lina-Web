@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 interface VideoBackgroundProps {
   src: string;
   fallbackImage: string;
-  quality?: 'auto' | 'low' | 'medium' | 'high';
+  quality?: "auto" | "low" | "medium" | "high";
 }
 
-const VideoBackground: React.FC<VideoBackgroundProps> = ({ 
-  src, 
+const VideoBackground: React.FC<VideoBackgroundProps> = ({
+  src,
   fallbackImage,
-  quality = 'high'
+  quality = "high",
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -17,14 +17,14 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
   // Set quality based on prop
   const getQualitySettings = () => {
-    switch(quality) {
-      case 'low':
+    switch (quality) {
+      case "low":
         return { playbackRate: 1.0 };
-      case 'medium':
+      case "medium":
         return { playbackRate: 1.0 };
-      case 'high':
+      case "high":
         return { playbackRate: 1.0 };
-      case 'auto':
+      case "auto":
       default:
         return { playbackRate: 1.0 };
     }
@@ -36,7 +36,7 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
 
     const handleCanPlay = () => {
       setIsVideoLoaded(true);
-      
+
       // Apply quality settings
       const settings = getQualitySettings();
       if (video.playbackRate !== settings.playbackRate) {
@@ -46,12 +46,12 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
       // Only attempt to play if we haven't already
       if (!playAttempted) {
         setPlayAttempted(true);
-        
+
         // Play with a slight delay to ensure browser is ready
         setTimeout(() => {
-          video.play().catch(error => {
-        console.error("Video autoplay was prevented:", error);
-      });
+          video.play().catch((error) => {
+            console.error("Video autoplay was prevented:", error);
+          });
         }, 100);
       }
     };
@@ -59,25 +59,28 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
     // Force play on user interaction for mobile
     const handleUserInteraction = () => {
       if (video && video.paused) {
-        video.play().catch(error => {
+        video.play().catch((error) => {
           console.error("Video play failed after interaction:", error);
         });
       }
     };
 
-    video.addEventListener('canplaythrough', handleCanPlay);
-    document.addEventListener('touchstart', handleUserInteraction, { once: true });
-    document.addEventListener('click', handleUserInteraction, { once: true });
+    video.addEventListener("canplaythrough", handleCanPlay);
+    document.addEventListener("touchstart", handleUserInteraction, {
+      once: true,
+    });
+    document.addEventListener("click", handleUserInteraction, { once: true });
 
     // Initial play attempt
-    if (video.readyState >= 3) {  // HAVE_FUTURE_DATA or better
+    if (video.readyState >= 3) {
+      // HAVE_FUTURE_DATA or better
       handleCanPlay();
     }
 
     return () => {
-      video.removeEventListener('canplaythrough', handleCanPlay);
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('click', handleUserInteraction);
+      video.removeEventListener("canplaythrough", handleCanPlay);
+      document.removeEventListener("touchstart", handleUserInteraction);
+      document.removeEventListener("click", handleUserInteraction);
     };
   }, [quality]);
 
@@ -100,4 +103,4 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({
   );
 };
 
-export default VideoBackground; 
+export default VideoBackground;

@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 // Import images using dynamic import
-import dubaiColomboPic from '../assets/insights/dubai-colombo-comparison.jpg';
-import offMarketPic from '../assets/insights/off-market-properties.jpg';
-import portCityPic from '../assets/insights/port-city-colombo.jpg';
-import currencyRiskPic from '../assets/insights/currency-risk.jpg';
-import diasporaPic from '../assets/insights/diaspora-investment.jpg';
-import preLaunchPic from '../assets/insights/pre-launch-framework.jpg';
+import dubaiColomboPic from "../assets/insights/dubai-colombo-comparison.jpg";
+import offMarketPic from "../assets/insights/off-market-properties.jpg";
+import portCityPic from "../assets/insights/port-city-colombo.jpg";
+import currencyRiskPic from "../assets/insights/currency-risk.jpg";
+import diasporaPic from "../assets/insights/diaspora-investment.jpg";
+import preLaunchPic from "../assets/insights/pre-launch-framework.jpg";
 
 // Define the blog post interface
 interface Stat {
@@ -35,9 +35,16 @@ interface BlogPost {
 const Insights = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<number | null>(null);
-  
-  const categories = ["All", "Market Analysis", "Investment Strategy", "Investment Guide", "Risk Management", "Market Insights"];
-  
+
+  const categories = [
+    "All",
+    "Market Analysis",
+    "Investment Strategy",
+    "Investment Guide",
+    "Risk Management",
+    "Market Insights",
+  ];
+
   const articleContents = [
     `The real estate landscape in 2025 presents a fascinating dichotomy between Dubai's established luxury market and Colombo's emerging investment frontier. This comprehensive analysis provides investors with actionable intelligence based on proprietary data and on-the-ground research across both markets.
 
@@ -58,7 +65,7 @@ const Insights = () => {
     Our analysis suggests complementary rather than competing allocation strategies. Dubai offers stability, world-class infrastructure, and predictable returns, making it ideal for wealth preservation with moderate growth. Colombo presents asymmetric upside with corresponding risk, positioning it as an emerging market opportunity for investors seeking capital appreciation over a 5-10 year horizon.
 
     For sophisticated investors, a blended portfolio approach offers optimal risk-adjusted returns: allocating 60-70% to Dubai for stability and liquidity, while capturing Colombo's growth potential with 30-40% exposure focused on institutional-quality developments with international management standards.`,
-    
+
     `The most lucrative real estate opportunities rarely appear on public listings. This deep-dive analysis reveals sophisticated strategies for accessing exceptional off-market properties, drawing on proprietary transaction data across ultra-luxury markets in Dubai, Singapore, Colombo and London.
 
     Our proprietary database of 1,273 off-market transactions reveals the financial advantage is far more significant than commonly understood. While the typical discount ranges from 12-18%, our highest-performing acquisitions achieved remarkable 23-27% below-market pricing. This differential stems from several factors we've quantified through regression analysis: privacy premiums (accounting for 38% of the discount), carrying cost avoidance (27%), and transaction efficiency (35%).
@@ -80,7 +87,7 @@ const Insights = () => {
     For corporate dispositions, understanding decision-making authority is critical; our research shows that 63% of favorable pricing outcomes resulted from identifying and engaging with financial stakeholders rather than real estate departments. For currency-motivated sellers, offering partial payment in hard currency created average additional discounts of 7.3% compared to single-currency transactions.
 
     The most sophisticated practitioners maintain systematic monitoring systems rather than opportunistic approaches. Our highest-performing clients have developed proprietary "deal sourcing engines" that continuously process market intelligence across these channels, allowing them to identify and act on opportunities within hours rather than days. This systematic approach transformed what was previously considered fortunate timing into a repeatable acquisition strategy.`,
-    
+
     `Colombo Port City represents Asia's most ambitious urban development project and a once-in-generation investment frontier. This comprehensive analysis examines its transformative potential through 2030, based on 18 months of on-site research, interviews with 37 key stakeholders, and comparative analysis of similar global developments.
 
     The project's scale is unprecedented in the region: 269 hectares of reclaimed land designed as a financial and lifestyle hub with projected economic output of $13 billion annually upon completion. While officially branded as an extension of Colombo, our analysis indicates Port City is better understood as an entirely new jurisdiction with distinct legal, regulatory, and economic characteristics that differentiate it from both Sri Lanka and other South Asian investment destinations.
@@ -106,7 +113,7 @@ const Insights = () => {
     The investment opportunity varies significantly by segment and timing. Current data suggests optimal entry points in pre-launch commercial properties within the Financial District (projected IRR: 18.5%) and Marina Residential precincts (projected IRR: 16.2%). Industrial and logistics assets, while strategic, offer lower appreciation potential but more stable yield profiles, making them suitable for income-focused portfolios.
 
     Execution strategy is critical for capturing the project's potential. Our analysis suggests joint ventures with established local partners deliver superior risk-adjusted returns by navigating regulatory complexities and accessing off-market opportunities. For investors without the capacity for direct development partnerships, our research identifies three publicly-traded proxies that provide indirect exposure to Port City's growth trajectory through listed securities.`,
-    
+
     `Currency volatility represents one of the most underestimated risks in cross-border real estate investment. This data-driven analysis reveals sophisticated strategies for transforming currency exposure from a passive risk factor into a strategic component of portfolio construction, with particular focus on investments between hard currency markets and emerging economies like Sri Lanka.
 
     Our longitudinal study of 237 cross-border transactions across five emerging markets reveals the profound impact of currency movements on realized returns. Investors without systematic currency management experienced return volatility 2.8x higher than domestic investors in the same assets, with unmanaged currency exposure reducing effective returns by an average of 3.7% annually over typical holding periods.
@@ -130,7 +137,7 @@ const Insights = () => {
     For investors in Sri Lanka specifically, our analysis identifies five specialized investment vehicles designed for diaspora investors, including dual-currency mortgages and structured products with built-in currency protection. While these products offer convenience, their embedded costs typically exceed direct hedging approaches by 1.2-1.8% annually, making them appropriate only for investors without the capacity to implement custom strategies.
 
     Beyond traditional hedging, truly sophisticated investors are increasingly employing portfolio-level currency management rather than property-specific approaches. This holistic methodology considers currency exposure across the entire investment portfolio, using real estate positions as natural hedges against other asset classes to create resilient wealth preservation structures regardless of currency movements.`,
-    
+
     `The intersection of cultural intelligence and real estate investment represents one of the most overlooked alpha generators in emerging markets. This research-driven analysis reveals how diaspora investors leverage unique cultural insights to systematically outperform traditional foreign investors in Sri Lanka's rapidly evolving property market.
 
     Diaspora investment in Sri Lankan real estate has grown at a compound annual rate of 28% over the past five years, reaching $890 million in 2023 and representing approximately 42% of total foreign real estate investment. This remarkable growth trajectory substantially outpaces general foreign investment growth (17% CAGR), highlighting the increasing recognition of cultural intelligence as a competitive advantage.
@@ -154,7 +161,7 @@ const Insights = () => {
     The research also reveals how sophisticated diaspora investors leverage their position as cultural bridges to create value beyond simple arbitrage. Our transaction database includes 28 successful joint ventures between diaspora investors and international capital, where the former provided local intelligence and operational capabilities while the latter contributed financial resources and institutional expertise. These partnerships generated average IRRs 7.2 percentage points higher than either partner achieved in similar solo investments.
 
     For investors without diaspora connections, the research suggests specific partnership structures with diaspora co-investors that have demonstrated success. These models succeed when designed to value cultural intelligence as a tangible asset rather than merely as facilitation, with carried interest structures that appropriately reward knowledge contributions alongside capital deployment.`,
-    
+
     `Pre-launch property investments represent a distinct asset class with unique risk-reward characteristics that sophisticated investors can exploit through systematic evaluation frameworks. This comprehensive analysis presents a data-driven methodology for identifying exceptional early-stage opportunities while mitigating completion and market risks.
 
     The financial advantages of pre-launch investments create a compelling starting proposition, with our transaction database revealing early-stage discounts averaging 15-22% compared to launch prices across luxury developments in Dubai and Colombo. But the full potential extends far beyond these initial discounts: our longitudinal tracking shows completed properties in successful projects typically commanding 31% premiums over pre-launch prices, creating potential returns that significantly outperform traditional investment approaches.
@@ -175,13 +182,14 @@ const Insights = () => {
 
     Implementation requires systematic screening rather than opportunistic selection. Our highest-performing clients maintain continuously updated evaluation matrices for active projects across target markets, allowing rapid comparison when new opportunities emerge. This methodical approach transforms pre-launch investing from a high-risk speculative strategy into a disciplined investment methodology with quantifiable risk parameters.
 
-    The pre-launch approach proves particularly valuable in emerging luxury markets like Colombo, where supply constraints and rapid evolution create significant pricing inefficiencies between development stages. Our comparative analysis of similar projects in established versus emerging markets reveals average pre-launch to completion appreciation spreads 2.3x wider in emerging markets, creating substantial alpha opportunities for investors with appropriate risk management frameworks.`
+    The pre-launch approach proves particularly valuable in emerging luxury markets like Colombo, where supply constraints and rapid evolution create significant pricing inefficiencies between development stages. Our comparative analysis of similar projects in established versus emerging markets reveals average pre-launch to completion appreciation spreads 2.3x wider in emerging markets, creating substantial alpha opportunities for investors with appropriate risk management frameworks.`,
   ];
-  
+
   const blogPosts: BlogPost[] = [
     {
       title: "Dubai and Colombo Markets: Investment Comparison",
-      excerpt: "A comparative analysis of ROI, market stability, and growth trajectories in Dubai and Colombo's luxury real estate markets.",
+      excerpt:
+        "A comparative analysis of ROI, market stability, and growth trajectories in Dubai and Colombo's luxury real estate markets.",
       date: "January 15, 2025",
       readTime: "8 min read",
       category: "Market Analysis",
@@ -191,12 +199,13 @@ const Insights = () => {
       stats: [
         { label: "Dubai Price", value: "8.2%" },
         { label: "Colombo Price", value: "5.7%" },
-        { label: "Dubai Rental", value: "6.1%" }
-      ]
+        { label: "Dubai Rental", value: "6.1%" },
+      ],
     },
     {
       title: "Off-Market Luxury Properties: Finding Hidden Gems",
-      excerpt: "Strategic approaches to accessing exclusive off-market properties before they're publicly listed, with insights from 15+ years of transactions.",
+      excerpt:
+        "Strategic approaches to accessing exclusive off-market properties before they're publicly listed, with insights from 15+ years of transactions.",
       date: "January 10, 2025",
       readTime: "6 min read",
       category: "Investment Strategy",
@@ -206,12 +215,13 @@ const Insights = () => {
       stats: [
         { label: "Price Advantage", value: "12-18%" },
         { label: "Transaction", value: "35% faster" },
-        { label: "Exclusivity", value: "High" }
-      ]
+        { label: "Exclusivity", value: "High" },
+      ],
     },
     {
       title: "Colombo Port City Development: Outlook",
-      excerpt: "Comprehensive analysis of Colombo Port City's development trajectory, regulatory framework, and investment potential.",
+      excerpt:
+        "Comprehensive analysis of Colombo Port City's development trajectory, regulatory framework, and investment potential.",
       date: "January 5, 2025",
       readTime: "12 min read",
       category: "Investment Guide",
@@ -221,12 +231,13 @@ const Insights = () => {
       stats: [
         { label: "Projected ROI", value: "14.3%" },
         { label: "Investment", value: "$1.4B" },
-        { label: "Timeline", value: "2025-2035" }
-      ]
+        { label: "Timeline", value: "2025-2035" },
+      ],
     },
     {
       title: "Currency Risk Management in Real Estate",
-      excerpt: "Practical strategies for mitigating currency exposure in international property investments, featuring case studies from Sri Lankan diaspora.",
+      excerpt:
+        "Practical strategies for mitigating currency exposure in international property investments, featuring case studies from Sri Lankan diaspora.",
       date: "December 28, 2024",
       readTime: "7 min read",
       category: "Risk Management",
@@ -236,12 +247,13 @@ const Insights = () => {
       stats: [
         { label: "LKR Volatility", value: "8.7%" },
         { label: "Hedging Cost", value: "2.3-3.5%" },
-        { label: "Returns", value: "+4.2%" }
-      ]
+        { label: "Returns", value: "+4.2%" },
+      ],
     },
     {
       title: "Diaspora Investment: Cultural Intelligence",
-      excerpt: "How cultural knowledge creates unique investment opportunities in emerging markets, with data on diaspora investment patterns.",
+      excerpt:
+        "How cultural knowledge creates unique investment opportunities in emerging markets, with data on diaspora investment patterns.",
       date: "December 20, 2024",
       readTime: "9 min read",
       category: "Market Insights",
@@ -251,12 +263,13 @@ const Insights = () => {
       stats: [
         { label: "Investment", value: "$890M" },
         { label: "Market Access", value: "42%" },
-        { label: "Price Edge", value: "8-12%" }
-      ]
+        { label: "Price Edge", value: "8-12%" },
+      ],
     },
     {
       title: "Pre-Launch Investment Framework: A Guide",
-      excerpt: "A data-driven framework for identifying high-potential pre-launch property investments while mitigating common risks.",
+      excerpt:
+        "A data-driven framework for identifying high-potential pre-launch property investments while mitigating common risks.",
       date: "December 15, 2024",
       readTime: "11 min read",
       category: "Investment Guide",
@@ -266,17 +279,20 @@ const Insights = () => {
       stats: [
         { label: "Avg. Discount", value: "15-22%" },
         { label: "Success Rate", value: "82%" },
-        { label: "Risk Mitigation", value: "High" }
-      ]
-    }
+        { label: "Risk Mitigation", value: "High" },
+      ],
+    },
   ];
-  
-  const filteredPosts = activeCategory === "All" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === activeCategory);
+
+  const filteredPosts =
+    activeCategory === "All"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === activeCategory);
 
   const handleReadArticle = (index: number) => {
-    const originalIndex = blogPosts.findIndex(p => p.title === filteredPosts[index].title);
+    const originalIndex = blogPosts.findIndex(
+      (p) => p.title === filteredPosts[index].title
+    );
     setSelectedArticle(originalIndex);
     window.scrollTo(0, 0);
   };
@@ -286,7 +302,12 @@ const Insights = () => {
   };
 
   if (selectedArticle !== null) {
-    return <ArticleDetail {...blogPosts[selectedArticle]} onClose={handleCloseArticle} />;
+    return (
+      <ArticleDetail
+        {...blogPosts[selectedArticle]}
+        onClose={handleCloseArticle}
+      />
+    );
   }
 
   return (
@@ -294,7 +315,7 @@ const Insights = () => {
       <section className="pt-32 pb-16 md:pt-40 md:pb-24 text-center bg-gradient-to-b from-[#F8F6F1] to-white relative">
         <div className="absolute inset-0 bg-[url('/patterns/subtle-dots.svg')] opacity-5"></div>
         <div className="container mx-auto px-4 sm:px-6 relative">
-          <motion.h1 
+          <motion.h1
             className="font-luxury text-4xl md:text-6xl text-[#1A1A1A] mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -302,13 +323,14 @@ const Insights = () => {
           >
             Market Insights
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl text-[#666666] max-w-2xl mx-auto font-serif"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Explore our latest articles and analyses on the evolving real estate landscape.
+            Explore our latest articles and analyses on the evolving real estate
+            landscape.
           </motion.p>
         </div>
       </section>
@@ -317,55 +339,63 @@ const Insights = () => {
         <div className="mb-8 md:mb-12 border-b border-gray-200">
           <div className="overflow-x-auto -mb-px">
             <ul className="flex whitespace-nowrap">
-              {categories.map(category => (
+              {categories.map((category) => (
                 <li key={category}>
                   <button
                     onClick={() => setActiveCategory(category)}
                     className={`px-4 py-3 text-sm md:text-base font-medium transition-colors duration-300 border-b-2 ${
                       activeCategory === category
-                        ? 'border-[#C0A875] text-[#C0A875]'
-                        : 'border-transparent text-gray-500 hover:text-gray-800'
+                        ? "border-[#C0A875] text-[#C0A875]"
+                        : "border-transparent text-gray-500 hover:text-gray-800"
                     }`}
-              >
-                {category}
+                  >
+                    {category}
                   </button>
                 </li>
-            ))}
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-            {filteredPosts.map((post, index) => (
-              <motion.div
-                key={index}
+          {filteredPosts.map((post, index) => (
+            <motion.div
+              key={index}
               className="group flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => handleReadArticle(index)}
-              >
+            >
               <div className="relative overflow-hidden rounded-lg cursor-pointer">
-                <img src={post.image} alt={post.title} className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-black/20"></div>
-                  </div>
+              </div>
               <div className="py-4 flex-grow flex flex-col">
-                <p className="text-sm text-[#C0A875] font-semibold mb-1">{post.category}</p>
+                <p className="text-sm text-[#C0A875] font-semibold mb-1">
+                  {post.category}
+                </p>
                 <h2 className="text-xl font-luxury text-[#1A1A1A] mb-2 group-hover:text-[#C0A875] transition-colors duration-300 flex-grow">
-                    {post.title}
+                  {post.title}
                 </h2>
-                <p className="text-sm text-gray-600 font-serif mb-4 flex-grow">{post.excerpt}</p>
+                <p className="text-sm text-gray-600 font-serif mb-4 flex-grow">
+                  {post.excerpt}
+                </p>
                 <div className="text-sm text-gray-500 mt-auto pt-4 border-t border-gray-100 flex justify-between items-center">
                   <span>{post.date}</span>
                   <span className="inline-flex items-center text-[#C0A875] font-medium">
                     Read More <ArrowRight className="w-4 h-4 ml-1" />
                   </span>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+      </div>
     </div>
   );
 };
