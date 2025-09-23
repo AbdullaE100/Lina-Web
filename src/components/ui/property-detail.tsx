@@ -432,10 +432,10 @@ export const PropertyDetail = ({
                   className="bg-gradient-to-r from-[#D4BC8A] to-[#C0A875] hover:from-[#E5CDA1] hover:to-[#D1B886] 
                   text-black rounded-none px-6 py-6 h-auto text-sm tracking-wide w-full"
                 >
-                  <Link to="/contact" className="flex items-center justify-center gap-2 w-full">
+                  <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full">
                     <span>INQUIRE ABOUT THIS PROPERTY</span>
                     <ChevronRight className="w-4 h-4" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </div>

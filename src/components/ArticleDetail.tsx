@@ -129,7 +129,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({
               className="bg-[#C0A875] hover:bg-[#D4BC8A] text-white font-ui"
               asChild
             >
-              <Link to="/contact">Schedule Consultation</Link>
+              <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer">Schedule Consultation</a>
             </Button>
           </div>
         </div>

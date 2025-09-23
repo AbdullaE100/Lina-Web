@@ -141,11 +141,11 @@ const Services = () => {
                   className="bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-none rounded-none px-8 py-7 h-auto text-sm tracking-wide group relative overflow-hidden font-ui"
                   asChild
                 >
-                  <Link to="/contact">
+                  <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer">
                     <span className="relative z-10">Schedule Consultation</span>
                     <ChevronRight className="ml-2 w-4 h-4 relative z-10" />
                     <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                  </Link>
+                  </a>
                 </Button>
                 
                 <Button 
@@ -496,11 +496,11 @@ const Services = () => {
                     className="bg-[#C0A875] hover:bg-[#D4BC8A] text-black border-none rounded-none px-10 py-7 h-auto text-sm tracking-wide group relative overflow-hidden font-ui"
                     asChild
                   >
-              <Link to="/contact">
+              <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer">
                 <span className="relative z-10">Book Strategy Call</span>
                       <ChevronRight className="ml-2 w-4 h-4 relative z-10" />
                       <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                    </Link>
+                    </a>
                   </Button>
                   
                   <Button 

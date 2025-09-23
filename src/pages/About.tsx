@@ -513,7 +513,7 @@ const About = () => {
             </div>
             
             <motion.div 
-              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-sm"
+              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-sm hidden md:block"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -531,6 +531,27 @@ const About = () => {
                 "Lina's expertise and dedication made our Dubai property investment seamless and profitable."
               </p>
             </motion.div>
+          </motion.div>
+
+          {/* Mobile-friendly testimonial card */}
+          <motion.div 
+            className="mt-8 max-w-md mx-auto md:hidden bg-white rounded-2xl p-6 shadow-xl border border-gray-100"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-current" />
+                ))}
+              </div>
+              <span className="font-semibold text-gray-900">5.0</span>
+            </div>
+            <p className="text-gray-600 text-sm font-medium">
+              "Lina's expertise and dedication made our Dubai property investment seamless and profitable."
+            </p>
           </motion.div>
         </div>
       </section>
