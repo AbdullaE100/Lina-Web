@@ -368,35 +368,18 @@ const Contact = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-luxury mb-6 text-primary">
-                  Office Locations
+                  Dubai Office Location
                 </h2>
                 <p className="text-muted-foreground max-w-xl leading-relaxed mb-8 font-serif">
-                  With strategic offices in Sri Lanka and Dubai, I serve clients across both markets with personalized attention and local expertise.
+                  Located in the heart of Dubai Hills, I serve clients across the UAE with personalized attention and deep local market expertise.
                 </p>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="max-w-md">
                   <motion.div 
                     className="p-6 rounded-xl bg-primary/5 border border-border/10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <MapPin className="w-5 h-5 text-gold mr-2" />
-                      <h3 className="text-lg font-luxury text-primary">Colombo</h3>
-                    </div>
-                    <address className="text-muted-foreground not-italic text-sm font-serif leading-relaxed">
-                      Dharmapala Mawatha,<br />
-                      Colombo 7,<br />
-                      Sri Lanka
-                    </address>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="p-6 rounded-xl bg-primary/5 border border-border/10"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <div className="flex items-center mb-3">
                       <MapPin className="w-5 h-5 text-gold mr-2" />
@@ -411,8 +394,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex flex-col md:gap-4 space-y-4 md:space-y-0">
-                <div className="relative h-[250px] rounded-2xl overflow-hidden shadow-elevated">
+              <div className="lg:flex lg:justify-center">
+                <div className="relative h-[400px] w-full max-w-lg rounded-2xl overflow-hidden shadow-elevated">
                   <div className="absolute top-2 left-2 z-10 bg-background/90 px-3 py-1 rounded-lg text-xs font-medium border border-border/20 backdrop-blur-sm">
                     Dubai Office
                   </div>
@@ -425,21 +408,6 @@ const Contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
                     title="Dubai Office Location Map"
-                  ></iframe>
-                </div>
-                <div className="relative h-[250px] rounded-2xl overflow-hidden shadow-elevated">
-                  <div className="absolute top-2 left-2 z-10 bg-background/90 px-3 py-1 rounded-lg text-xs font-medium border border-border/20 backdrop-blur-sm">
-                    Colombo Office
-                  </div>
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9616905099234!2d79.85757777518853!3d6.904815993085547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sDharmapala%20Mawatha%2C%20Colombo%2000700!5e0!3m2!1sen!2slk!4v1689039856998!5m2!1sen!2slk" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="absolute inset-0"
-                    title="Colombo Office Location Map"
                   ></iframe>
                 </div>
               </div>
@@ -483,7 +451,7 @@ const Contact = () => {
               },
               {
                 question: "What markets do you cover?",
-                answer: "We specialize in Sri Lanka and Dubai real estate markets, with extensive networks and deep local knowledge in both regions."
+                answer: "We specialize in Dubai and UAE real estate markets, with extensive networks and deep local knowledge across the region."
               },
               {
                 question: "How long does the investment process take?",

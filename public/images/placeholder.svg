@@ -1,0 +1,77 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#FFE4B5;stop-opacity:1" />
+<stop offset="50%" style="stop-color:#FFA07A;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#2C5282;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="buildingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#E2E8F0;stop-opacity:1" />
+</linearGradient>
+<linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#87CEEB;stop-opacity:0.8" />
+<stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:0.4" />
+</linearGradient>
+<filter id="shadow">
+<feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+</filter>
+</defs>
+
+<!-- Sky -->
+<rect width="1200" height="400" fill="url(#skyGrad)"/>
+
+<!-- Water -->
+<rect y="400" width="1200" height="400" fill="url(#waterGrad)"/>
+
+<!-- Palm Trees -->
+<ellipse cx="100" cy="700" rx="12" ry="100" fill="#2D3748"/>
+<ellipse cx="100" cy="570" rx="35" ry="25" fill="#38A169"/>
+<ellipse cx="250" cy="720" rx="10" ry="80" fill="#2D3748"/>
+<ellipse cx="250" cy="620" rx="30" ry="20" fill="#38A169"/>
+
+<!-- Main Building Complex -->
+<path d="M350 150 L500 150 L500 650 L350 650 Z" fill="url(#buildingGrad)" stroke="#CBD5E0" stroke-width="2" filter="url(#shadow)"/>
+<path d="M550 130 L700 130 L700 650 L550 650 Z" fill="url(#buildingGrad)" stroke="#CBD5E0" stroke-width="2" filter="url(#shadow)"/>
+
+<!-- Glass Panels -->
+<rect x="370" y="170" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="420" y="170" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="470" y="170" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="370" y="230" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="420" y="230" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="470" y="230" width="30" height="40" fill="url(#glassGrad)"/>
+
+<rect x="570" y="150" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="620" y="150" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="670" y="150" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="570" y="210" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="620" y="210" width="30" height="40" fill="url(#glassGrad)"/>
+<rect x="670" y="210" width="30" height="40" fill="url(#glassGrad)"/>
+
+<!-- Bridge -->
+<rect x="500" y="300" width="50" height="20" fill="#FFFFFF" stroke="#CBD5E0" stroke-width="2"/>
+
+<!-- Pool -->
+<ellipse cx="525" cy="380" rx="80" ry="15" fill="#00D4AA" opacity="0.9"/>
+<ellipse cx="525" cy="380" rx="60" ry="12" fill="#00F5D4" opacity="0.6"/>
+
+<!-- Beach -->
+<rect y="650" width="1200" height="150" fill="#F7E6B8"/>
+
+<!-- Title -->
+<rect x="50" y="50" width="350" height="100" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2" rx="10"/>
+<text x="70" y="85" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="bold">LUXURY DEVELOPMENT</text>
+<text x="70" y="110" fill="#FFD700" font-family="Arial, sans-serif" font-size="16">Premium Dubai Properties</text>
+<text x="70" y="130" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="12">Exclusive • Modern • Waterfront</text>
+
+<!-- Price Badge -->
+<rect x="950" y="50" width="200" height="70" fill="rgba(212,175,55,0.2)" stroke="#D4AF37" stroke-width="2" rx="8"/>
+<text x="970" y="75" fill="#D4AF37" font-family="Arial, sans-serif" font-size="12" font-weight="bold">STARTING FROM</text>
+<text x="970" y="95" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="20" font-weight="bold">AED 5.5M</text>
+<text x="970" y="110" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="10">Luxury Properties</text>
+</svg>

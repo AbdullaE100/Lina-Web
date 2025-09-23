@@ -100,7 +100,7 @@ const Footer = () => {
             
             <p className="text-gray-300 text-sm xs:text-base leading-relaxed mb-6 sm:mb-8 pr-0 sm:pr-4">
               Smart Real Estate. Global Vision. Strategic guidance for investments 
-              across Sri Lanka and Dubai with two decades of proven market expertise and cultural 
+              across Dubai and the UAE with two decades of proven market expertise and cultural 
               intelligence.
             </p>
             
@@ -112,11 +112,11 @@ const Footer = () => {
                 <span className="text-gray-300 text-sm xs:text-base group-hover:text-white transition-colors duration-300">lina@expatkey.com</span>
               </a>
               
-              <a href="tel:+94777725485" className="flex items-center space-x-3 xs:space-x-4 group">
+              <a href="tel:+971583083124" className="flex items-center space-x-3 xs:space-x-4 group">
                 <div className="w-9 h-9 xs:w-10 xs:h-10 rounded-full bg-[#2A3441] flex items-center justify-center hover:bg-[#C0A875] transition-colors duration-300">
                   <Phone className="w-4 h-4 xs:w-5 xs:h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="text-gray-300 text-sm xs:text-base group-hover:text-white transition-colors duration-300">+94 77 772 5485</span>
+                <span className="text-gray-300 text-sm xs:text-base group-hover:text-white transition-colors duration-300">+971 58 308 3124</span>
               </a>
             </div>
           </div>
