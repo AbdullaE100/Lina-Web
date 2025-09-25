@@ -179,7 +179,7 @@ const About = () => {
               <div className="relative max-w-sm mx-auto lg:mx-0">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-amber-50 to-amber-100">
                   <img
-                    src="/images/Linaphoto3.jpeg"
+                    src="/images/Linaphotoforabout.jpg"
                     alt="Lina Nizar - CEO and Visionary Leader"
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                     loading="eager"
