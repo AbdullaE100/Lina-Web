@@ -165,33 +165,30 @@ const About = () => {
       </section>
 
       {/* Professional Portrait Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white text-black">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white text-black">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
             {/* Portrait Container */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1 }}
-              className="relative order-2 lg:order-1"
+              transition={{ duration: 0.8 }}
+              className="relative order-2 lg:order-1 lg:col-span-2"
             >
-              <div className="relative max-w-lg mx-auto lg:mx-0">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-50 to-amber-100 border-4 border-white">
+              <div className="relative max-w-sm mx-auto lg:mx-0">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-amber-50 to-amber-100">
                   <img
                     src="/photos/Linaphoto3.jpeg"
                     alt="Lina Nizar - CEO and Visionary Leader"
-                    className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                    loading="eager"
                   />
                 </div>
                 
-                {/* Floating accent elements */}
-                <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl opacity-80 shadow-lg"></div>
-                <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-br from-amber-200 to-amber-400 rounded-3xl opacity-60 shadow-lg"></div>
-                
-                {/* Small accent dots */}
-                <div className="absolute top-8 left-4 w-3 h-3 bg-amber-400 rounded-full opacity-60"></div>
-                <div className="absolute bottom-16 right-8 w-2 h-2 bg-amber-300 rounded-full opacity-40"></div>
+                {/* Simplified accent elements */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-amber-400 rounded-lg opacity-80"></div>
+                <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-amber-200 to-amber-400 rounded-xl opacity-60"></div>
               </div>
             </motion.div>
 
@@ -200,81 +197,80 @@ const About = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="order-1 lg:order-2"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-1 lg:order-2 lg:col-span-3"
             >
               <div className="mb-6">
-                <div className="inline-flex items-center gap-2 text-amber-600 mb-4 text-sm tracking-wider font-medium">
-                  <div className="h-px w-6 bg-amber-400"></div>
+                <div className="inline-flex items-center gap-2 text-amber-600 mb-3 text-xs tracking-wider font-medium">
+                  <div className="h-px w-4 bg-amber-400"></div>
                   <span>VISIONARY LEADERSHIP</span>
-                  <div className="h-px w-6 bg-amber-400"></div>
+                  <div className="h-px w-4 bg-amber-400"></div>
                 </div>
-                <h2 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-light mb-4 leading-tight">
                   Meet
-                  <br />
-                  <span className="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
                     Lina Nizar
                   </span>
                 </h2>
               </div>
               
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 A visionary leader who brings together global perspective, 
                 local expertise, and unwavering commitment to excellence through 
                 strategic alliance with <span className="font-medium text-amber-700">Xperience Realty</span>.
               </p>
 
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <TrendingUp className="w-4 h-4 text-amber-700" />
+              <div className="grid grid-cols-1 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <TrendingUp className="w-3 h-3 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Data-Driven Excellence</h3>
-                    <p className="text-gray-600 text-sm">Advanced analytics and market intelligence drive every investment decision</p>
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1">Data-Driven Excellence</h3>
+                    <p className="text-gray-600 text-xs">Advanced analytics and market intelligence drive every investment decision</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Shield className="w-4 h-4 text-amber-700" />
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Shield className="w-3 h-3 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Independent Consultation</h3>
-                    <p className="text-gray-600 text-sm">Unbiased advice with transparent methodology and verified outcomes</p>
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1">Independent Consultation</h3>
+                    <p className="text-gray-600 text-xs">Unbiased advice with transparent methodology and verified outcomes</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Globe className="w-4 h-4 text-amber-700" />
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Globe className="w-3 h-3 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Global Perspective</h3>
-                    <p className="text-gray-600 text-sm">Two decades of cross-border expertise in Dubai's luxury real estate market</p>
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1">Global Perspective</h3>
+                    <p className="text-gray-600 text-xs">Two decades of cross-border expertise in Dubai's luxury real estate market</p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   asChild
-                  className="bg-black text-white hover:bg-gray-800 rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
+                  className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105"
                 >
                   <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4" />
                     Start Conversation
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3 h-3" />
                   </a>
                 </Button>
                 
                 <Button 
                   variant="ghost" 
                   asChild
-                  className="text-gray-700 hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 border border-gray-200 hover:border-gray-300"
+                  className="text-gray-700 hover:bg-gray-100 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 border border-gray-200 hover:border-gray-300"
                 >
                   <a href="#services" className="flex items-center gap-2">
-                    <Target className="w-5 h-5" />
+                    <Target className="w-4 h-4" />
                     Explore Services
                   </a>
                 </Button>
