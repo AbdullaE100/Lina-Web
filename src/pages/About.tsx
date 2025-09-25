@@ -179,7 +179,7 @@ const About = () => {
               <div className="relative max-w-sm mx-auto lg:mx-0">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-amber-50 to-amber-100">
                   <img
-                    src="/photos/Linaphoto3.jpeg"
+                    src="/images/Linaphoto3.jpeg"
                     alt="Lina Nizar - CEO and Visionary Leader"
                     className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                     loading="eager"
@@ -191,7 +191,7 @@ const About = () => {
                 <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-amber-200 to-amber-400 rounded-xl opacity-60"></div>
               </div>
             </motion.div>
-
+            
             {/* Content */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -274,7 +274,7 @@ const About = () => {
                     Explore Services
                   </a>
                 </Button>
-              </div>
+                  </div>
             </motion.div>
           </div>
         </div>
