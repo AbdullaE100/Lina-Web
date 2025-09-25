@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Star, Play, ChevronRight, TrendingUp, Globe, Shield, Target, Award, Users, Building } from 'lucide-react';
+import { Star, Play, ChevronRight, TrendingUp, Globe, Shield, Target, Award, Users, Building, MessageCircle, ArrowRight } from 'lucide-react';
 
 const About = () => {
   const containerRef = useRef(null);
@@ -164,136 +164,211 @@ const About = () => {
         </div>
       </section>
 
-      {/* Portrait Gallery Section */}
-      <section className="py-32 bg-gradient-to-b from-gray-50 to-white text-black">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-5xl md:text-6xl font-light mb-6 leading-tight">
-              Meet
-              <br />
-              <span className="text-gray-500">Lina</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A visionary leader who brings together global perspective, 
-              local expertise, and unwavering commitment to excellence through 
-              strategic alliance with Xperience Realty.
-            </p>
-          </motion.div>
+      {/* World-Class Professional Portrait Section */}
+      <section className="relative py-24 md:py-40 bg-gradient-to-br from-white via-gray-50/30 to-white overflow-hidden">
+        {/* Subtle background elements */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-amber-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-amber-600 rounded-full blur-3xl"></div>
+        </div>
 
-          {/* Main Portrait */}
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+            {/* Portrait Container - World Class Design */}
             <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1 }}
-            className="mb-20"
-          >
-            <div className="relative max-w-2xl mx-auto">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-50 to-amber-100">
-                <img
-                  src="/photos/Lina photo 2.jpeg"
-                  alt="Lina Nizar - Professional Portrait"
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              
-              {/* Floating accent elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-amber-400 rounded-full opacity-80"></div>
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-amber-200 to-amber-300 rounded-2xl opacity-60"></div>
-            </div>
-            </motion.div>
-            
-          {/* Photo Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-            {[
-              {
-                src: "/photos/Linaphoto1.jpeg",
-                title: "Leadership",
-                subtitle: "Guiding Vision"
-              },
-              {
-                src: "/photos/Linaphoto3.jpeg",
-                title: "Excellence",
-                subtitle: "Professional Distinction"
-              }
-            ].map((photo, index) => (
-                <motion.div
-                  key={index}
-                initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group"
-              >
+              initial={{ opacity: 0, x: -60, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5 order-2 lg:order-1"
+            >
+              <div className="relative max-w-md mx-auto lg:mx-0">
+                {/* Premium photo container with Apple-style design */}
                 <div className="relative">
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-100 to-gray-200">
+                  <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-gradient-to-br from-amber-50/50 to-amber-100/50 border border-white/60 backdrop-blur-sm">
                     <img
-                      src={photo.src}
-                      alt={photo.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                      src="/photos/Linaphoto3.jpeg"
+                      alt="Lina Nizar - CEO and Visionary Leader"
+                      className="w-full h-full object-cover object-center scale-105 hover:scale-110 transition-transform duration-1000 ease-out"
                     />
-                    
-                    {/* Overlay with text */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute bottom-6 left-6 text-white">
-                        <h3 className="text-xl font-medium mb-1">{photo.title}</h3>
-                        <p className="text-gray-200 text-sm">{photo.subtitle}</p>
-                      </div>
-                    </div>
+                    {/* Subtle overlay for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-white/10"></div>
                   </div>
+                  
+                  {/* Apple-style floating elements with physics */}
+                  <motion.div 
+                    className="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-500 rounded-[1.25rem] shadow-[0_10px_25px_-5px_rgba(245,158,11,0.4)]"
+                    animate={{ 
+                      y: [0, -12, 0],
+                      rotate: [0, 3, 0],
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{ 
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  <motion.div 
+                    className="absolute -bottom-12 -left-12 w-20 h-20 bg-gradient-to-br from-amber-200 to-amber-400 rounded-[1.5rem] shadow-[0_15px_35px_-10px_rgba(245,158,11,0.3)] opacity-80"
+                    animate={{ 
+                      y: [0, 15, 0],
+                      rotate: [0, -3, 0],
+                      scale: [1, 0.95, 1]
+                    }}
+                    transition={{ 
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1
+                    }}
+                  />
+                  
+                  {/* Subtle accent dots */}
+                  <div className="absolute top-12 left-6 w-3 h-3 bg-amber-400/60 rounded-full shadow-lg"></div>
+                  <div className="absolute bottom-24 right-12 w-2 h-2 bg-amber-300/40 rounded-full shadow-md"></div>
+                  <div className="absolute top-32 right-4 w-1.5 h-1.5 bg-amber-500/30 rounded-full"></div>
                 </div>
-                </motion.div>
-              ))}
-          </div>
+              </div>
+            </motion.div>
 
-          {/* Professional Excellence Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h3 className="text-4xl md:text-5xl font-light mb-6 leading-tight">
-              Excellence in
-              <br />
-              <span className="text-gray-500">Every Detail</span>
-            </h3>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Every consultation, every property viewing, every client interaction 
-              is approached with the same meticulous attention to detail that has 
-              defined two decades of success in luxury real estate through our 
-              strategic alliance with Xperience Realty.
-            </p>
-            
-            {/* Key attributes */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-              {[
-                "Strategic Market Analysis",
-                "Cultural Intelligence",
-                "Client-Centric Approach",
-                "Innovation Leadership"
-              ].map((attribute, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
-                  className="text-center"
+            {/* Premium Content Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-7 order-1 lg:order-2"
+            >
+              {/* Apple-style badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-amber-50 to-amber-100/50 border border-amber-200/50 rounded-full mb-8 backdrop-blur-sm"
+              >
+                <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
+                <span className="text-amber-700 text-sm font-medium tracking-wide">VISIONARY LEADERSHIP</span>
+              </motion.div>
+
+              {/* Premium typography */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="mb-8"
+              >
+                <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight tracking-tight leading-[0.9] mb-4">
+                  <span className="block text-gray-900">Meet</span>
+                  <span className="block bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 bg-clip-text text-transparent">
+                    Lina Nizar
+                  </span>
+                </h1>
+              </motion.div>
+              
+              {/* Premium description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-12 max-w-2xl font-light"
+              >
+                A visionary leader who brings together global perspective, 
+                local expertise, and unwavering commitment to excellence through 
+                strategic alliance with{' '}
+                <span className="font-medium bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent">
+                  Xperience Realty
+                </span>.
+              </motion.p>
+
+              {/* Premium feature cards */}
+              <div className="grid grid-cols-1 gap-6 mb-12">
+                {[
+                  {
+                    icon: TrendingUp,
+                    title: "Data-Driven Excellence",
+                    description: "Advanced analytics and market intelligence drive every investment decision",
+                    gradient: "from-blue-50 to-blue-100/50",
+                    iconColor: "text-blue-600",
+                    borderColor: "border-blue-200/50"
+                  },
+                  {
+                    icon: Shield,
+                    title: "Independent Consultation",
+                    description: "Unbiased advice with transparent methodology and verified outcomes",
+                    gradient: "from-emerald-50 to-emerald-100/50",
+                    iconColor: "text-emerald-600",
+                    borderColor: "border-emerald-200/50"
+                  },
+                  {
+                    icon: Globe,
+                    title: "Global Perspective",
+                    description: "Two decades of cross-border expertise in Dubai's luxury real estate market",
+                    gradient: "from-amber-50 to-amber-100/50",
+                    iconColor: "text-amber-600",
+                    borderColor: "border-amber-200/50"
+                  }
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 1.1 + (index * 0.1) }}
+                    className={`flex items-start gap-5 p-6 bg-gradient-to-br ${feature.gradient} border ${feature.borderColor} rounded-2xl backdrop-blur-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-500 group`}
+                  >
+                    <div className={`w-12 h-12 bg-white/80 rounded-xl flex items-center justify-center ${feature.iconColor} shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 mb-2 text-lg">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Premium CTA buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 1.5 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <Button 
+                  asChild
+                  className="bg-gradient-to-r from-black to-gray-800 text-white hover:from-gray-800 hover:to-black rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-500 hover:scale-105 hover:shadow-2xl group"
                 >
-                  <div className="w-3 h-3 bg-amber-400 rounded-full mx-auto mb-3"></div>
-                  <span className="text-gray-700 font-medium text-sm">{attribute}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                  <a href="https://wa.link/c1bn7x" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
+                    <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                    Start Conversation
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
+                </Button>
+                
+                <Button 
+                  variant="ghost" 
+                  asChild
+                  className="text-gray-700 hover:bg-white/80 rounded-2xl px-10 py-6 text-lg font-medium transition-all duration-500 border-2 border-gray-200/60 hover:border-gray-300/80 backdrop-blur-sm hover:scale-105"
+                >
+                  <Link to="/services" className="flex items-center justify-center gap-3 group">
+                    <Target className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                    Explore Services
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
