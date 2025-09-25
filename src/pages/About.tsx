@@ -164,6 +164,139 @@ const About = () => {
         </div>
       </section>
 
+      {/* Portrait Gallery Section */}
+      <section className="py-32 bg-gradient-to-b from-gray-50 to-white text-black">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-6xl font-light mb-6 leading-tight">
+              Meet
+              <br />
+              <span className="text-gray-500">Lina</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A visionary leader who brings together global perspective, 
+              local expertise, and unwavering commitment to excellence through 
+              strategic alliance with Xperience Realty.
+            </p>
+          </motion.div>
+
+          {/* Main Portrait */}
+            <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1 }}
+            className="mb-20"
+          >
+            <div className="relative max-w-2xl mx-auto">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-50 to-amber-100">
+                <img
+                  src="/photos/Lina photo 2.jpeg"
+                  alt="Lina Nizar - Professional Portrait"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              
+              {/* Floating accent elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-amber-400 rounded-full opacity-80"></div>
+              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-amber-200 to-amber-300 rounded-2xl opacity-60"></div>
+            </div>
+            </motion.div>
+            
+          {/* Photo Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            {[
+              {
+                src: "/photos/Linaphoto1.jpeg",
+                title: "Leadership",
+                subtitle: "Guiding Vision"
+              },
+              {
+                src: "/photos/Linaphoto3.jpeg",
+                title: "Excellence",
+                subtitle: "Professional Distinction"
+              }
+            ].map((photo, index) => (
+                <motion.div
+                  key={index}
+                initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="relative">
+                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-100 to-gray-200">
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                    />
+                    
+                    {/* Overlay with text */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="text-xl font-medium mb-1">{photo.title}</h3>
+                        <p className="text-gray-200 text-sm">{photo.subtitle}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </motion.div>
+              ))}
+          </div>
+
+          {/* Professional Excellence Statement */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h3 className="text-4xl md:text-5xl font-light mb-6 leading-tight">
+              Excellence in
+              <br />
+              <span className="text-gray-500">Every Detail</span>
+            </h3>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              Every consultation, every property viewing, every client interaction 
+              is approached with the same meticulous attention to detail that has 
+              defined two decades of success in luxury real estate through our 
+              strategic alliance with Xperience Realty.
+            </p>
+            
+            {/* Key attributes */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+              {[
+                "Strategic Market Analysis",
+                "Cultural Intelligence",
+                "Client-Centric Approach",
+                "Innovation Leadership"
+              ].map((attribute, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
+                  className="text-center"
+                >
+                  <div className="w-3 h-3 bg-amber-400 rounded-full mx-auto mb-3"></div>
+                  <span className="text-gray-700 font-medium text-sm">{attribute}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Philosophy Section */}
       <section className="py-32 bg-white text-black">
         <div className="max-w-7xl mx-auto px-4">
@@ -188,7 +321,7 @@ const About = () => {
               </p>
               <div className="w-16 h-0.5 bg-black"></div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -201,7 +334,7 @@ const About = () => {
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <principle.icon className="w-8 h-8 text-black group-hover:text-amber-600 transition-colors duration-300" />
-                    </div>
+              </div>
                     <div>
                       <h3 className="text-xl font-medium mb-2 group-hover:text-amber-600 transition-colors duration-300">
                         {principle.title}
@@ -209,9 +342,9 @@ const About = () => {
                       <p className="text-gray-600 leading-relaxed">
                         {principle.description}
                       </p>
-                    </div>
-                  </div>
-                </div>
+              </div>
+              </div>
+              </div>
               ))}
             </motion.div>
           </div>
@@ -221,7 +354,7 @@ const About = () => {
       {/* Video Testimonial Section */}
       <section className="py-32 bg-gray-50 text-black">
         <div className="max-w-6xl mx-auto px-4">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -229,13 +362,13 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-light mb-6">
-              Client
+              Latest
               <br />
-              <span className="text-gray-500">Stories</span>
+              <span className="text-gray-500">Video</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Authentic voices of distinguished clients who have experienced 
-              the transformative power of uncompromising excellence.
+              Discover the future of luxury living in Dubai through 
+              exclusive insights and premier property showcases.
             </p>
           </motion.div>
 
